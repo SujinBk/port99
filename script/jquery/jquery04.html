@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery04</title>
+    <script src="../jquery.min_1.12.4.js"></script> 
+</head>
+<style>
+     li {margin: 8px;}
+     a {border: 1px solid #5f6368; padding: 7px 20px 5px 20px; display: inline-block;
+        border-radius: 20px; text-decoration: none; color: #000; margin: 4px;}
+     .onRed {padding: 4px 6px 2px 6px; font-size: 90%;  color: #c7254e; 
+            white-space: nowrap; background-color:#f9f2f4; border-radius: 4px; border: 1px dashed #a51a3d; }
+     .onBlue {padding: 4px 6px 2px 6px; font-size: 90%; color: #3d90b7;
+            white-space: nowrap; background-color:#e7f6fd; border-radius: 4px; border: 1px dashed #3d90b7;}
+</style>
+<body>
+    <div class="chocie">
+        <a href="#" class="btn1">.addClass()</a>
+        <a href="#" class="btn2">.each()</a>
+        <a href="#" class="btn3">.setTimeout()</a>
+    </div>
+
+    <div class="list">
+        <ul>
+            <li>.shlidren(): 선택한 요소의 바로 아래 사직 요소만 선택합니다.</li>
+            <li>.closest() : 선택한 요소를 포함하면서 가장 가까운 상위 요소를 선택합니다.</li>
+            <li>.find() : 선택한 요소의 자식 욧 중 조건에 맞는 요소를 선택합니다.</li>
+            <li>.next() :  선택한 쇼오를 다음 형제요소를 선택합니다. </li>
+            <li>.nextAll() : 선택한 요소의 다음 모든 형제 요소를 선택합니다.  </li>
+        </ul>
+    </div>
+    <script>
+        //버튼1을 클릭하면 리스트를 있는 글씨 색을 빨간색으로 변경해주세요~
+        $(".btn1").click(function(){
+            //$(".list li").css("color","red");
+            $(".list li").addClass("onRed");
+        });
+        //버튼2을 클릭하면 리스트를 있는 글씨 색을 검은색으로 변경해주세요~
+        $(".btn2").click(function(){
+            $(".list li").removeClass("onRed");
+        });
+
+        $(".btn2").click(function(){
+            $(".list li").each(function(){ // 시간 차 를 줄떄 사용하게 된다. 
+                $(".list li").addClass("onBlue");
+            });
+        });
+
+        //버튼 3 을 클릭했을때
+
+        $(".btn3").click(function(){
+            $(".list li").each(function(index){
+                setTimeout(function(){
+                    $(".list li").eq(index).addClass("onRed");
+                },1000 * (index +1));
+            });
+        });
+    </script>
+</body>
+</html>

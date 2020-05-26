@@ -1,0 +1,11 @@
+/*여백 초기화 */
+body,div,ul,li,dl,dt,ol,h1,h2,h3,h4,h5,h6,input,fieldset,legend,p,select,table,th,td,tr,textarea,button,form{margin: 0;padding: 0;}
+
+/* a 링크 초기화 */
+a { color: #222; text-decoration: none;}
+a:hover { color: #222; text-decoration: none;}
+
+/* 폰트 초기화 */
+body,input,textarea,select,button,table{ font-family: AppleSDGothicNeo-Regular,'malgun Gothic','맑은 고딕',dotum,'돋움',sans-serif; color: #222; font-size: 13px; line-height: 1.5;}
+/* 폰트 패밀리란.. 글꼴을 정하는 속성 순차적으로 지정하게 된다. 위를 예로 들자면 애플어쩌구저쩌구가 없으면 맑은 고딕체로 그게 없으면 돋움체로  없으면 산스세리프체로 글꼴을 정하는 셈이다.  */
+/* 웹 표준에는 맥이나 윈도우나 동일하게 해야한다. 그래서 웹 폰트로 쓸것이다.  */

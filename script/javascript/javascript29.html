@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //"이것은 빨간 색입니다. " 문자열을 출력
+        document.write("이것은 빨간색입니다. ","<br><br>" )
+
+        //"이것은 빨간 색 입니다. " 10개 
+        for(let i=1; i<=10; i++){
+            document.write("이것은 빨간색입니다. ","<br>" )
+        }
+        document.write("<br><br>")
+        //"이것은 빨간색 입니다. "
+
+        for(let i=1; i<=10; i++){
+            document.write(i+". 이것은 빨간색입니다.","<br>")
+        }
+        document.write("<br><br>")
+
+        //이것은 검은색
+        for(let i=1; i<=10; i++){
+            document.write("이것은 검은색입니다. ","<br>" )
+        }
+        document.write("<br><br>")
+
+        //이것은 파란색
+        for(let i=1; i<=10; i++){
+            document.write("이것은 파란색입니다. ","<br>" )
+        }
+        document.write("<br><br><br><br>")
+
+    function colorName(color){
+        for(let i=1; i<=10; i++){
+            document.write("이것은"+color+"입니다. ","<br>" )
+        }
+    }
+    colorName("빨간색")
+    colorName("파란색")
+    colorName("검은색")
+    </script>
+</body>
+</html>

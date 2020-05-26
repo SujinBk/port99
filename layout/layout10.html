@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>leyout10</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        #wrap { }
+        #header { height: 100px;background: #fce4ec;}
+        #banner { height: 300px; background: #f8bbd0; }
+        
+        
+        #content1 { height: 500px; background: #f48fb1; }
+        #content1 .container {overflow: hidden; }
+        #content1 .container .box {float: left; width:300px;height: 200px; background-color:  yellow; margin: 10px;}
+        
+        #content2 { background: #f06292; }
+        #content2 .container {overflow: hidden;}
+        #content2 .container .sbox  {float: left; width: 180px;height: 100px; background-color:  yellow;margin: 10px;}
+        
+        /*notice 전체*/
+        #content3 { background: #ec407a ; }
+        #content3 .container {overflow: hidden; } 
+        
+         /*notice1*/
+        #content3 .container .notice1{ width: 250px; height: 200px;  background-color: yellow;}
+        #content3 .container .notice1 h3{ }
+        #content3 .container .notice1 ul{ }
+        #content3 .container .notice1 li{ }
+        #content3 .container .notice1 .more{ }
+        
+        /*notice2*/
+        #content3 .container .notice2 { width: 250px; height: 200px; background-color: yellow; }
+        #content3 .container .notice2 h3{ }
+        #content3 .container .notice2 ul{}
+        #content3 .container .notice2 li{}
+        #content3 .container .notice2 li a{ }
+        #content3 .container .notice2 li span{}
+        #content3 .container .notice2 .more{ }
+        
+        #footer { height: 100px; background: #d81b60 ; text-align: center;  }
+        .container { width: 1000px; height: inherit; background: rgba(0, 0, 0, 0.2);margin: 0 auto;}
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <div id="header">
+            <div class="container"></div>
+        </div>
+        <div id="banner">
+            <div class="container"></div>
+        </div>
+        <div id="content1">
+            <div class="container">
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+            </div>
+        </div>
+        <div id="content2">
+            <div class="container">
+            <div class="sbox"></div>
+            <div class="sbox"></div>
+            <div class="sbox"></div>
+            <div class="sbox"></div>
+            <div class="sbox"></div>
+            </div>
+        </div>
+          <div id="content3">
+            <div class="container">
+            <div class="notice1">
+                <h3>fdsa</h3>
+                <ul>
+                    <li><a href="#">fadsdsafsafasdf</a></li>
+                    <li><a href="#">fsadfasdfasfdsadffa</a></li>
+                    <li><a href="#">fasdfasdfasdfafdsadf</a></li>
+                </ul>
+                <a href="#"class="more ">더보기</a>
+            </div>
+            <div class="notice2">
+                <h3>fdsasdfas</h3>
+                <ul>
+                    <li><a href="#">fdsafdsfagfdgfd</a> <span>2020.03.27</span></li>
+                    <li><a href="#">fasdfasdfgffdgfd</a><span>2020.03.27</span></li>
+                    <li><a href="#">dsfasdfasdfasdfd</a><span>2020.03.27</span></li>
+                </ul>
+                
+            </div>
+            </div>
+        </div>
+        <div id="footer">
+            <div class="container"></div>
+        </div>
+
+    </div>
+</body></html>

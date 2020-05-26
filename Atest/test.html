@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 화면에 어떻게 나오는지?? ( 이건 검색해봐야 겠다)-->
+    <meta name="author" content="floatmoon">
+     <!-- 누가 이 사이트를 만들었는지 알려주는의미-->
+    <meta name="description" content="웹표준을 준수한 사이트 예제입니다.">
+    <!-- 사이트에 대한 설명 ( 검색할때 나타난다.) -->
+    <meta name="keywords" content="웹표준,웹접근성,사이트 만들기"> 
+    <!-- 키워드 검색할때 보이는 것 -->
+    <meta name="gennerator" content="visual studio"> 
+    <!-- 어떤 코딩프로그램으로 만드었는지 -->
+    <title>공부 열심히 하겠습니다.</title>
+   <!-- css style-->
+   <link rel="stylesheet" href="test style.css">  
+   <link rel="stylesheet" href="test reset.css">  
+   <!-- 주소는 상대주소.. 내가 보고있는 파일을 기준으로 파일을 찾는 것이다.-->
+   <!-- css 파일을 연동하기 위한 작업이다. 여기다 써도 상관은 없지만.. 보기 편하고 깔끔하게 하기 위해.. -->
+
+   <!-- 웹 폰트 -->
+   <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 스킵 내비게이션 -->
+    <div id="skip">
+        <a href="#cont_nav">전체메뉴 바로가기</a>
+        <a href="#cont_ban">배너영역 바로가기</a>
+        <a href="#cont_cont">컨텐츠영역 바로가기</a>
+    </div>
+    <!--// 스킵 내비게이션 -->
+    <div id="wrap">
+        <!-- 전체를 감싸는 박스... -->
+        <header id="header">
+            <div class="container">
+                <div class="header-menu">
+                    <a href="#">여기</a>
+                    <a href="#">클릭</a>
+                    <a href="#">하세요</a>
+                </div>
+                <!-- //헤더 메뉴 -->
+                <div class="header-tit">
+                    <h1>professional publisher &amp; designer</h1> <br>
+                    <a href="http://floatmoon.dothome.co.kr/">floatmoon.dothome.co.kr</a>
+                </div>
+                <!-- //헤더 타이틀 -->
+
+                <!-- 이미지를 표현하는 방법
+                1. img태그로 표현 (의미가 있을 경우)/ alt 태그- 대체문자 표현
+                2. background 속성으로  표현(의미가 있을 경우)/대체 문자X
+                3. 이미지를 background 속성 - 웹표준 준수하기 위해서는 
+                /가상으로 대체로 문자를 만들어줌 (IR 효과)
+                이미지 스프라이트 기법으로 만들면 용량도 줄어들고 작업하기 편하다 -->
+                <div class="header-icon">
+                    <a href="#" class="icon1"><span>icon1</span></a>
+                    <a href="#" class="icon2"><span>icon2</span></a>
+                    <a href="#" class="icon3"><span>icon3</span></a>
+                    <a href="#" class="icon4"><span>icon4</span></a>
+                </div>
+                <!-- //헤더 아이콘 -->
+            </div>
+        </header>
+        <!-- //header -->
+        <section id="content">
+            <div id="cont_nav">
+                <div class="container">cont_nav</div>
+            </div>
+            <!-- //cont_nav -->
+            <div id="cont_tit">
+                <div class="container">cont_tit</div>
+            </div>
+             <!-- //cont_tit -->
+            <div id="cont_ban">
+                <div class="container">cont_ban</div>
+            </div>
+              <!-- //cont_ban -->
+            <div id="cont_cont">
+                <div class="container">cont_cont</div>
+            </div>
+             <!-- //cont_cont -->
+        </section>
+         <!-- //content -->
+        <footer id="footer">
+            <div class="container">footer</div>
+        </footer>
+         <!-- //footer -->
+    </div>
+     <!-- //wrap -->
+</body>
+</html>

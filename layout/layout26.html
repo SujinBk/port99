@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{margin: 0; padding: 0;}
+    #wrap { background-color: #ede7f6; }
+    .container { width: 1220px; margin: 0 auto; }
+
+    header { text-align:center; height: 300px; background: #d1c4e9 url(../site-responsive/assets/img/header_bg.jpg) repeat-x center top;}
+ /*  메뉴 */
+    header .hea_menu { text-align: right; }
+    header .hea_menu a { color:#fff;   text-decoration: none;  }
+/* 타이틀 */
+    header .hea_tit { }
+    header .hea_tit h1{ }
+    header .hea_tit a{ }
+
+    /* 아이콘 */
+    header .hea_icon { }
+    header .hea_icon a{ }
+    header .hea_icon a.icon1{ }
+    header .hea_icon a.icon2{ }
+    header .hea_icon a.icon3{ }
+    header .hea_icon a.icon4{ }
+
+    #con1 { height: 500px; overflow: hidden; }
+    #con1 .side { width: 30%; height: 500px; background-color: #9575cd ;float: left; }
+    #con1 .con1_1 { width: 70%; height: 250px; background-color: #7e57c2; float: left;}
+    #con1 .con1_2 { width: 70%; height: 250px; background-color: #673ab7; float: left;}
+
+    #con2 { height: 200px; overflow: hidden;}
+    #con2 .con2_1 { width: 33.333%; height: 200px; background-color: #5e35b1 ; float: left;}
+    #con2 .con2_2 { width: 33.333%;  height: 200px; background-color: #512da8 ; float: left;}
+    #con2 .con2_3 { width: 33.333%; height: 200px;  background-color: #4527a0 ; float: left;}
+
+    #con3 { height: 200px; background-color: #8e24aa; overflow: hidden;}
+
+    #con3 > article { width: 21%; height: 150px;  margin: 2%;  background-color: #4a148c ; float: left; }
+
+    footer { height: 100px; background-color: #1a237e ;}
+
+    @media (max-width : 1220px) { 
+        .container { width: 100%;}
+        
+    }
+    @media (max-width : 1024px) {
+        #con2 .con2_1 { width: 50%; }
+        #con2 .con2_2 { width: 50%; }
+        #con2 .con2_3 { display: none; }
+        #con3 >article { width: 29%; }
+        #con3 >article.box4 { display: none; }
+    }
+
+    @media (max-width: 768px) {
+        #con2 .con2_1 { width: 100%; height: 50%; }
+        #con2 .con2_2 { width: 100%; height: 50%; }
+    }
+    @media (max-width : 480PX) {
+     #con1 .side {width: 100%; height: 200px;  }
+    #con1 .con1_1 {width: 100%; height: 200px;}
+    #con1 .con1_2 {width: 100%; height: 200px;} 
+    #con3  { height: 500px;}
+    #con3 > article { width: 96%; }
+
+}
+</style>
+
+<body>
+    <div id="wrap">
+        <header>
+            <div class="hea_menu">
+                <a href="#">여기</a>
+                <a href="#">클릭</a>
+                <a href="#">하세요</a>
+            </div>
+            <div class="hea_tit">
+                <h1>poressional designer & pubulisher</h1>
+                <a href="http://floatmoon.dothome.co.kr">floatmoon.dothome.co.kr</a>
+            </div>
+            <div class="hea_icon">
+                <a href="#" class=" icon1">icon1</a>
+                <a href="#" class=" icon2">icon2</a>
+                <a href="#" class=" icon3">icon3</a>
+                <a href="#" class=" icon4">icon4</a>
+            </div>
+        </header>
+        <div class="container">
+            <section id="con1">
+                <article class="side"></article>
+                <article class="con1_1"></article>
+                <article class="con1_2"></article>
+            </section>
+            <section id="con2">
+                <article class="con2_1"></article>
+                <article class="con2_2"></article>
+                <article class="con2_3"></article>
+            </section>
+            <section id="con3">
+                <article class="box1"></article>
+                <article class="box2"></article>
+                <article class="box3"></article>
+                <article class="box4"></article>
+            </section>
+            <footer></footer>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

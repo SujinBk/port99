@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        #wrap { background-color: #e3f2fd ; }
+        .container {width: 1200px; margin: 0 auto; }
+        #header {width: 100%; height: 100px; background-color: #bbdefb ;}
+        #banner { width: 100%; height: 300px; background-color: #90caf9 ;}
+        #content1 { overflow: hidden;}
+        #content1 .cont1-side { width: 30%; height: 500px; background-color: #64b5f6 ;float: left;}
+        #content1 .cont1-box1 { width: 70%; height: 250px; background-color: #42a5f5; float: left; }
+        #content1 .cont1-box2 { width: 70%; height: 250px; background-color: #2196f3 ; float: left;}
+        #content2 { overflow: hidden;}
+        #content2 .cont2-box1 { width: 33.3333%; height: 300px; background-color: #1e88e5;  float: left;}
+        #content2 .cont2-box2 { width: 33.3333%; height: 300px;background-color: #1976d2; float: left;}
+        #content2 .cont2-box3 { width: 33.3333%; height: 300px;background-color: #1565c0;  float: left;}
+        #content3 { width: 100%; height: 200px; background-color: #0d47a1 ; overflow: hidden;}
+        #content3 > article { width: 21%; margin: 2%; height:150px; background-color: #0277bd ; float: left; border-radius: 5px;}
+        #footer { width: 100%; height: 100px; background-color: #01579b ;}
+
+
+        @media (max-width: 1220px) {
+            .container{ width: 100%;}
+            #content2 .cont2-box1 {width: 50%; }
+            #content2 .cont2-box2 {width: 50%; }
+            #content2 .cont2-box3 { display: none;}
+        }
+        @media (max-width: 768px) { 
+            #content2 .cont2-box1 {width: 100%; height: 200px;}
+            #content2 .cont2-box2 {width: 100%; height: 200px;}
+            #content3 > article {  width: 29.333%; }
+            #content3 > article.cont3-box4 { display: none;}
+        }
+        @media (max-width: 480px) { 
+            #content1 .cont1-side { width: 100%; height: 200px; }
+            #content1 .cont1-box1 { width: 100%; height : 200px;}
+          #content1 .cont1-box2 { width: 100%; height: 200px;}
+          #content3 > article { width: 96%;}
+         }
+         
+    </style>
+</head>
+<body>
+    <div id="wrap"></div>
+    <div class="container">
+        <header id="header"></header>
+        <section id="banner"></section>
+        <section id="content1">
+            <article class="cont1-side"></article>
+            <article class="cont1-box1"></article>
+            <article class="cont1-box2"></article>
+        </section>
+        <section id="content2">
+            <article class="cont2-box1"></article>
+            <article class="cont2-box2"></article>
+            <article class="cont2-box3"></article>
+        </section>
+        <section id="content3">
+            <article class="cont3-box1"></article>
+            <article class="cont3-box2"></article>
+            <article class="cont3-box3"></article>
+            <article class="cont3-box4"></article>
+        </section>
+        <footer id="footer"></footer>
+    </div>
+</body>
+</html>
