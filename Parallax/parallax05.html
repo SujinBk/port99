@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>parallax02</title>
+    <title>parallax05</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
@@ -38,6 +38,20 @@
             font-size: 16px;
         }
 
+        body {
+            --color-h1: #dc6e25;
+            --color-title: #fff;
+            --color-sub: #999;
+            --color-link: #000;
+            --color-bg: #111;
+            --font-family: 'lato', sans-serif;
+            --aspect-ratio: 32/15;
+            --image-width-max: 500px;
+
+            background-color: var(--color-bg);
+            font-family: var(--font-family);
+            color: var(--color-title);
+        }
 
         .title {
             position: fixed;
@@ -63,21 +77,6 @@
 
         .title li.active a {
             border-bottom: 1px dashed #fff;
-        }
-
-        body {
-            --color-h1: #dc6e25;
-            --color-title: #fff;
-            --color-sub: #999;
-            --color-link: #000;
-            --color-bg: #111;
-            --font-family: 'lato', sans-serif;
-            --aspect-ratio: 32/15;
-            --image-width-max: 500px;
-
-            background-color: var(--color-bg);
-            font-family: var(--font-family);
-            color: var(--color-title);
         }
 
         #wrap h1 {
@@ -120,12 +119,13 @@
 
             /* height: 100%; */
             position: absolute;
-            --overflow: 40px;
-            top: -20px;
-            height: calc(100% + (2 * var(--overflow)));
+            --overflow: 60px;
+            top: calc(-2 * var(--overflow));
+            height: calc(150% + (2 * var(--overflow)));
             width: 100%;
             background-size: cover;
             background-position: 50% 0;
+            will-change: transfrom;
         }
 
         .content-item:nth-child(even) {
@@ -172,7 +172,8 @@
             position: relative;
             z-index: 20;
             margin-top: -5vw;
-
+            transition: transform 0.3s cubic-bezier();
+            will-change: transform;
         }
 
         .content-item:nth-child(even) .content-item-desc {
@@ -223,7 +224,7 @@
         /* =============info==================== */
         .info {
             position: fixed;
-            top: 20px;
+            top: 700px;
             right: 20px;
             background: rgba(255, 255, 255, 0.4);
             color: #000;
@@ -234,25 +235,56 @@
             font-style: normal;
             font-family: 'Abel';
         }
+
+        /* .contents>section {
+            opacity: 0;
+            transform: translateY(10vh);
+            transition: all 0.6s ease;
+        }
+
+        .contents>section.show {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s ease;
+        } */
     </style>
 </head>
 
 <body>
+
+    <div class="info">
+        <div> scrollTop():<span class="scrollTop">0</span>px</div>
+    </div>
+
     <div class="title">
-        <h1>parallax02</h1>
-        <p>레이아웃(반응형)</p>
+        <h1>parallax05</h1>
+        <p>이질감 효과(jq)</p>
         <ul>
             <li><a href="parallax01.html">parallax01</a></li>
-            <li class="active"><a href="parallax02.html">parallax02</a></li>
+            <li><a href="parallax02.html">parallax02</a></li>
             <li><a href="parallax03.html">parallax03</a></li>
             <li><a href="parallax04.html">parallax04</a></li>
-            <li><a href="parallax05.html">parallax05</a></li>
+            <li class="active"><a href="parallax05.html">parallax05</a></li>
             <li><a href="parallax06.html">parallax06</a></li>
             <li><a href="parallax07.html">parallax07</a></li>
             <li><a href="parallax08.html">parallax08</a></li>
         </ul>
     </div>
+    <!-- <div class="info">
+        <span>pageYOffset() : <strong class="pageYOffset">0</strong>px</span><br>
+        <span>#section1 offset : <strong class="s1OT">0</strong>px</span><br>
+        <span>#section2 offset : <strong class="s2OT">0</strong>px</span><br>
+        <span>#section3 offset : <strong class="s3OT">0</strong>px</span><br>
+        <span>#section4 offset : <strong class="s4OT">0</strong>px</span><br>
+        <span>#section5 offset : <strong class="s5OT">0</strong>px</span><br>
+        <span>#section6 offset : <strong class="s6OT">0</strong>px</span><br>
+        <span>#section7 offset : <strong class="s7OT">0</strong>px</span><br>
+        <span>#section8 offset : <strong class="s8OT">0</strong>px</span><br>
+        <span>#section9 offset : <strong class="s9OT">0</strong>px</span><br>
+    </div> -->
 
+
+    <!-- parallax -->
 
     <section id="wrap">
         <h1>parallax <em>Scrolling</em></h1>
@@ -331,6 +363,67 @@
             </section>
         </div>
     </section>
+
+    <script src="js/jquery.min_1.12.4.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script>
+        
+    $(window).scroll(function(){
+        let scrollTop = $(window).scrollTop();
+        $(".scrollTop").text(scrollTop);
+
+    $("#wrap h1").css({transform: "translateX(-"+scrollTop+"px)"});
+
+    // let dd = $("#section1").offset().top
+
+    // let offset1 = (scrollTop - $("#section1").offset().top )
+    // let offset2 = (scrollTop - $("#section2").offset().top )
+    // let offset3 = (scrollTop - $("#section3").offset().top )
+    // let offset4 = (scrollTop - $("#section4").offset().top )
+    // let offset5 = (scrollTop - $("#section5").offset().top )
+    // let offset6 = (scrollTop - $("#section6").offset().top )
+    // let offset7 = (scrollTop - $("#section7").offset().top )
+    // let offset8 = (scrollTop - $("#section8").offset().top )
+    // let offset9 = (scrollTop - $("#section9").offset().top )
+
+    // for(let i=1; i<=9; i++){
+    //             let offset = (scrollTop - $("#section"+i).offset().top)
+    //             $("#section"+i+" .content-item-desc").css({transform : "translateX("+offset+"px)"});
+    //         }
+
+     $(".content-item").each(function(){
+            let offset1 = (scrollTop - $(this).offset().top) * 0.1;
+            let offset2 = (scrollTop - $(this).offset().top) * 0.2;
+            let offset3 = (scrollTop - $(this).offset().top) * 0.3;
+            let offset4 = (scrollTop - $(this).offset().top) * 0.4;
+
+            $(this).find(".content-item-desc").css({"transform":"translateY("+ -offset3+"px)"});
+            $(this).find(".content-item-num").css({"transform":"translateY("+offset3+"px)"});
+            $(this).find(".content-item-img").css({"transform":"translateY("+offset2+"px)"});
+        
+     });  
+     
+    // console.log("scrollTop:"+ scrollTop)
+    // console.log("dd"+ dd)
+    // console.log("offset1:"+offset1)
+
+    //  $("#section1 .content-item-desc").css({transform: "translateX("+offset1+"px)"});
+    //  $("#section2 .content-item-desc").css({transform: "translateX("+ -offset2+"px)"});
+    //  $("#section3 .content-item-desc").css({transform: "translateX("+offset3+"px)"});
+    //  $("#section4 .content-item-desc").css({transform: "translateX("+ -offset4+"px)"});
+    //  $("#section5 .content-item-desc").css({transform: "translateX("+offset5+"px)"});
+    //  $("#section6 .content-item-desc").css({transform: "translateX("+ -offset6+"px)"});
+    //  $("#section7 .content-item-desc").css({transform: "translateX("+offset7+"px)"});
+    //  $("#section8 .content-item-desc").css({transform: "translateX("+ -offset8+"px)"});
+    //  $("#section9 .content-item-desc").css({transform: "translateX("+offset9+"px)"});
+    // $("#section1 .content-item-desc").css({transform: "translateX("+scrollTop+"px)"});
+    // $("#section2 .content-item-desc").css({transform: "translateX("+scrollTop+"px)"});
+    });
+
+    
+
+
+    </script>
 </body>
 
 </html>

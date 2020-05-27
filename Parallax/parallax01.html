@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
     <meta charset="UTF-8">
@@ -8,6 +8,15 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
+
+        @font-face {
+            font-family: 'DWImpactamin';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/DWImpactamin.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -27,6 +36,33 @@
             background-color: #111;
             color: #fff;
             font-family: 'Lato', sans-serif;
+        }
+
+
+        .title {
+            position: fixed;
+            right: 0;
+            top: 0;
+            z-index: 1000;
+            padding: 20px;
+            text-align: right;
+        }
+
+        .title h1 {
+            padding-bottom: 10px;
+        }
+
+        .title p {
+            font-size: 18px;
+        }
+
+        .title ul {
+            padding-top: 20px;
+            font-family: 'Oswald';
+        }
+
+        .title li.active a {
+            border-bottom: 1px dashed #fff;
         }
 
         #wrap h1 {
@@ -61,25 +97,32 @@
         .content-item-num {
             font-size: 350px;
             font-weight: 100;
-            position: absolute;left: 0;top: 0;
+            position: absolute;
+            top: 0;
             /*  위는 영역을 없애주기 위한 css */
-            right:-100px;top:-200px;
+            right: -100px;
+            top: -200px;
             opacity: 0.5;
-            }
-        .content-item:nth-child(even) .content-item-num{
-            right:auto;left:0;
         }
+
+        .content-item:nth-child(even) .content-item-num {
+            right: auto;
+            left: 0;
+        }
+
         .content-item-title {
             text-align: right;
             font-size: 24px;
             font-weight: 300;
-            color:#888;
+            color: #888;
             padding-bottom: 10px;
             text-transform: capitalize;
         }
-        .content-item:nth-child(even) .content-item-title{
+
+        .content-item:nth-child(even) .content-item-title {
             text-align: left;
         }
+
         .content-item-imgWrap {
             position: relative;
             padding-bottom: 57%;
@@ -96,16 +139,20 @@
         }
 
         .content-item-desc {
+            position: relative;
             font-size: 80px;
             line-height: 1.2;
             font-weight: 600;
             text-align: right;
             word-break: keep-all;
             margin-top: -100px;
+            z-index: 100;
         }
-         .content-item:nth-child(even) .content-item-desc{
-             text-align: left; 
-         }
+
+        .content-item:nth-child(even) .content-item-desc {
+            text-align: left;
+        }
+
         #section1 .content-item-img {
             background-image: url(img/img01.jpg);
         }
@@ -145,6 +192,22 @@
 </head>
 
 <body>
+
+    <div class="title">
+        <h1>parallax01</h1>
+        <p>레이아웃1</p>
+        <ul>
+            <li class="active"><a href="parallax01.html">parallax01</a></li>
+            <li><a href="parallax02.html">parallax02</a></li>
+            <li><a href="parallax03.html">parallax03</a></li>
+            <li><a href="parallax04.html">parallax04</a></li>
+            <li><a href="parallax05.html">parallax05</a></li>
+            <li><a href="parallax06.html">parallax06</a></li>
+            <li><a href="parallax07.html">parallax07</a></li>
+            <li><a href="parallax08.html">parallax08</a></li>
+        </ul>
+    </div>
+
     <section id="wrap">
         <h1>parallax <em>Scrolling</em></h1>
         <div class="contents">

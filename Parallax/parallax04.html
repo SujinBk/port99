@@ -10,9 +10,17 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
+
+        @font-face {
+            font-family: 'DWImpactamin';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/DWImpactamin.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         * {
             margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
 
@@ -42,6 +50,32 @@
             background-color: var(--color-bg);
             font-family: var(--font-family);
             color: var(--color-title);
+        }
+
+        .title {
+            position: fixed;
+            right: 0;
+            top: 0;
+            z-index: 1000;
+            padding: 20px;
+            text-align: right;
+        }
+
+        .title h1 {
+            padding-bottom: 10px;
+        }
+
+        .title p {
+            font-size: 18px;
+        }
+
+        .title ul {
+            padding-top: 20px;
+            font-family: 'Oswald';
+        }
+
+        .title li.active a {
+            border-bottom: 1px dashed #fff;
         }
 
         #wrap h1 {
@@ -187,7 +221,7 @@
         /* =============info==================== */
         .info {
             position: fixed;
-            top: 20px;
+            top: 730px;
             right: 20px;
             background: rgba(255, 255, 255, 0.4);
             color: #000;
@@ -214,6 +248,20 @@
 </head>
 
 <body>
+    <div class="title">
+        <h1>parallax04</h1>
+        <p>javascript</p>
+        <ul>
+            <li><a href="parallax01.html">parallax01</a></li>
+            <li><a href="parallax02.html">parallax02</a></li>
+            <li><a href="parallax03.html">parallax03</a></li>
+            <li class="active"><a href="parallax04.html">parallax04</a></li>
+            <li><a href="parallax05.html">parallax05</a></li>
+            <li><a href="parallax06.html">parallax06</a></li>
+            <li><a href="parallax07.html">parallax07</a></li>
+            <li><a href="parallax08.html">parallax08</a></li>
+        </ul>
+    </div>
     <div class="info">
         <span>pageYOffset() : <strong class="pageYOffset">0</strong>px</span><br>
         <span>#section1 offset : <strong class="s1OT">0</strong>px</span><br>
@@ -309,7 +357,7 @@
     <script>
         //$(window).scroll(function(){});
         //$(window).on("scroll",function(){});
-        //window.addEventListener("scroll",function(){});
+        //window.addEventListener("scroll",function(){});                                                                
         //window.addEventListener("scroll",()=> {});
 
         //const scrollTop =$(window).scrollTop();
@@ -335,10 +383,10 @@
                 document.querySelector(".s" + i + "OT").textContent = document.getElementById("section" + i)
                     .offsetTop;
 
-                if (pageYOffset > document.getElementById("section"+i).offsetTop) {
-                    document.querySelector(".s"+i+"OT").style.color = "red";
+                if (pageYOffset > document.getElementById("section" + i).offsetTop) {
+                    document.querySelector(".s" + i + "OT").style.color = "red";
                 } else {
-                    document.querySelector(".s"+i+"OT").style.color = "black";
+                    document.querySelector(".s" + i + "OT").style.color = "black";
                 }
 
             }

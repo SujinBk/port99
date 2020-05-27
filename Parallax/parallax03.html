@@ -1,24 +1,23 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>parallax02</title>
+    <title>parallax03</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
+         @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
 
-        @font-face {
-            font-family: 'DWImpactamin';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/DWImpactamin.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-        }
-
+@font-face {
+    font-family: 'DWImpactamin';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/DWImpactamin.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
         * {
             margin: 0;
             padding: 0;
@@ -38,7 +37,22 @@
             font-size: 16px;
         }
 
+        body {
+            --color-h1: #dc6e25;
+            --color-title: #fff;
+            --color-sub: #999;
+            --color-link: #000;
+            --color-bg: #111;
+            --font-family: 'lato', sans-serif;
+            --aspect-ratio: 32/15;
+            --image-width-max: 500px;
 
+            background-color: var(--color-bg);
+            font-family: var(--font-family);
+            color: var(--color-title);
+        }
+
+        
         .title {
             position: fixed;
             right: 0;
@@ -63,21 +77,6 @@
 
         .title li.active a {
             border-bottom: 1px dashed #fff;
-        }
-
-        body {
-            --color-h1: #dc6e25;
-            --color-title: #fff;
-            --color-sub: #999;
-            --color-link: #000;
-            --color-bg: #111;
-            --font-family: 'lato', sans-serif;
-            --aspect-ratio: 32/15;
-            --image-width-max: 500px;
-
-            background-color: var(--color-bg);
-            font-family: var(--font-family);
-            color: var(--color-title);
         }
 
         #wrap h1 {
@@ -223,7 +222,7 @@
         /* =============info==================== */
         .info {
             position: fixed;
-            top: 20px;
+            top: 730px;
             right: 20px;
             background: rgba(255, 255, 255, 0.4);
             color: #000;
@@ -234,17 +233,29 @@
             font-style: normal;
             font-family: 'Abel';
         }
+
+        .contents>section {
+            opacity: 0;
+            transform: translateY(10vh);
+            transition: all 0.6s ease;
+        }
+
+        .contents>section.show {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s ease;
+        }
     </style>
 </head>
 
 <body>
     <div class="title">
-        <h1>parallax02</h1>
-        <p>레이아웃(반응형)</p>
+        <h1>parallax03</h1>
+        <p>jquery</p>
         <ul>
             <li><a href="parallax01.html">parallax01</a></li>
-            <li class="active"><a href="parallax02.html">parallax02</a></li>
-            <li><a href="parallax03.html">parallax03</a></li>
+            <li><a href="parallax02.html">parallax02</a></li>
+            <li class="active"><a href="parallax03.html">parallax03</a></li>
             <li><a href="parallax04.html">parallax04</a></li>
             <li><a href="parallax05.html">parallax05</a></li>
             <li><a href="parallax06.html">parallax06</a></li>
@@ -253,6 +264,18 @@
         </ul>
     </div>
 
+    <div class="info">
+        <span>scrollTop() : <strong class="scrollTop">0</strong>px</span><br>
+        <span>#section1 offset : <strong class="s1OT">0</strong>px</span><br>
+        <span>#section2 offset : <strong class="s2OT">0</strong>px</span><br>
+        <span>#section3 offset : <strong class="s3OT">0</strong>px</span><br>
+        <span>#section4 offset : <strong class="s4OT">0</strong>px</span><br>
+        <span>#section5 offset : <strong class="s5OT">0</strong>px</span><br>
+        <span>#section6 offset : <strong class="s6OT">0</strong>px</span><br>
+        <span>#section7 offset : <strong class="s7OT">0</strong>px</span><br>
+        <span>#section8 offset : <strong class="s8OT">0</strong>px</span><br>
+        <span>#section9 offset : <strong class="s9OT">0</strong>px</span><br>
+    </div>
 
     <section id="wrap">
         <h1>parallax <em>Scrolling</em></h1>
@@ -331,6 +354,130 @@
             </section>
         </div>
     </section>
+
+    <script src="js/jquery.min_1.12.4.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+
+    <script>
+        $(window).scroll(function () {
+            const scrollTop = $(window).scrollTop()+$(window).height()/2;
+            // console.log(scrollTop)
+            // $(".scrollTop").text(parseInt(scrollTop));
+            // $(".s1OT").text(parseInt($("#section1").offset().top));
+            // $(".s2OT").text(parseInt($("#section2").offset().top));
+            // $(".s3OT").text(parseInt($("#section3").offset().top));
+            // $(".s4OT").text(parseInt($("#section4").offset().top));
+            // $(".s5OT").text(parseInt($("#section5").offset().top));
+            // $(".s6OT").text(parseInt($("#section6").offset().top));
+            // $(".s7OT").text(parseInt($("#section7").offset().top));
+            // $(".s8OT").text(parseInt($("#section8").offset().top));
+            // $(".s9OT").text(parseInt($("#section9").offset().top));
+
+          
+// =============================================================================//
+            
+            // if (scrollTop > parseInt($("#section1").offset().top)) {
+            //     $(".s1OT").css("color", "red");
+            // } else {
+            //     $(".s1OT").css("color", "black");
+            // }
+            // if (scrollTop > parseInt($("#section2").offset().top)) {
+            //     $(".s2OT").css("color", "red");
+            // } else {
+            //     $(".s2OT").css("color", "black");
+            // }
+            // if (scrollTop > parseInt($("#section3").offset().top)) {
+            //     $(".s3OT").css("color", "red");
+            // } else {
+            //     $(".s3OT").css("color", "black");
+            // }
+            // if (scrollTop > parseInt($("#section4").offset().top)) {
+            //     $(".s4OT").css("color", "red");
+            // } else {
+            //     $(".s4OT").css("color", "black");
+            // }
+            // if (scrollTop > parseInt($("#section5").offset().top)) {
+            //     $(".s5OT").css("color", "red");
+            // } else {
+            //     $(".s5OT").css("color", "black");
+            // }
+            // if (scrollTop > parseInt($("#section6").offset().top)) {
+            //     $(".s6OT").css("color", "red");
+            // } else {
+            //     $(".s6OT").css("color", "black");
+            // }
+            // if (scrollTop > parseInt($("#section7").offset().top)) {
+            //     $(".s7OT").css("color", "red");
+            // } else {
+            //     $(".s7OT").css("color", "black");
+            // }
+            // if (scrollTop > parseInt($("#section8").offset().top)) {
+            //     $(".s8OT").css("color", "red");
+            // } else {
+            //     $(".s8OT").css("color", "black");
+            // }
+            // if (scrollTop > parseInt($("#section9").offset().top)) {
+            //     $(".s9OT").css("color", "red");
+            // } else {
+            //     $(".s9OT").css("color", "black");
+            // }
+
+            for( let i=1; i<=9; i++){
+            $(".s"+i+"OT").text(parseInt($("#section"+i).offset().top));
+
+            
+            if (scrollTop > parseInt($("#section"+i).offset().top)) {
+                $(".s"+i+"OT").css("color", "red");
+            } else {
+                $(".s"+i+"OT").css("color", "black");
+            }
+
+          }
+            
+
+            //==============================================================//
+            // if (scrollTop > parseInt($("#section1").offset().top)) {
+            //     $("#section1").addClass("show");
+            // }
+            // if (scrollTop > parseInt($("#section2").offset().top)) {
+            //     $("#section2").addClass("show");
+            // }
+            // if (scrollTop > parseInt($("#section3").offset().top)) {
+            //     $("#section3").addClass("show");
+            // }
+            // if (scrollTop > parseInt($("#section4").offset().top)) {
+            //     $("#section4").addClass("show");
+            // }
+            // if (scrollTop > parseInt($("#section5").offset().top)) {
+            //     $("#section5").addClass("show");
+            // }
+            // if (scrollTop > parseInt($("#section6").offset().top)) {
+            //     $("#section6").addClass("show");
+            // }
+            // if (scrollTop > parseInt($("#section7").offset().top)) {
+            //     $("#section7").addClass("show");
+            // }
+            // if (scrollTop > parseInt($("#section8").offset().top)) {
+            //     $("#section8").addClass("show");
+            // }
+            // if (scrollTop > parseInt($("#section9").offset().top)) {
+            //     $("#section9").addClass("show");
+            // }
+            //================================================================//
+            
+
+
+            // /// ////////
+            $(".content-item").each(function(){
+                if(scrollTop > $(this).offset().top){
+                    $(this).addClass("show");
+                }
+            });
+
+
+
+        });
+    </script>
 </body>
 
 </html>

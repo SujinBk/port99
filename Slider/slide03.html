@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slider01</title>
+    <title>Slider03</title>
 </head>
 
 <style>
@@ -20,7 +20,7 @@
     * {
         margin: 0;
         padding: 0;
-        box-sizing: 0;
+        box-sizing: border-box;
     }
 
     a {
@@ -63,6 +63,11 @@
         top: 0;
     }
 
+
+    .info h1 {
+        margin-bottom: 10px;
+    }
+
     .info2 {
         position: absolute;
         right: 0;
@@ -71,62 +76,68 @@
         padding: 20px;
     }
 
+    .info2 a {
+        color:#fff;
+    }
+
     .info2 li {
         list-style: none;
         margin-bottom: 5px;
     }
 
-    .info2 a {
-        color:#fff;
-    }
     .info2 li.active a {
         border-bottom: 1px dashed #fff;
     }
 
 
     /* slid */
-    .slide-wrap {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
+    .slider-wrap {
+        width: 1000px;
+        height: 600px;
+        overflow: hidden;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.4);
 
     }
 
-    .slide-img {
+    .slider-img {
         position: relative;
         width: 1000px;
-        height: 600px;
-        box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.4);
+        height: 3000px;
         border-radius: 20px;
         overflow: hidden;
     }
 
-    .slide-img .slides {
-     position: relative;
-        left: 0;
-        top: 0;
+    .slider-img .slides {
+        width: 1000px;
     }
 </style>
 
 <body>
     <div class="info">
-        <h1>Image Slider01</h1>
-        <p>페이드 효과 이미지 슬라이드</p>
+        <h1>Image Slider03</h1>
+        <p>위로 움직이기</p>
+        <ul>
+            <li>3초에 한 번씩 움직이기</li>
+        </ul>
     </div>
     <div class="info2">
         <ul>
-            <li class="active"><a href="slide01.html">slide01</a></li>
+            <li ><a href="slide01.html">slide01</a></li>
             <li><a href="slide02.html">slide02</a></li>
-            <li><a href="slide03.html">slide03</a></li>
+            <li class="active"><a href="slide03.html">slide03</a></li>
             <li><a href="slide04.html">slide04</a></li>
             <li><a href="slide05.html">slide05</a></li>
             <li><a href="slide06.html">slide06</a></li>
             <li><a href="slide07.html">slide07</a></li>
         </ul>
     </div>
-    <div class="slide-wrap">
-        <div class="slide-img">
+
+    <div class="slider-wrap">
+        <div class="slider-img">
             <div class="slides"><img src="img/img01.jpg" alt="이미지"></div>
             <div class="slides"><img src="img/img02.jpg" alt="이미지"></div>
             <div class="slides"><img src="img/img03.jpg" alt="이미지"></div>
@@ -137,31 +148,39 @@
 
     <script src="js/jquery.min_1.12.4.js"></script>
     <script>
-        let slideWrap = $(".slide-wrap");
-        let slideImg = $(".slide-img");
-        let slides = $(".slides"); 
+        const sliderWrap = $(".slider-wrap");
+        const slideImg = $(".slider-img");
+        const slides = $(".slides");
 
-        let currentIndex = 0;                         // 현재 첮 번째 보이는 이미지
-        let slideCount = slides.length;                // 이미지 length는 찾는 함수?
+        let currnetIndex = 0; // 현제 이미지
+
+        function show() {
+
+        }
+
+        // 3초의 한번씩 함수를 실행
+        // left : -1000px
+        // left : -2000px
+        // left : -3000px
+        // left : -4000px
+        // left :  0px
+        // left :  -1000px
 
 
-        
-        //alert(slideCount)
+        setInterval(function () {
+            // currnetIndex++;
+            //4이상이 되면 0으로 무한
+            // if (currnetIndex < 4) {
+            //     currnetIndex++
+            // } else {
+            //     currnetIndex =0;
+            // }
+            // if문은 이렇게 바꿀수 있다. (삼항 연산자)
+            currnetIndex < 4? currnetIndex++ : currnetIndex=0;
+            slideImg.animate({top : currnetIndex*(-600)+"px"},400)
+           
 
-        //첫번째 이미지 선택해서 사라지게 slides.eq(0).hide();
-        //두번째 이미지 선택해서 사라지게 slides.eq(1).hide();
-        //세번째 이미지 선택해서 사라지게 slides.eq(2).hide();
-        //네번째 이미지 선택해서 사라지게 slides.eq(3).hide();
-        //다섯번째 이미지 선택해서 사라지게 slides.eq(4).hide();
-
-        function showNext(){
-            let nextindex = (currentIndex + 1)%slideCount
-            slides.eq(currentIndex).fadeOut(500);
-            slides.eq(nextindex).fadeIn(500);
-           // document.write(nextindex)
-            currentIndex=nextindex
-           }
-        setInterval(showNext,3000)
+        }, 3000) //3초
     </script>
 </body>
 
