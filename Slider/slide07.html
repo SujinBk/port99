@@ -68,7 +68,7 @@
         margin-bottom: 10px;
     }
 
-    
+
 
     .info2 {
         position: absolute;
@@ -79,7 +79,7 @@
     }
 
     .info2 a {
-        color:#fff;
+        color: #fff;
     }
 
     .info2 li {
@@ -94,50 +94,52 @@
 
     /* slid */
     .slider-wrap {
-        width: 1000px;
-        height: 600px;
+        width: 1200px;
         overflow: hidden;
         position: absolute;
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
-        box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.4);
-
     }
 
     .slider-img {
         position: relative;
-        width: 1000px;
-        height: 600px;
-        border-radius: 20px;
         overflow: hidden;
+        width: 10000px;
     }
 
     .slider-img .slides {
-        width: 1000px;
+        float: left;
+        width: 400px;
+        padding: 10px;
     }
 
-    .slider-btn a{ 
+    .slider-btn a {
         position: absolute;
-        top: 50%; 
+        top: 50%;
         transform: translateY(-50%);
         z-index: 1000;
         padding: 20px;
-        background: rgba(0,0,0,0.5);
+        background: rgba(0, 0, 0, 0.5);
         text-transform: uppercase;
-        
-    }
-    .slider-btn a.prev{left:0;}
-    .slider-btn a.next{right:0;}
 
+    }
+
+    .slider-btn a.prev {
+        left: 0;
+    }
+
+    .slider-btn a.next {
+        right: 0;
+    }
 </style>
 
 <body>
     <div class="info">
         <h1>Image Slider07</h1>
-        <p>위아래로 움직이기</p>
+        <p>좌우로 움직이기</p>
         <ul>
-            <li>연속적으로 움직이기</li>
+            <li>3단뷰 만들기</li>
             <li>버튼 만들기</li>
         </ul>
     </div>
@@ -150,6 +152,8 @@
             <li><a href="slide05.html">slide05</a></li>
             <li><a href="slide06.html">slide06</a></li>
             <li class="active"><a href="slide07.html">slide07</a></li>
+            <li><a href="slide08.html">slide08</a></li>
+            <li><a href="slide09.html">slide09</a></li>
         </ul>
     </div>
 
@@ -176,30 +180,63 @@
         const slides = $(".slides");
         const sliderBtn = $(".slider-btn");
 
+        let slideCount = slides.length; // slider 갯수
+        let slideWidth = slides.outerWidth();
+        let slideTotalWidth = slideCount * slideWidth;
 
-    slideImg.css({marginTop : "-600px"});
-    $(".slides:last-child").prependTo(slideImg);
+        let currentIndex = 0;
 
-     function moveLeft(){
-        slideImg.animate({top : "600px"},400,function(){
-            $(".slides:last-child").prependTo(slideImg);
-            slideImg.css("left","")
-        })
-     }
+        let slideCopy = slides.clone()
+        slideImg.append(slideCopy) // 슬라이더 이미지를 카피후 추가 
 
-     function moveRight(){
-        slideImg.animate({left : "-1000px"},400,function(){
-            $(".slides:first-child").appendTo(slideImg);
-            slideImg.css("left","")
-        })
-     }
+        // 이미지 움직이기
 
-     sliderBtn.find(".prev").click(function(){
-        moveLeft()
-     });
-     sliderBtn.find(".next").click(function(){
-        moveRight()
-});
+        function moveLeft() {
+            if(currentIndex == 0 ) {
+                currentIndex = 5;
+                slideImg.css("margin-left",-currentIndex*slideWidth+"px"); // left : 0
+            }
+            currentIndex-- ;
+            slideImg.animate({"margin-left": -slideWidth * currentIndex + "px"},400);
+            console.log("moveLeft:"+currentIndex)
+            // alert("왼쪽 버튼 클릭")
+        }
+
+        function moveRight() {
+            // 이미지를 왼쪽으로 이동(박스의 크기)
+
+            if(currentIndex == slideCount){
+                currentIndex =0;
+                slideImg.css("margin-left",-currentIndex*slideWidth+"px"); // left : 0
+            }
+            currentIndex++;
+            slideImg.animate({"margin-left": -slideWidth * currentIndex + "px"},400);
+            console.log("moveRight"+currentIndex)
+            // alert("오른쪽 버튼 클릭")
+            // -400
+            // -800
+            // -1200
+            // -1600
+            // -2000 
+            //  0 /// 초기화
+            // -400
+
+        }
+
+        // 버튼클릭하기 
+
+        
+        sliderBtn.on("click", "a", function () {
+            if ($(this).hasClass("prev")) {
+                moveLeft();
+            } else {
+                moveRight();
+            }
+            // // 조건부 연산자
+            // $(this).hasClass("prev")?  moveLeft(): moveRight()
+
+            // 
+        });
     </script>
 </body>
 
