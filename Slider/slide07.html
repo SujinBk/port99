@@ -194,7 +194,7 @@
         function moveLeft() {
             if(currentIndex == 0 ) {
                 currentIndex = 5;
-                slideImg.css("margin-left",-currentIndex*slideWidth+"px"); // left : 0
+                slideImg.css("margin-left",-currentIndex*slideWidth+"px"); // left : 0 //margin-left :5000px 자연스럽게 재생되게 위해서 속성을 준 것 
             }
             currentIndex-- ;
             slideImg.animate({"margin-left": -slideWidth * currentIndex + "px"},400);
@@ -218,7 +218,7 @@
             // -1200
             // -1600
             // -2000 
-            //  0 /// 초기화
+            //  0 /// 초기화 갑자기 치수가  높아지니 한번 초기화 하고 다시 시작
             // -400
 
         }

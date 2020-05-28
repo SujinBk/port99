@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>parallax06</title>
+    <title>parallax07</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
@@ -257,16 +257,16 @@
     </div>
 
     <div class="title">
-        <h1>parallax06</h1>
-        <p>이질감 효과(js)</p>
+        <h1>parallax07</h1>
+        <p></p>
         <ul>
             <li><a href="parallax01.html">parallax01</a></li>
             <li><a href="parallax02.html">parallax02</a></li>
             <li><a href="parallax03.html">parallax03</a></li>
             <li><a href="parallax04.html">parallax04</a></li>
             <li><a href="parallax05.html">parallax05</a></li>
-            <li class="active"><a href="parallax06.html">parallax06</a></li>
-            <li><a href="parallax07.html">parallax07</a></li>
+            <li><a href="parallax06.html">parallax06</a></li>
+            <li class="active"><a href="parallax07.html">parallax07</a></li>
             <li><a href="parallax08.html">parallax08</a></li>
         </ul>
     </div>
@@ -363,22 +363,46 @@
             </section>
         </div>
     </section>
-
+    <!-- 스크립트 연동 -->
     <script src="js/jquery.min_1.12.4.js"></script>
     <script src="js/jquery-ui.min.js"></script>
+    <script src="js/gsap.min.js"></script>
+    <!-- // 스트립트 연동 -->
+    <!-- 스크립트 -->
     <script>
-        window.addEventListener("scroll",() =>{
-            const pageYOffset = (window.pageYOffset || document.documentElement.scrollTop) + screen.height/2;
+        //jquery
+        let scrollTop = $(window).scrollTop();
 
-            document.querySelector(".pageYOffset").textContent =pageYOffset;
-            document.querySelectorAll(".content-item").forEach(elem => {
-                //console.log(elem.childNodes[7])
-                let taraet =elem.childNodes[7]; //왜 7인거지??
-                let offset = (pageYOffset - elem.offsetTop)*0.2;
-                taraet.style.transform = "translateY("+offset+"px)"
-            });
-        });
+        function scroll(){
+            let newScrollTop = $(window).scrollTop(); 
+            let different = newScrollTop - scrollTop
+
+            // console.log("scrollTop :" + scrollTop);
+            // console.log("newScrollTop :" + newScrollTop);
+            // console.log("different :" + different);
+
+            $(".content-item-desc").css({"transform":"skewY("+different+"deg)"})
+            scrollTop = newScrollTop;
+            requestAnimationFrame(scroll)
+        }
+        scroll()
+
+        // 일정한 시간동안 반복적 함수를 실행
+        // setInterval(render,1000);
+
+        let num = 0;
+        function render(){ 
+            $(".content-item-num").text(num);
+            num++;
+            requestAnimationFrame(render)// 자연스러운 애니메이션을 구현할수 있다. 
+            //setInterval(render,1000); ///약간 버벅거린다. 
+        }
+        render()
+
+        
+
     </script>
+
 </body>
 
 </html>
