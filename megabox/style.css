@@ -2,15 +2,15 @@
 
 #header {
   width: 100%;
-  height: 800px;
-  background: #000;
+  height: 950px;
+  background: rgb(24, 22, 22);
 }
 
 #nav {
   width: 100%;
   height: 85px;
-  background-color: rgba(0,0,0,0.3);
-  border-bottom: 1px solid rgba(255,255,255,0.4);
+  background-color: rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   position: relative;
 }
 
@@ -21,6 +21,7 @@
   margin-left: -70px;
 
 }
+
 /* link1 */
 .link1 {
   width: 1100px;
@@ -28,13 +29,17 @@
   position: relative;
   font-size: 13px;
 }
-.link1 a {padding-right: 10px;}
+
+.link1 a {
+  padding-right: 10px;
+}
 
 .link1 .link-left {
   position: absolute;
   top: 15px;
   left: 0;
 }
+
 .link1 .link-right {
   position: absolute;
   top: 15px;
@@ -51,7 +56,7 @@
 
 .link2 .link-icon1 {
   padding-top: 50px;
- 
+
 }
 
 .link2 .link-icon1 a {
@@ -60,8 +65,9 @@
 
 .link2 .link-text1 li {
   padding-right: 60px;
-  float: left; 
+  float: left;
 }
+
 .link2 .link-text1 ul {
   position: absolute;
   top: 70%;
@@ -71,16 +77,17 @@
 
 .link2 .link-text2 li {
   padding-right: 60px;
-  float: left; 
+  float: left;
 }
+
 .link2 .link-text2 ul {
   position: absolute;
   top: 70%;
-  right:10% ;
+  right: 10%;
 }
 
-.link2 .link-icon2  {
-  
+.link2 .link-icon2 {
+
   position: absolute;
   right: 0;
   top: 50%;
@@ -90,6 +97,7 @@
   padding-right: 20px;
 
 }
+
 .rink {
   margin: 200px 0 20px;
   width: 1100px;
@@ -98,21 +106,23 @@
   padding: 80px 0 20px;
   position: relative;
 }
-.rink span{
+
+.rink span {
   display: inline-block;
-   color:#fff;
-   text-align: center;
-   border-bottom: 2px solid #aaa;
-   padding-bottom: 8px;
-  }
-.rink .movie-more { 
+  color: #fff;
+  text-align: center;
+  border-bottom: 2px solid #aaa;
+  padding-bottom: 8px;
+}
+
+.rink .movie-more {
   position: absolute;
   right: 35px;
   bottom: 25px;
 }
 
-.rink .movie-more::before{
-  content:'';
+.rink .movie-more::before {
+  content: '';
   width: 20px;
   height: 2px;
   position: absolute;
@@ -121,8 +131,8 @@
   background: #aaa;
 }
 
-.rink .movie-more::after{
-  content:'';
+.rink .movie-more::after {
+  content: '';
   width: 2px;
   height: 20px;
   position: absolute;
@@ -130,31 +140,32 @@
   bottom: -1px;
   background: #aaa;
 }
+
 .box {
   display: flex;
   justify-content: space-between;
   width: 1100px;
-  height: 500px;
+  height: 450px;
   margin: 0 auto;
 }
 
 .box .sbox {
   width: 23%;
   height: 370px;
-  background-position:center;
+  background-position: center;
   background-size: cover;
   border-radius: 10px;
-  display:inline-block;
+  display: inline-block;
 }
 
 .rink_num {
-  color:#fff;
+  color: #fff;
   font-size: 30px;
   font-style: italic;
   font-family: 'Nanum Gothic';
   margin: 10px 0 0 10px;
   display: inline-block;
-  text-shadow: 2px 2px 2px rgba(0,0,0,0.8);
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
 }
 
 .sbox {
@@ -163,67 +174,269 @@
 
 .sbox_btn {
   width: 100%;
-  height: 36px;
+  height: 46px;
   position: relative;
   top: 330px;
   overflow: hidden;
   display: flex;
   justify-content: space-between;
   margin-top: 8px;
- }
+}
 
- .sbox_btn a {
-  color:#fff;
- }
+.sbox_btn a {
+  color: #fff;
+  line-height: 2;
+}
 
- .sbox_btn .btn1 {
-   width: 28%;
-   height: 70%;
-   border:1px solid #555;
-   border-radius:5px;
-   text-align: center;
-   font-size: 13px;
- }
+.sbox_btn .btn1 {
+  width: 28%;
+  height: 70%;
+  border: 1px solid #555;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 13px;
+}
 
- .sbox_btn .btn1 a svg {
-   width: 15px;
-   height: 15px;
-   padding-top: 5px;
- }
+.sbox_btn .btn1 a svg {
+  width: 15px;
+  height: 15px;
+  padding-top: 10px;
+}
 
-.sbox_btn .btn1 a span{
+.sbox_btn .btn1 a span {
   position: relative;
   bottom: 3px;
 }
 
 
- .sbox_btn .btn2 {
+.sbox_btn .btn2 {
   width: 68%;
   height: 70%;
   background-color: #037b94;
-  border-radius:5px;
+  border-radius: 5px;
   text-align: center;
 }
- 
+
 /*  오버했을때 나오는 관람평 */
-.review{
+.sbox:hover .review {
+  opacity: 1;
+}
+
+.review {
+  opacity: 0;
   position: absolute;
-  left: 0;top: 0;
-  right: 0;bottom: 0;
-  background-color: rgba(0,0,0,0.8);
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
   color: #fff;
   padding: 25px;
   overflow: hidden;
 }
 
 .review .sre {
-  
+  overflow: hidden;
+  width: 100%;
+  height: 152px;
+}
+
+.review .score {
+  width: 100%;
+  text-align: center;
+  border-top: 1px solid #3c3c3c;
+  position: relative;
+  top: 40%;
+  padding-top: 10px;
+}
+
+.score .preview {
+  overflow: hidden;
+  margin: 0 auto;
+  display: inline-block;
+
+
+}
+
+.preview .tit {
+  float: left;
+  font-size: 14px;
+  line-height: 40px;
+  margin-right: 19px;
+
+}
+
+.preview .num {
+  float: left;
+  font-size: 30px;
+  color: #59bec9;
+}
+
+/* ================== 서치 박스 ==================================== */
+
+#search-link {
+  background: rgba(0, 0, 0, 0.2);
+  width: 1100px;
+  height: 75px;
+  margin: 0 auto;
+  display: flex;
+  padding-top: 20px;
+}
+
+#search-link .cell {
+  width: 25%;
+  text-align: center;
+  border-left: 1px solid #423e3e;
+  height: 40px;
+}
+
+#search-link .cell:first-child {
+  border: 0;
+}
+
+
+#search-link .search {
+  border-bottom: 1px solid #423e3e;
+  width: 200px;
+  height: 30px;
+  padding-right: 30px;
+  display: inline-block;
+}
+
+#search-link .moivename {
+  background-color: transparent;
+  color: #fff;
+  border: 0;
+
+}
+
+#search-link button {
+  width: 20px;
+  height: 20px;
+  border: 0;
+  background-color: transparent;
+  position: relative;
+  right: -30px;
+  top: 5px;
+  background-image: url(img/ico-search.png);
+  background-position: center;
+  background-size: cover;
+}
+
+#search-link .cell span {
+  display: inline-block;
+  color: #fff;
+  padding-left: 10px;
+  position: relative;
+  top: -6px;
+}
+
+/* ========= movimg - mouse================= */
+
+#moving_mouse .mmbox {
+  margin-top: 80px;
+}
+#moving_mouse svg{
+  width: 16px;
+  height: 24px;
+  position: relative;
+  left: 50%;
+}
+
+/* ================== contants1 =========================== */
+#contants1 {
+  width: 1100px;
+  margin: 0 auto;
+  background: #aaa;
+}
+
+#contants1 .tit {position: relative;}
+
+#contants1 .tit h2 {
+  color:#351f66;
+  font-size: 2em;
+}
+
+#contants1 .tit a::before{
+  content: '';
+  width: 2px;
+  height: 15px;
+  position: absolute;
+  right: 16px;;top:19px;
+  background: #000;
+}
+#contants1 .tit a::after{
+  content: '';
+  width:15px;
+  height: 2px;
+  position: absolute;
+  right: 10px;top: 25px;
+  background: #000;
+}
+
+/* ================== banner2 =========================== */
+
+#contants2 {
+  background: #252451;
+}
+
+.cont_wrap {
+  width: 1100px;
+  margin: 0 auto;
+}
+
+.tit {
+  display: flex;
+  justify-content: space-between;
+}
+#contants2 h2 {
+  color:#fff;
+  font-size: 2em;
+}
+
+#contants2 a {
+  position: relative;
+  margin: 10px 30px 0 0;
+}
+
+#contants2 .tit a::before{
+  content: '';
+  width: 2px;
+  height: 15px;
+  position: absolute;
+  right: -15px;top:4px;
+  background: #aaa;
+}
+#contants2 .tit a::after{
+  content: '';
+  width:15px;
+  height: 2px;
+  position: absolute;
+  right: -22px;top: 10px;
+  background: #aaa;
+}
+
+.cont_main {
+  background: #ccc;
+  width: 100%;
+  height: 500px;
 }
 
 /*  영화 포스터 */
-.sbox1 {background-image: url(img/movieposter01.jpg);}
-.sbox2 {background-image: url(img/movieposter02.jpg);}
-.sbox3 {background-image: url(img/movieposter03.jpg);}
-.sbox4 {background-image: url(img/movieposter04.jpg);}
+.sbox1 {
+  background-image: url(img/movieposter01.jpg);
+}
+
+.sbox2 {
+  background-image: url(img/movieposter02.jpg);
+}
+
+.sbox3 {
+  background-image: url(img/movieposter03.jpg);
+}
+
+.sbox4 {
+  background-image: url(img/movieposter04.jpg);
+}
 
 /*# sourceMappingURL=style.css.map */
