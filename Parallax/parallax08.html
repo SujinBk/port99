@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>parallax07</title>
+    <title>parallax08</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
@@ -246,6 +246,58 @@
             transform: translateY(0);
             transition: all 0.6s ease;
         } */
+        /*contants */
+        /* .content-item-desc{
+            opacity: 0;
+            transition: all 0.44s ease;
+            transform: translateY(70px);
+        }
+        .content-item-desc.show{
+            opacity: 1;
+            transition: all 0.44s ease-in;
+            transform: translateY(0);
+        } */
+
+        #section1 .content-item-desc span {
+            opacity: 0;
+            transition: all 0.44s ease;
+            transform: translateY(70px);
+            display: inline-block;
+            min-width: 30px;
+
+        }
+
+        #section1 .content-item-desc span.show {
+            opacity: 1;
+            transition: all 0.44s ease-in;
+            transform: translateY(0);
+
+        }
+
+        #section1.content-item-desc span:nth-child(1) {
+            transition-delay: 0.01s;
+        }
+
+        
+        #section2 .content-item-desc span {
+            opacity: 0;
+            transition: all 0.44s ease;
+            display: inline-block;
+            min-width: 30px;
+
+        }
+
+        #section2 .content-item-desc span.show {
+            opacity: 1;
+            animation: flipInY 1s;
+        }
+        @keyframes flipInY {
+            from {transform: perspective(400px) rotate3d(0, 1, 0, 90deg);animation-timing-function: ease-in; opacity: 0;}
+            40% {transform: perspective(400px) rotate3d(0, 1, 0, -20deg); animation-timing-function: ease-in; }
+            60% {transform: perspective(400px) rotate3d(0, 1, 0, 10deg); opacity: 1;}
+            80% {transform: perspective(400px) rotate3d(0, 1, 0, -5deg);}
+            to { transform: perspective(400px);}
+        }
     </style>
 </head>
 
@@ -256,7 +308,7 @@
     </div>
 
     <div class="title">
-        <h1>parallax07</h1>
+        <h1>parallax08</h1>
         <p></p>
         <ul>
             <li><a href="parallax01.html">parallax01</a></li>
@@ -265,8 +317,8 @@
             <li><a href="parallax04.html">parallax04</a></li>
             <li><a href="parallax05.html">parallax05</a></li>
             <li><a href="parallax06.html">parallax06</a></li>
-            <li class="active"><a href="parallax07.html">parallax07</a></li>
-            <li><a href="parallax08.html">parallax08</a></li>
+            <li><a href="parallax07.html">parallax07</a></li>
+            <li class="active"><a href="parallax08.html">parallax08</a></li>
         </ul>
     </div>
     <!-- <div class="info">
@@ -367,73 +419,73 @@
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/gsap.min.js"></script>
     <!-- // 스트립트 연동 -->
+
     <!-- 스크립트 -->
     <script>
-        //=========  jquery   =================
-        // let scrollTop = $(window).scrollTop();
+        //javascript
+        // let txt = $("#section1 .content-item-desc").text();
+        // let split = txt.split("").join("</span><span aria-hidden = 'true'>") //split(" ") 띄어 쓰게 되면 한 단어가 찟어지게 된다. 
+        // split = "<span aria-hidden = 'true'>" + split + "</span>"
+        // //contesnt- item-desc에 aria-lavbel 속성을 추가 (attr)
+        // // 속성텍스트(txt)를 입력
+        // $("#section1 .content-item-desc").html(split).attr("aria-label", txt)
+        // alert(split)
 
-        // function scroll(){
-        //     let newScrollTop = $(window).scrollTop(); 
-        //     let different = newScrollTop - scrollTop
+        //한번에 써보자
+        $(".content-item-desc").each(function () {
+            let txt = $(this).text();
+            let split = txt.split("").join("</span><span aria-hidden = 'true'>");
+            split = "<span aria-hidden = 'true'>" + split + "</span>"
+            $(this).html(split).attr("aria-label", txt)
+            console.log(txt)
+        });
 
-        //     // console.log("scrollTop :" + scrollTop);
-        //     // console.log("newScrollTop :" + newScrollTop);
-        //     // console.log("different :" + different);
+        // 자바스크립트로 한번에는 숙제다.............
 
-        //     $(".content-item-desc").css({"transform":"skewY("+different+"deg)"})
-        //     scrollTop = newScrollTop;
-        //     requestAnimationFrame(scroll)
-        // }
-        // scroll()
 
-        // // 일정한 시간동안 반복적 함수를 실행
-        // // setInterval(render,1000);
+        // 패럴럭스 인텍트
+        $(window).scroll(function () {
+            // if($(window).scrollTop() > $("#section1").offset().top){
+            //     $("#section1 .content-item-desc").addClass("show");
+            // }else{
+            //     $("#section1 .content-item-desc").removeClass("show");
+            // }
 
-        // let num = 0;
-        // function render(){ 
-        //     $(".content-item-num").text(num);
-        //     num++;
-        //     requestAnimationFrame(render)// 자연스러운 애니메이션을 구현할수 있다. 
-        //     //setInterval(render,1000); ///약간 버벅거린다. 
-        // }
-        // render()
 
-        //================  자바스크립트javascript  ===================================//
-        let pageYOffset = window.pageYOffset; // 크롬 최신 버전만 사용 가능
+            // $(".content-item").each(function(){
+            //     if($(window).scrollTop() > $("#section1").offset().top){
+            //         $(this).find(".content-item-desc").addClass("show");
+            //     }else{
+            //         $(this).find(".content-item-desc").removeClass("show");
+            //     }
+            // });
 
-        const scroll = () => { // function scroll(){} 의 익명함수버전
-            const newPageYOrrset = window.pageYOffset;
-            const different = newPageYOrrset -pageYOffset;
+            if ($(window).scrollTop() >= $("#section1").offset().top) { // 화면에 섹션이 보이기 시작할때
+                $("#section1 .content-item-desc span").each(function (index) {
+                    //console.log(index)
+                    setInterval(function () {
+                        $("#section1 .content-item-desc span").eq(index).addClass("show")
+                    }, 100 * index);
 
-            // $(".content-item-imgWrap").css({"transform":"skewY("+different+"deg)"});
+                });
+                // span갯수 파악 : leangh eq index each
+                // 각 span : delay
+            }
 
-            // let target = document.querySelectorAll(".content-item-imgWrap");
-            // target.style.transform = "rotate("+different+"deg)";
+            if ($(window).scrollTop() >= $("#section2").offset().top) { // 화면에 섹션이 보이기 시작할때
+                $("#section2 .content-item-desc span").each(function (index) {
+                    //console.log(index)
+                    setInterval(function () {
+                        $("#section2 .content-item-desc span").eq(index).addClass("show")
+                    }, 100 * index);
 
-            // targer.forEach(box => {
-            //     box.style.transform = "rotate("+different *0.03+"deg)";
-            // });// 인덱스 값 요소값 
+                });
+                // span갯수 파악 : leangh eq index each
+                // 각 span : delay
+            }
 
-            //=============  gsap   ===================//
-            //gsap.to(".content-item-img",{duration:0.3,ease:Power1.ease,rotation:different});
-            gsap.to(".content-item-img",{duration:0.3,ease:"Power1.out",skewY:different*0.2});
-            gsap.to(".content-item-desc",{duration:0.3,ease:"Power2.out",skewY:-different*0.3});
-
-            pageYOffset = newPageYOrrset;
             
-
-            requestAnimationFrame(scroll)
-
-            // console.log("pageYOffset :" + pageYOffset);
-            // console.log("newPageYOrrset :" + newPageYOrrset);
-            // console.log("different :" + different);
-
-        }
-        scroll()
-
-       
-        
-
+        });
     </script>
 
 </body>

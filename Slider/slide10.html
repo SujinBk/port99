@@ -7,52 +7,263 @@
     <title>Slider Portfolio</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <style>
-        * {margin: 0;padding: 0; box-sizing: border-box;}
-        a {text-decoration: none;color: #666; }
-        img {width: 100%;vertical-align: top;}
-        li{list-style: none;}
+         * {margin: 0; padding: 0; box-sizing: border-box;}
+        a {text-decoration: none;color: #fff;}
+        img {width: 100%; vertical-align: top;}
+        li {list-style: none;}
 
-        body { background: #ccc;}
         #nav {
-            position: fixed;left: 0;top: 0; width: 100%;
+            position: fixed; left: 0; top: 0; 
+            width: 100%; 
             background: #fff; z-index: 1000;
             display: flex;
-            justify-content: space-between;
             font-family: "Roboto";
             padding: 0 7vw;
         }
+        #nav .menu {
+            flex: 1 1 0;
+        }
+        #nav .menu li {
+            display: inline-block;
+            margin:  2.3vw 1vw 2.3vw 0;
+        }
+        #nav .menu li.active a {font-weight: bold;} 
+        #nav .menu a {color: #000; font-size: 14px;}
 
-        #nav h1 {height: 100px; line-height: 100px; font-weight: 700; letter-spacing: 10px; font-size: 14px;text-transform: uppercase; padding-right: inherit;}
-        #nav .ham  { cursor: pointer;}
-        #nav .ham .bar  {
-            margin-top: 46px;
+        #nav h1 { 
+            flex: 1 1 0;
+            font-weight: 700; 
+            letter-spacing: 10px; font-size: 14px;
+            text-transform: uppercase;
+            text-align: center;
+            margin: 2.3vw 1vw;
+        }
+        #nav .ham {
+            flex: 1 1 0;
+            position: relative;
+        }
+        #nav .ham .bar { 
+            position: absolute; 
+            right: 0;
+            top: 50%; transform: translateY(-50%);
+            width: 50px; height: 50px;
+            cursor: pointer;
+        }
+        #nav .ham .bar span {
             width: 30px;
             height: 3px;
             background: #000;
             position: relative;
+            display: block;
+            transition: all 0.5s ease;
+            margin-top: 25px;
+            margin-left: 10px;
         }
-        #nav .ham .bar::before  {
-            content: "";
+        #nav .ham .bar span::before {
+            content: '';
             width: 50%;
             height: 3px;
             background: #000;
-            position: absolute;
-            bottom: -10px; right: 0;
+            position: absolute; top: -10px; left: 0;
+            transform-origin: left;
+            transition: all 0.5s ease;
+        }
+        #nav .ham .bar span::after {
+            content: '';
+            width: 50%;
+            height: 3px;
+            background: #000;
+            position: absolute; bottom: -10px; right: 0;
+            transform-origin: right;
+            transition: all 0.5s ease;
+        }
+        #nav .ham .bar.on span {transform: rotate(135deg);}
+        #nav .ham .bar.on span::before {top:0; transform: translateX(100%) rotate(-90deg);}
+        #nav .ham .bar.on span::after {bottom:0; transform:  translateX(-100%) rotate(-90deg);}
+
+      
+
+        /* slide-wrap */
+        .slide-wrap {position: relative; height: 100vh; overflow: hidden;}
+        .slide-img {position: relative; width: 100%; height: 100%;}
+        .slide-img .slide {position: absolute; width: 100%; height: 100%; overflow: hidden;}
+        .slide-img .slide .stext {
+            position: absolute; left: 50%; top: 50%; 
+            letter-spacing: 0.15em;
+            transform: translate(-50%,-50%) scale(0.8);
+            
+        }
+        .slide-img .slide .stext h2 { 
+            padding-top: 0.1vw;
+            letter-spacing: 0.1em;
+            font-size: 11vw; line-height: 8vw;color: #fff;
+            font-family: "Roboto";
+            text-transform: uppercase;
+            font-weight: 700;
+            overflow: hidden;
+            display: flex;
+        }
+        .slide-img .slide .stext h2 span {
+            /* display: inline-block; */
+            transform:translateY(15px 350px);
+            opacity: 0;
+            transition: all 1s ease;
+            transform-origin: bottom left;
+        }
+        .slide-img .slide.active .stext h2 span {
+            transform:translateY(0%);
+            opacity: 1;
         }
 
-        #nav .ham .bar::after  {
-            content: "";
-            width: 50%;
-            height: 3px;
+        .slide-img .slide.active .stext h2 span:nth-child(1) {transition-delay: 0.05s;}
+        .slide-img .slide.active .stext h2 span:nth-child(2) {transition-delay: 0.10s;}
+        .slide-img .slide.active .stext h2 span:nth-child(3) {transition-delay: 0.15s;}
+        .slide-img .slide.active .stext h2 span:nth-child(4) {transition-delay: 0.20s;}
+        .slide-img .slide.active .stext h2 span:nth-child(5) {transition-delay: 0.25s;}
+        .slide-img .slide.active .stext h2 span:nth-child(6) {transition-delay: 0.30s;}
+        .slide-img .slide.active .stext h2 span:nth-child(7) {transition-delay: 0.35s;}
+        .slide-img .slide.active .stext h2 span:nth-child(8) {transition-delay: 0.40s;}
+        .slide-img .slide.active .stext h2 span:nth-child(9) {transition-delay: 0.45s;}
+        .slide-img .slide.active .stext h2 span:nth-child(10) {transition-delay: 0.50s;}
+        .slide-img .slide.active .stext h2 span:nth-child(11) {transition-delay: 0.55s;}
+
+        .slide-img .slide .simg {position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}
+        .slide-img .slide .simg img {
+            max-width: 500px; 
+            display: block; position: relative;
+            margin: 0 auto; transform: scale(0.4);
+            
+            }
+        .slide-img .slide.active .simg img {
+            animation: scale1 1s ease-in-out forwards;
+             }
+             @keyframes scale1 {
+                 0%{transform:scale(0.4)}
+                 100%{transform:scale(1.2)}
+             }
+
+        .slide-img .slide .snum {
+            position: absolute; left: 7.5vw; top: 11vh;
+            font-size: 5vw;
+            line-height: 6vw;
+            color: #000;
+            font-family: "Playfair Display";
+            font-style: italic; 
+            padding-right:1vw;
+        }
+
+        .slide-img .slide .snum::before{
+            content: '';
+            width: 100%;height: 100%;
+            background: rgba(255,255,255,1);
+            position: absolute;
+            left: 0;top: 1vw;
+            z-index: 1000;
+            transform:scaleX(0);
+        }
+        .slide-img .slide .snum .currentIndex {
+            margin-right: 4.5vw;
+            position: relative;
+        }
+        .slide-img .slide .snum .currentIndex::before {
+            content: ' ';
+            width: 4vw;
+            height: 2px;
             background: #000;
             position: absolute;
-            top: -10px;left: 0;
+            right: -5.3vw; bottom: 2.5vw;
+            
         }
-        #nav .menu a {color:#000; font-size: 14px;}
-        #nav .menu li {display: inline-block; height: 100px; line-height: 100px; padding-right: 10px;}
-        #nav .menu li.active a {font-weight: bold;}
+
+        .slide-img .slide.active .snum::before{
+           animation: ani1 0.7s 0.6s ease;
+        }
+
+        @keyframes ani1 {
+            0%{transform-origin:left; transform:scaleX(0);}
+            50%{transform-origin:left; transform:scaleX(1);}
+            51%{transform-origin:right; transform:scaleX(1);}
+            100%{transform-origin:right; transform:scaleX(0);}
+        }
+        /* 리빌효과 */
+        .slide-img .slide .snum span {opacity: 0; transition: all 0.5s 0.8s ease;}
+        .slide-img .slide.active .snum span {opacity: 1;}
+
+        /* .slide-img .slide.s1 {background: #fcefe9;}
+        .slide-img .slide.s2 {background: #e9effd;}
+        .slide-img .slide.s3 {background: #fae3f5;}
+        .slide-img .slide.s4 {background: #fbe368;}
+        .slide-img .slide.s5 {background: #ccebea;}
+        .slide-img .slide.s6 {background: #e9effd;}
+        .slide-img .slide.s7 {background: #f4f2ec;} */
+
+        /* slide-dot */
+        .slide-dot {
+            position: absolute; left: 50%; transform: translateX(-50%);
+            bottom: 0;
+            width: 100%;
+            background: #fff;
+            text-align: center;
+        }
+        .slide-dot a {
+            color: #000;
+            display: inline-block;
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            margin: 2.5vw 1.2vw 2.5vw 1vw;
+            border: 1px solid #ccc;
+            text-indent: -9999px;
+        }
+
+        .slide-dot a.active{
+            border: 3px; color: #333; text-indent: 0;
+            font-family: "Playfair Display";
+            font-style: italic;
+            vertical-align: 9px;
+            font-size: 18px;
+        }
+
+        /* slide-btn */
+        .slide-btn a {position: absolute; top: 0; z-index: 2000;}
+        .slide-btn a.prev {left: 0; width: 5.2vw; height: 100vh; background: #fff; }
+        .slide-btn a.next {right: 0; width: 5.2vw; height: 100vh; background: #fff;}
+
+        .slide-btn a.prev::before {
+            content: '';
+            width: 10px; height: 2px; background: #000;
+            position: absolute; bottom: 3vw; left: 2.4vw;
+            border-radius: 10px;
+            transform: rotate(-45deg);
+            transform-origin: left;
+        }
+        .slide-btn a.prev::after {
+            content: '';
+            width: 10px; height: 2px; background: #000;
+            position: absolute; bottom: 3vw; left: 2.4vw;
+            border-radius: 10px;
+            transform: rotate(45deg);
+            transform-origin: left;
+        }
+       
+        .slide-btn a.next::before{
+            content: '';
+            width: 10px; height: 2px; background: #000;
+            position: absolute; bottom: 3vw; left: 2.4vw;
+            border-radius: 10px;
+            transform: rotate(-45deg);
+            transform-origin: right;
+        }
+        .slide-btn a.next::after{
+            content: '';
+            width: 10px; height: 2px; background: #000;
+            position: absolute; bottom: 3vw; left: 2.4vw;
+            border-radius: 10px;
+            transform: rotate(45deg);
+            transform-origin: right;
+        }
 
     </style>
 </head>
@@ -66,34 +277,225 @@
         </ul>
         <h1>Portfolio</h1>
         <div class="ham">
-           <div class="bar">
-               <span></span>
-           </div>
+            <div class="bar">
+                <span></span>
+            </div>
         </div>
     </nav>
     <section id="contents">
         <div class="slide-wrap">
             <div class="slide-img">
                 <div class="slide s1">
-                    <!-- <div class="stext">
+                    <div class="stext">
                         <h2>webstandard</h2>
                     </div>
                     <div class="simg">
                         <img src="img/img1.png" alt="webstandard">
-                    </div> -->
+                    </div>
+                    <div class="snum">
+                        <span class="currentIndex">01</span>
+                        <span class="slideCount">07</span>
+                    </div>
                 </div>
-                <div class="slide s2"></div>
-                <div class="slide s3"></div>
-                <div class="slide s4"></div>
-                <div class="slide s5"></div>
-                <div class="slide s6"></div>
-                <div class="slide s7"></div>
+                <div class="slide s2">
+                    <div class="stext">
+                        <h2>webstandard</h2>
+                    </div>
+                    <div class="simg">
+                        <img src="img/img2.png" alt="webstandard">
+                    </div>
+                    <div class="snum">
+                        <span class="currentIndex">02</span>
+                        <span class="slideCount">07</span>
+                    </div>
+                </div>
+                <div class="slide s3">
+                    <div class="stext">
+                        <h2>webstandard</h2>
+                    </div>
+                    <div class="simg">
+                        <img src="img/img3.png" alt="webstandard">
+                    </div>
+                    <div class="snum">
+                        <span class="currentIndex">03</span>
+                        <span class="slideCount">07</span>
+                    </div>
+                </div>
+                <div class="slide s4">
+                    <div class="stext">
+                        <h2>webstandard</h2>
+                    </div>
+                    <div class="simg">
+                        <img src="img/img4.png" alt="webstandard">
+                    </div>
+                    <div class="snum">
+                        <span class="currentIndex">04</span>
+                        <span class="slideCount">07</span>
+                    </div>
+                </div>
+                <div class="slide s5">
+                    <div class="stext">
+                        <h2>webstandard</h2>
+                    </div>
+                    <div class="simg">
+                        <img src="img/img1.png" alt="webstandard">
+                    </div>
+                    <div class="snum">
+                        <span class="currentIndex">05</span>
+                        <span class="slideCount">07</span>
+                    </div>
+                </div>
+                <div class="slide s6"><div class="stext">
+                    <h2>webstandard</h2>
+                </div>
+                <div class="simg">
+                    <img src="img/img2.png" alt="webstandard">
+                </div>
+                <div class="snum">
+                    <span class="currentIndex">06</span>
+                    <span class="slideCount">07</span>
+                </div></div>
+                <div class="slide s7">
+                    <div class="stext">
+                        <h2>webstandard</h2>
+                    </div>
+                    <div class="simg">
+                        <img src="img/img3.png" alt="webstandard">
+                    </div>
+                    <div class="snum">
+                        <span class="currentIndex">07</span>
+                        <span class="slideCount">07</span>
+                    </div>
+                </div>
             </div>
+            <!-- <div class="slide-dot">
+                <a href="#">01</a>
+                <a href="#"class="active">02</a>
+                <a href="#">03</a>
+                <a href="#">04</a>
+                <a href="#">05</a>
+                <a href="#">06</a>
+                <a href="#">07</a>
+            </div> -->
         </div>
     </section>
     <script src="js/jquery.min_1.12.4.js"></script>
     <script src="js/jquery-ui.min.js"></script>
+    <script>
 
+        // 닷 버튼 생성
+
+        $(".slide-wrap").append("<div class='slide-dot'></div>");
+        $(".slide-wrap").append("<div class='slide-btn'><a href='#' class= 'prev'></a><a href='#' class= 'next'></a></div>");
+        
+
+
+        
+        const slideWrap = $(".slide-wrap"),
+              slideImg = $(".slide-img"),
+              slide = $(".slide"),
+              slideDot = $(".slide-dot"),
+              slideBtn =$(".slide-btn");
+
+        let slideCount = slide.length, // 슬라이드 이미지 갯수
+            currentIndex =0;           // 현제 보이는 이미지 
+            dotIndex ="",              // 닷 버튼 HTML
+            duration =1000,            // 이미지 슬라이드 이동시간
+            easing ="easeOutExpo",      //이미지 움직임 효과
+            slidebg =["#fcefe9","#e9effd","#fae3f5","#fbe368","#ccebea","#e9effd","#f4f2ec"];
+            
+            // 글씨 세분화
+            slide.each(function () {
+            let txt = $(this).find(".stext > h2").text();
+            let split = txt.split("").join("</span><span aria-hidden = 'true'>");
+            split = "<span aria-hidden = 'true'>" + split + "</span>"
+            $(this).find(".stext > h2").html(split).attr("aria-label", txt)
+            console.log(txt)
+        });
+
+
+
+
+
+        // 01 각 이미지가 absolute
+        // left : 0   currentIndex 
+        // left : 100 % = currentIndex(1) * 100%(width값)
+        // left : 200 % = currentIndex(2) * 100%
+        // left : 300 % = currentIndex(3) * 100%
+
+        // for문 ---> each()문을 써서 슬라이드효과
+        slide.each(function(i,e){
+            //console.log(i,e)// 나왔는지 확인
+           // $(this).css({"left":+i+"00%"}); // 다양한 방법
+            $(this).css({left:100*i+"%",backgroundColor:slidebg[i]});   // 각 이미지 위치 설정해준 것
+            dotIndex
+
+            // 이미지 갯수 만큼 닷 버튼 만들기
+            dotIndex += "<a href='#'>0"+(i+1)+"</a>";
+            
+        });
+        slideDot.html(dotIndex);
+        
+        //이미지 움직이기
+        function gotoSlide(num){
+            slideImg.animate({left:-100*num+"%"}, duration,easing);
+            currentIndex = num;
+            updateDot();
+        }
+
+        function updateDot(){
+            slideDot.find("a").removeClass().eq(currentIndex).addClass("active");
+            slide.removeClass("active").eq(currentIndex).addClass("active")
+        }
+
+        // 버튼 클릭하기 
+        slideBtn.on("click","a",function(){
+            let nextIndex = (currentIndex +1) % slideCount;
+            let prevIndex = (currentIndex -1) % slideCount;
+            if(currentIndex == 0)prevIndex =prevIndex -1
+
+
+            console.log(nextIndex)
+            if($(this).hasClass("prev")){
+                // 왼쪽
+                gotoSlide(prevIndex);
+            }else{
+                // 오른쪽
+                gotoSlide(nextIndex);
+            }
+        });
+
+          
+        //닷 버튼 클릭하기 
+
+        slideDot.on("click", "a", function () {
+            gotoSlide($(this).index());
+        });
+        
+
+        //  햄버거 메뉴
+        $("#nav .ham .bar").click(function () {
+            $(this).toggleClass("on")
+        });
+
+        // 시작하자마자 바로 실행
+        gotoSlide(currentIndex)
+
+        // 자동플레이
+
+        // setInterval(function(){
+        //     currentIndex < slideCount? currentIndex++: currentIndex=0;
+        //     slide.animate({left:currentIndex*(-100)+"%"},400)
+        // },3000);
+
+        function startTimer(){
+            timer= setInterval(function(){
+                let prevIndex = (currentIndex +1) %slideCount;
+                gotoSlide(prevIndex)
+            },3000);
+        }
+        startTimer();
+    </script>
 </body>
 
 </html>
