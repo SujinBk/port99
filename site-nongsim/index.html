@@ -339,6 +339,7 @@
                     </div>
                 </div>
                 <div class="story-frame"></div>
+                <a href="#" class="story-btn">N.Live</a>
             </div>
         </section>
         <!-- //story -->
@@ -416,16 +417,21 @@
                     <li>등락율&nbsp;&nbsp;&nbsp;4.21%</li>
                 </ul>
             </div>
-            <div class="foot2">
-                <span><img src="assets/img/icon-cs.svg" alt="CS CENTER"></span>
+            <a href="#" class="foot2">
+                <div class="footicon">
+                    <span><img src="assets/img/icon-cs.svg" alt="CS CENTER"></span>
+                </div>
                 <strong>cs center</strong>
                 <p>언제나 고객님의 곁에서 소중한 의견에<br>귀 기울이겠습니다.</p>
-            </div>
-            <div class="foot3">
-                <span><img src="assets/img/icon-factory.svg" alt="FACTORY TOUR"></span>
+            </a>
+            <a href="#" class="foot3">
+                <div class="footicon">
+                    <span><img src="assets/img/icon-factory.svg" alt="FACTORY TOUR"></span>
+                </div>
                 <strong>factory tour</strong>
                 <p>공장 견학을 통해 농심 제품의 생생한<br>제조 공정을 직접 체험해보세요.</p>
-            </div>
+            </a>
+
         </div>
     </section>
     <!-- //footer1 -->
@@ -480,7 +486,7 @@
 
         $(document).ready(function () {
 
-            $(window).scroll(function (){
+            $(window).scroll(function () {
                 let scrollTop = $(window).scrollTop();
                 $("#contents > section").each(function () {
                     if (scrollTop > $(this).offset().top) {
@@ -518,8 +524,6 @@
             });
         });
 
-
-        //패럴럭스 효과
     </script>
 </body>
 

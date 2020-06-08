@@ -301,6 +301,8 @@
 .story { 
     position: relative;
     padding-top: 130px;
+    
+
     .story-frame {
         width: 300px; height: 600px; border: 10px solid #000;
         position: absolute; left: 50%; top: 0px; z-index: 1;
@@ -308,6 +310,7 @@
         border-radius: 40px;
         box-shadow: 0px 0px 40px rgba(0,0,0,0.3);
     }
+   
     .swiper-slide {
         width: 340px;
         .simg {
@@ -340,8 +343,29 @@
         .swiper-slide:nth-child(#{$i}) {  
             .simg {background: url(../img/tban#{$i}.jpg) no-repeat center center; background-size: cover;}
         }
+    }
+    .story-btn {
+      font-size: 18px;
+      color: #ca0202;
+      border-radius: 30px;
+      border: 1px solid #ca0202;
+      padding: 10px 80px;
+      margin-top: 80px;
+      display: inline-block;
+      transition: all 0.3s;
+      position: relative;
+      left: 44.5%;
+      top: 133px;
+    
+      &:hover {
+          background: #ca0202;
+          color: #fff;
+      }
     } 
+    
 }
+
+
 
 
 /* world */
@@ -490,7 +514,7 @@
             padding-top: 20px;
         }
         figure { 
-            em{  //em 은 글자라 inline인가?
+            em{  
                 background: #fff;
                 border-radius:50%;
                 display: block;
@@ -576,9 +600,18 @@
     padding: 40px;
   }
   
+
+  #footer1 .footer1 .foot2 .footicon {
+    border-radius: 50%;
+    width: 100px; height: 100px;
+    background-color: #494949;
+    margin: 0 auto;
+  }
+  
   #footer1 .footer1 .foot2 span img {
-    width: 90px;
-    display: inline-block;
+    width: 50px;
+    position: relative;
+    top: 25px;
   }
   
   #footer1 .footer1 .foot2 strong {
@@ -602,9 +635,17 @@
     padding: 40px;
   }
   
+  #footer1 .footer1 .foot3 .footicon {
+    border-radius: 50%;
+    width: 100px; height: 100px;
+    background-color: #494949;
+    margin: 0 auto;
+  }
+  
   #footer1 .footer1 .foot3 span img {
-    width: 90px;
-    display: inline-block;
+    width: 50px;
+    position: relative;
+    top: 20px;
   }
   
   #footer1 .footer1 .foot3 strong {
