@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mouse Effect01</title>
+    <title>Mouse Effect02</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
 
@@ -36,7 +36,7 @@
         }
 
         body {
-            background: url(../Parallax/img/img1.gif) no-repeat center;
+            background: url(../Parallax/img/img2.gif) no-repeat center;
             background-size: cover;
             font-family: 'Oswald', 'DWImpactamin';
             color: #fff;
@@ -51,7 +51,7 @@
             top: 0;
             width: 100%;
             height: 100vh;
-            background: rgba(45, 71, 100, 0.8);
+            background: rgba(90, 39, 133, 0.8);
             z-index: -1;
         }
 
@@ -130,23 +130,37 @@
 
         .cursor {
             position: absolute;
-            left: 0;
-            top: 0;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+            width: 10px;
+            height: 10px;
+            background: #fff;
             z-index: 1000;
+            border-radius: 50%;
             user-select: none;
             pointer-events: none;
-            border: 3px solid #fff;
-            background-color: rgba(255, 255, 255, 0.1);
-            position: fixed;
-            transition: background-color .2s, border-color .2s;
+            transform: scale(1);
+            transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
         }
 
         .cursor.active {
-            background-color: orange;
-            color: #fff;
+            opacity: 5;
+            transform: scale(0);
+        }
+
+        .cursor-follower {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: rgba(225, 255, 255, 0.3);
+            border-radius: 50%;
+            user-select: none;
+            pointer-events: none;
+            transition: transform 0.6s ease-in-out, opacity 0.2s ease-in-out;
+        }
+
+        .cursor-follower.active {
+            opacity: 7;
+            transform: scale(4);
+
         }
 
         /* info4 */
@@ -460,16 +474,16 @@ https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+cli
 
 <body>
     <div class="info">
-        <h1>Mouse Effect01</h1>
+        <h1>Mouse Effect02</h1>
         <p>마우스 따라다니기</p>
         <ul>
-            <li>clientX,clientY</li>
+            <li>page</li>
         </ul>
     </div>
     <div class="info2">
         <ul>
-            <li class="active"><a href="monse01.html">monse01</a></li>
-            <li><a href="monse01.html">monse02</a></li>
+            <li><a href="monse01.html">monse01</a></li>
+            <li class="active"><a href="monse01.html">monse02</a></li>
             <li><a href="monse01.html">monse03</a></li>
             <li><a href="monse01.html">monse04</a></li>
             <li><a href="monse01.html">monse05</a></li>
@@ -477,82 +491,20 @@ https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+cli
     </div>
     <div class="info3">
         <ul>
-            <li>clientX: <span class="clientX">0</span></li>
-            <li>clientY:<span class="clientY">0</span></li>
-            <li>offsetX:<span class="offsetX">0</span></li>
-            <li>offsetY:<span class="offsetY">0</span></li>
             <li>pageX:<span class="pageX">0</span></li>
             <li>pageY:<span class="pageY">0</span></li>
-            <li>screenX:<span class="screenX">0</span></li>
-            <li>screenY:<span class="screenY">0</span></li>
         </ul>
     </div>
 
     <div class="infor4">
-        <a href="#" class="view">소스보기</a>
+        <a href="#" class="view">Open</a>
         <!-- modal -->
         <div class="modal">
             <div class="code-editor">
                 <span class="control"></span>
                 <span class="control"></span>
                 <span class="control"></span>
-                <pre class="line-numbers"><code class="language-js">$(window).mousemove(function(event){
-    $(".clientX").text(event.clientX);
-    $(".clientY").text(event.clientY);
-    $(".offsetX").text(event.offsetX);
-    $(".offsetY").text(event.offsetY);
-    $(".pageX").text(event.pageX);
-    $(".pageY").text(event.pageY);
-    $(".screenX").text(event.screenX);
-    $(".screenY").text(event.screenY);
-
-    $(".cursor").css({ left: event.clientX -25, top: event.clientY-25 });
-
-    $(".contents a").hover(function(){
-        $(".cursor").addClass("active");
-    }, function(){
-        $(".cursor").removeClass("active");
-    });
-
-    //javascript
-    window.addEventListener("mousemove", function(event){
-        document.querySelector(".clientX").innerHTML = event.clientX;
-        document.querySelector(".clientY").innerHTML = event.clientY;
-        document.querySelector(".offsetX").innerHTML = event.offsetX;
-        document.querySelector(".offsetY").innerHTML = event.offsetY;
-        document.querySelector(".pageX").innerHTML = event.pageX;
-        document.querySelector(".pageY").innerHTML = event.pageY;
-        document.querySelector(".screenX").innerHTML = event.screenX;
-        document.querySelector(".screenY").innerHTML = event.screenY;
-
-        document.querySelector(".cursor").style.left = event.clientX - 25 + "px";
-        document.querySelector(".cursor").style.top = event.clientY - 25 + "px";
-
-        let x = event.clientX - 25 + "px";
-        let y = event.clientY - 25 + "px";
-
-        document.querySelector(".cursor").style.cssText = "left:"+ x +"; top:" + y;
-
-        // document.querySelector(".contents a").addEventListener("mouseenter", function(){});
-        // document.querySelector(".contents a").addEventListener("mouseleave", function(){});
-
-        // document.querySelector(".contents a").addEventListener("mouseenter", () => {
-        //     document.querySelector(".cursor").classList.add("active");
-        // });
-        // document.querySelector(".contents a").addEventListener("mouseleave", () => {
-        //     document.querySelector(".cursor").classList.remove("active");
-        // });
-
-        document.querySelectorAll("a").forEach(elem => {
-            elem.addEventListener("mouseenter", () => {
-                document.querySelector(".cursor").classList.add("active");
-            });
-            elem.addEventListener("mouseleave", () => {
-                document.querySelector(".cursor").classList.remove("active");
-            });
-        });
-    });
-});
+                <pre class="line-numbers"><code class="language-js">
 </code></pre>
             </div>
             <a class="close">Close</a>
@@ -575,92 +527,52 @@ https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+cli
  -->
     <!-- cursor -->
     <div class="cursor"></div>
+    <div class="cursor-follower"></div>
 
     <!-- contents -->
     <div class="contents">
-        <p>To climb steep hills requires <a>slow</a> pace at first. </p>
-        <p>험준한 산을 오르기 위해선 먼저 <a>천천히</a> 걸어야 한다.</p>
+        <p>You <a>never</a> know what you can do untill you try.</p>
+        <p>도전하기 전에 네가 무엇을 할 수 있는지 <a>절대</a> 알 수 없다.</p>
     </div>
 
 
     <!-- script -->
     <script src="../Parallax/js/jquery.min_1.12.4.js"></script>
     <script src="../Parallax/js/jquery-ui.min.js"></script>
+    <script src="../Parallax/js/gsap.min.js"></script>
     <script src="monse.js"></script>
 
     <script>
-        // $(window).mousemove(function(event){
-        //     $(".clientX").text(event.clientX)
-        //     $(".clientY").text(event.clientY)
-        //     $(".offsetX").text(event.offsetX)
-        //     $(".offsetY").text(event.offsetY)
-        //     $(".pageX").text(event.pageX)
-        //     $(".pageY").text(event.pageY)
-        //     $(".screenX").text(event.screenX)
-        //     $(".screenY").text(event.screenY)
+        const cursor = $(".cursor");
+        const follower = $(".cursor-follower");
 
-        //$(".cursor").css({left:"200px",top:"200px"})
-        //     $(".cursor").css({left:event.clientX-25,top:event.clientY-25})
-
-        //     $(".contents a").hover(function(){
-        //          $(".cursor").css({borderColor: "orange"}) },function(){
-        //             $(".cursor").css({borderColor: "white"})
-        //     });
-        // });
-
-
-        // javascript
-        window.addEventListener("mousemove", function (event) {
-            document.querySelector(".clientX").innerHTML = event.clientX
-            document.querySelector(".clientY").innerHTML = event.clientY
-            document.querySelector(".offsetX").innerHTML = event.offsetX
-            document.querySelector(".offsetY").innerHTML = event.offsetY
-            document.querySelector(".pageX").innerHTML = event.pageX
-            document.querySelector(".pageY").innerHTML = event.pageY
-            document.querySelector(".screenX").innerHTML = event.screenX
-            document.querySelector(".screenY").innerHTML = event.screenY
-
-            document.querySelector(".cursor").style.left = event.clientX - 25 + "px";
-            document.querySelector(".cursor").style.top = event.clientY - 25 + "px";
-
-            let x = event.clientX - 25 + "px";
-            let y = event.clientY - 25 + "px";
-
-            document.querySelector(".cursor").style, cssText = "left:" + x + "; top:" + y;
-
-
-            // $(".contents a").hover(function () {
-            //     $(".cursor").css({
-            //         borderColor: "orange"
-            //     })
-            // }, function () {
-            //     $(".cursor").css({
-            //         borderColor: "white"
-            //     })
-            // });
-
-            // document.querySelector(".contents a").addEventListener("mouseenter",function(){});
-            // document.querySelector(".contents a").addEventListener("mouseleave",function(){});
-
-
-            // document.querySelectorAll(".contents a").addEventListener("mouseleave",() => {
-            //     document.querySelector(".cursor").classList.add("active");
-            // });
-            // document.querySelectorAll(".contents a").addEventListener("mouseleave",() => {
-            //     document.querySelector(".cursor").classList.remove("active");
-            // });
-
-            document.querySelectorAll("a").forEach(elem => {
-                elem.addEventListener("mouseleave", () => {
-                    document.querySelector(".cursor").classList.add("active");
-                });
-                elem.addEventListener("mouseleave", () => {
-                    document.querySelector(".cursor").classList.remove("active");
-                });
-            });
+        $(document).mousemove(function (e) {
+            gsap.to(cursor, 0.3, {
+                left: e.pageX - 5,
+                top: e.pageY - 5
+            })
+            gsap.to(follower, 0.8, {
+                left: e.pageX - 15,
+                top: e.pageY - 15
+            })
+        });
+        //  출력용
+        $(document).mousemove(function (e) { // 마우스가 움직였을때 이벤트 함수
+            $(".pageX").text(e.pageX); // 이벤트 pageX 값을 화면에 출력
+            $(".pageY").text(e.pageY); // 이벤트 pageY 값을 화면에 출력
         });
 
-      
+        $(".contents a").hover(function () {
+            cursor.addClass("active");
+            follower.addClass("active");
+        }, function () {
+            cursor.removeClass("active");
+            follower.removeClass("active");
+        });
+
+        //javascript
+
+
     </script>
 </body>
 

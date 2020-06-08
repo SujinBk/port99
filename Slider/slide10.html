@@ -265,6 +265,19 @@
             transform-origin: right;
         }
 
+        /* cursor */
+        .follower {
+            position: absolute;
+            width: 30px; height: 30px;
+            background: #ccc;
+            z-index: 1000;
+            border-radius: 50%;
+            user-select: none;
+            pointer-events: none;
+            transition: transform 0.6s ease-in-out,
+             opacity 0.2s ease-in-out;
+        }
+
     </style>
 </head>
 
@@ -379,6 +392,9 @@
             </div> -->
         </div>
     </section>
+    <!-- cursor -->
+    <div class="follower"></div>
+
     <script src="js/jquery.min_1.12.4.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script>
@@ -492,9 +508,15 @@
             timer= setInterval(function(){
                 let prevIndex = (currentIndex +1) %slideCount;
                 gotoSlide(prevIndex)
-            },3000);
+            },4000);
         }
         startTimer();
+
+        // cutsor
+        const follower = $(".follower");
+        $(document).mousemove(function(e){
+            gsap.to(follower,0.8, {left:e.pafeX-15, top:e.pageY-15})
+        });
     </script>
 </body>
 
