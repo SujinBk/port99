@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>parallax07</title>
+    <title>parallax10</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
@@ -45,7 +45,7 @@
             --color-link: #000;
             --color-bg: #111;
             --font-family: 'lato', sans-serif;
-            --aspect-ratio: 32/15;
+            --aspect-ratio: 32/18;
             --image-width-max: 500px;
 
             background-color: var(--color-bg);
@@ -72,6 +72,14 @@
 
         .title ul {
             padding-top: 20px;
+            font-family: 'Oswald';
+        }
+        .title li {
+            padding-bottom: 5px;
+        }
+
+        .title li a {
+            font-size: 16px;
             font-family: 'Oswald';
         }
 
@@ -102,7 +110,11 @@
             max-width: 90vw;
             --image-width: calc(var(--image-width-max)*var(--aspect-ratio));
             width: var(--image-width);
-            margin: 20vh 0 40vh;
+            margin: 0 0 50vh;
+            padding-top: 20vh;
+        }
+        .content-item:nth-child(even) {
+            margin-left: auto;
         }
 
         .content-item-imgWrap {
@@ -111,24 +123,20 @@
             width: var(--width);
             padding-bottom: calc(var(--width)/(var(--aspect-ratio)));
             overflow: hidden;
+            will-change: transform;
         }
 
         .content-item-img {
-            /* width:var(--width); */
-
+            width:var(--width);
             /* height: 100%; */
             position: absolute;
             --overflow: 60px;
             top: calc(-2 * var(--overflow));
             height: calc(150% + (2 * var(--overflow)));
-            width: 100%;
-            background-size: cover;
+            /* width: 100%; */
+            background-size: 180%;
             background-position: 50% 0;
             will-change: transfrom;
-        }
-
-        .content-item:nth-child(even) {
-            margin-left: auto;
         }
 
         .content-item-num {
@@ -136,14 +144,15 @@
             font-weight: 100;
             position: absolute;
             /*  위는 영역을 없애주기 위한 css */
-            right: -10vw;
-            top: -8vw;
+            right: -5vw;
+            top: -3vw;
             opacity: 0.5;
+            z-index: -1;
         }
 
         .content-item:nth-child(even) .content-item-num {
             right: auto;
-            left: -8vw;
+            left: -5vw;
         }
 
         .content-item-title {
@@ -163,15 +172,15 @@
             font-size: 4vw;
             line-height: 1.2;
             font-weight: 600;
-            text-transform: uppercase;
             color: var(--color-title);
             text-align: right;
             word-break: keep-all;
             width: -6vw;
             position: relative;
             z-index: 20;
-            margin-top: -5vw;
-            transition: transform 0.3s cubic-bezier();
+            margin-top: -6vw;
+            margin-right: -3vw;
+            transition: transform 0.3s cubic-bezier(0.13,0.69,0.38,0.93);
             will-change: transform;
         }
 
@@ -181,46 +190,7 @@
             margin-left: -3vw;
         }
 
-        /* =========================   배경  ====================================== */
-        #section1 .content-item-img {
-            background-image: url(img/img01.jpg);
-        }
-
-        #section2 .content-item-img {
-            background-image: url(img/img02.jpg);
-        }
-
-        #section3 .content-item-img {
-            background-image: url(img/img03.jpg);
-        }
-
-        #section4 .content-item-img {
-            background-image: url(img/img04.jpg);
-        }
-
-        #section5 .content-item-img {
-            background-image: url(img/img05.jpg);
-        }
-
-        #section6 .content-item-img {
-            background-image: url(img/img06.jpg);
-        }
-
-        #section7 .content-item-img {
-            background-image: url(img/img07.jpg);
-        }
-
-        #section8 .content-item-img {
-            background-image: url(img/img08.jpg);
-        }
-
-        #section9 .content-item-img {
-            background-image: url(img/img09.jpg);
-        }
-
-
-
-        /* =============info==================== */
+     /* =============info==================== */
         .info {
             position: fixed;
             top: 700px;
@@ -234,18 +204,23 @@
             font-style: normal;
             font-family: 'Abel';
         }
+        /* ========= nav ======================= */
 
-        /* .contents>section {
-            opacity: 0;
-            transform: translateY(10vh);
-            transition: all 0.6s ease;
+        #nav{
+            position: fixed; left: 50%; top: 40px; z-index: 1000;
+            transform: translateX(-50%); font-family: 'Abel';
         }
+        #nav li{
+            display: inline;
+        }
+        #nav li{ display: inline-block; padding: 10px; color: #fff;}
 
-        .contents>section.show {
-            opacity: 1;
-            transform: translateY(0);
-            transition: all 0.6s ease;
-        } */
+        /* top */
+        .top a{
+             margin:50px 200px 50px 50px;background: #fff; color:#000;
+             font-size: 14px; display: inline-block; border-radius: 50%;
+             width: 50px;height: 50px; text-align: center; line-height: 50px;
+            }
     </style>
 </head>
 
@@ -256,8 +231,8 @@
     </div>
 
     <div class="title">
-        <h1>parallax07</h1>
-        <p></p>
+        <h1>parallax10</h1>
+        <p>link</p>
         <ul>
             <li><a href="parallax01.html">parallax01</a></li>
             <li><a href="parallax02.html">parallax02</a></li>
@@ -265,10 +240,10 @@
             <li><a href="parallax04.html">parallax04</a></li>
             <li><a href="parallax05.html">parallax05</a></li>
             <li><a href="parallax06.html">parallax06</a></li>
-            <li class="active"><a href="parallax07.html">parallax07</a></li>
+            <li><a href="parallax07.html">parallax07</a></li>
             <li><a href="parallax08.html">parallax08</a></li>
             <li><a href="parallax09.html">parallax09</a></li>
-            <li><a href="parallax10.html">parallax10</a></li>
+            <li class="active"><a href="parallax10.html">parallax10</a></li>
         </ul>
     </div>
     <!-- <div class="info">
@@ -287,154 +262,163 @@
 
     <!-- parallax -->
 
+    <nav id="nav">
+       <ul>
+           <li><a href="#section1">s1</a></li>
+           <li><a href="#section2">s2</a></li>
+           <li><a href="#section3">s3</a></li>
+           <li><a href="#section4">s4</a></li>
+           <li><a href="#section5">s5</a></li>
+           <li><a href="#section6">s6</a></li>
+           <li><a href="#section7">s7</a></li>
+           <li><a href="#section8">s8</a></li>
+           <li><a href="#section9">s9</a></li>
+       </ul>
+    </nav>
+
     <section id="wrap">
         <h1>parallax <em>Scrolling</em></h1>
         <div class="contents">
             <section id="section1" class="content-item">
                 <span class="content-item-num">01</span>
-                <h2 class="content-item-title">Basic Coding</h2>
+                <h2 class="content-item-title"><a href="#section2">Next section</a></h2>
                 <figure class="content-item-imgWrap">
-                    <div class="content-item-img"></div>
+                    <div class="content-item-img">
+                         <img src="img/img01.jpg" alt="이미지">
+                    </div>
                 </figure>
-                <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔 한다.</p>
+                <p class="content-item-desc">
+                   <span> 높은 목표를 세우고, 스스로 채직찔 한다.</span>
+                </p>
             </section>
             <section id="section2" class="content-item">
                 <span class="content-item-num">02</span>
-                <h2 class="content-item-title">Basic Coding</h2>
+                <h2 class="content-item-title"><a href="#section3">Next section</a></h2>
                 <figure class="content-item-imgWrap">
-                    <div class="content-item-img"></div>
+                    <div class="content-item-img">
+                        <img src="img/img02.jpg" alt="이미지">
+                    </div>
                 </figure>
-                <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔 한다.</p>
+                <p class="content-item-desc">
+                    <span> 높은 목표를 세우고, 스스로 채직찔 한다.</span>
+                  </p>
             </section>
             <section id="section3" class="content-item">
                 <span class="content-item-num">03</span>
-                <h2 class="content-item-title">Basic Coding</h2>
+                <h2 class="content-item-title"><a href="#section4">Next section</a></h2>
                 <figure class="content-item-imgWrap">
-                    <div class="content-item-img"></div>
+                    <div class="content-item-img">
+                        <img src="img/img03.jpg" alt="이미지">
+                    </div>
                 </figure>
-                <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔 한다.</p>
+                <p class="content-item-desc">
+                    <span>높은 목표를 세우고, 스스로 채직찔 한다.</span> 
+                </p>
             </section>
             <section id="section4" class="content-item">
                 <span class="content-item-num">04</span>
-                <h2 class="content-item-title">Basic Coding</h2>
+                <h2 class="content-item-title"><a href="#section5">Next section</a></h2>
                 <figure class="content-item-imgWrap">
-                    <div class="content-item-img"></div>
+                    <div class="content-item-img">
+                        <img src="img/img04.jpg" alt="이미지">
+                    </div>
                 </figure>
-                <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔 한다.</p>
+                <p class="content-item-desc">
+                   <span>높은 목표를 세우고, 스스로 채직찔 한다.</span>
+                </p>
             </section>
             <section id="section5" class="content-item">
                 <span class="content-item-num">05</span>
-                <h2 class="content-item-title">Basic Coding</h2>
+                <h2 class="content-item-title"><a href="#section6">Next section</a></h2>
                 <figure class="content-item-imgWrap">
-                    <div class="content-item-img"></div>
+                    <div class="content-item-img">
+                        <img src="img/img05.jpg" alt="이미지">
+                    </div>
                 </figure>
                 <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔 한다.</p>
             </section>
             <section id="section6" class="content-item">
                 <span class="content-item-num">06</span>
-                <h2 class="content-item-title">Basic Coding</h2>
+                <h2 class="content-item-title"><a href="#section7">Next section</a></h2>
                 <figure class="content-item-imgWrap">
-                    <div class="content-item-img"></div>
+                    <div class="content-item-img">
+                        <img src="img/img06.jpg" alt="이미지">
+                    </div>
                 </figure>
                 <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔 한다.</p>
             </section>
             <section id="section7" class="content-item">
                 <span class="content-item-num">07</span>
-                <h2 class="content-item-title">Basic Coding</h2>
+                <h2 class="content-item-title"><a href="#section8">Next section</a></h2>
                 <figure class="content-item-imgWrap">
-                    <div class="content-item-img"></div>
+                    <div class="content-item-img">
+                        <img src="img/img07.jpg" alt="이미지">
+                    </div>
                 </figure>
                 <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔 한다.</p>
             </section>
             <section id="section8" class="content-item">
                 <span class="content-item-num">08</span>
-                <h2 class="content-item-title">Basic Coding</h2>
+                <h2 class="content-item-title"><a href="#section9">Next section</a></h2>
                 <figure class="content-item-imgWrap">
-                    <div class="content-item-img"></div>
+                    <div class="content-item-img">
+                        <img src="img/img08.jpg" alt="이미지">
+                    </div>
                 </figure>
                 <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔 한다.</p>
             </section>
             <section id="section9" class="content-item">
                 <span class="content-item-num">09</span>
-                <h2 class="c-title">Basic Coding</h2>
+                <h2 class="content-item-title"><a href="#section9">Next section</a></h2>
                 <figure class="content-item-imgWrap">
-                    <div class="content-item-img"></div>
+                    <div class="content-item-img">
+                        <img src="img/img09.jpg" alt="이미지">
+                    </div>
                 </figure>
                 <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔 한다.</p>
             </section>
         </div>
     </section>
+    <div class="top"><a href="#wrap">Top</a></div>
+
     <!-- 스크립트 연동 -->
     <script src="js/jquery.min_1.12.4.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/gsap.min.js"></script>
     <!-- // 스트립트 연동 -->
+
     <!-- 스크립트 -->
     <script>
-        //=========  jquery   =================
-        // let scrollTop = $(window).scrollTop();
+        //네비 버튼을 클릭하면 모든 글씨를 빨간색으로 변경
+        // 제이쿼리
+        // $("#nav a").click(function(){
+        //     $("*").css("color","red")
+        // });
 
-        // function scroll(){
-        //     let newScrollTop = $(window).scrollTop(); 
-        //     let different = newScrollTop - scrollTop
+        // // 자바 스크립트
+        // document.querySelector("#nav").addEventListener("click",function(){
+        //     document.querySelectorAll("*").forEach(e =>{
 
-        //     // console.log("scrollTop :" + scrollTop);
-        //     // console.log("newScrollTop :" + newScrollTop);
-        //     // console.log("different :" + different);
+        //     })
+        // });
 
-        //     $(".content-item-desc").css({"transform":"skewY("+different+"deg)"})
-        //     scrollTop = newScrollTop;
-        //     requestAnimationFrame(scroll)
-        // }
-        // scroll()
+        //  a태그 선택(href="#")
+        $("a[href^='#']").click(function(e){
+            e.preventDefault();
+            let target = $(this).attr("href");
+            let offset = $(target).offset().top
+            //alert(target)
+            $("html, body").animate({scrollTop: offset},600,"easeInOutExpo");
+        });
 
-        // // 일정한 시간동안 반복적 함수를 실행
-        // // setInterval(render,1000);
-
-        // let num = 0;
-        // function render(){ 
-        //     $(".content-item-num").text(num);
-        //     num++;
-        //     requestAnimationFrame(render)// 자연스러운 애니메이션을 구현할수 있다. 
-        //     //setInterval(render,1000); ///약간 버벅거린다. 
-        // }
-        // render()
-
-        //================  자바스크립트javascript  ===================================//
-        let pageYOffset = window.pageYOffset; // 크롬 최신 버전만 사용 가능
-
-        const scroll = () => { // function scroll(){} 의 익명함수버전
-            const newPageYOrrset = window.pageYOffset;
-            const different = newPageYOrrset -pageYOffset;
-
-            // $(".content-item-imgWrap").css({"transform":"skewY("+different+"deg)"});
-
-            // let target = document.querySelectorAll(".content-item-imgWrap");
-            // target.style.transform = "rotate("+different+"deg)";
-
-            // targer.forEach(box => {
-            //     box.style.transform = "rotate("+different *0.03+"deg)";
-            // });// 인덱스 값 요소값 
-
-            //=============  gsap   ===================//
-            //gsap.to(".content-item-img",{duration:0.3,ease:Power1.ease,rotation:different});
-            gsap.to(".content-item-img",{duration:0.3,ease:"Power1.out",skewY:different*0.2});
-            gsap.to(".content-item-desc",{duration:0.3,ease:"Power2.out",skewY:-different*0.3});
-
-            pageYOffset = newPageYOrrset;
-            
-
-            requestAnimationFrame(scroll)
-
-            // console.log("pageYOffset :" + pageYOffset);
-            // console.log("newPageYOrrset :" + newPageYOrrset);
-            // console.log("different :" + different);
-
-        }
-        scroll()
-
-       
-        
+        //  자바 스크립트
+        document.querySelectorAll("a[href^='#']").forEach(elem => {
+            elem.addEventListener("click", e =>{
+                e.preventDefault();
+                document.querySelector(elem.getAttribute("href")).scrollIntoView({behavior:"smooth"
+                });
+            });
+        });
 
     </script>
 
