@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>parallax03</title>
+    <title>parallax08</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js">
     <style>
-         @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
 
-@font-face {
-    font-family: 'DWImpactamin';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/DWImpactamin.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
+        @font-face {
+            font-family: 'DWImpactamin';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/DWImpactamin.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -44,7 +45,7 @@
             --color-link: #000;
             --color-bg: #111;
             --font-family: 'lato', sans-serif;
-            --aspect-ratio: 32/15;
+            --aspect-ratio: 32/18;
             --image-width-max: 500px;
 
             background-color: var(--color-bg);
@@ -52,7 +53,6 @@
             color: var(--color-title);
         }
 
-        
         .title {
             position: fixed;
             right: 0;
@@ -111,7 +111,6 @@
             width: var(--width);
             padding-bottom: calc(var(--width)/(var(--aspect-ratio)));
             overflow: hidden;
-            background: #ccc;
         }
 
         .content-item-img {
@@ -119,12 +118,13 @@
 
             /* height: 100%; */
             position: absolute;
-            --overflow: 40px;
-            top: -20px;
-            height: calc(100% + (2 * var(--overflow)));
+            --overflow: 60px;
+            top: calc(-2 * var(--overflow));
+            height: calc(150% + (2 * var(--overflow)));
             width: 100%;
             background-size: cover;
             background-position: 50% 0;
+            will-change: transfrom;
         }
 
         .content-item:nth-child(even) {
@@ -171,7 +171,8 @@
             position: relative;
             z-index: 20;
             margin-top: -5vw;
-
+            transition: transform 0.3s cubic-bezier();
+            will-change: transform;
         }
 
         .content-item:nth-child(even) .content-item-desc {
@@ -181,7 +182,7 @@
         }
 
         /* =========================   배경  ====================================== */
-        #section1 .content-item-img {
+        /* #section1 .content-item-img {
             background-image: url(img/img01.jpg);
         }
 
@@ -215,14 +216,14 @@
 
         #section9 .content-item-img {
             background-image: url(img/img09.jpg);
-        }
+        } */
 
 
 
         /* =============info==================== */
         .info {
             position: fixed;
-            top: 730px;
+            top: 700px;
             right: 20px;
             background: rgba(255, 255, 255, 0.4);
             color: #000;
@@ -233,8 +234,20 @@
             font-style: normal;
             font-family: 'Abel';
         }
+        /* reveal */
+        .reveal{}
+        .reveal span,
+        .reveal img {opacity: 0;}
 
-        .contents>section {
+        .reveal.show span,
+        .reveal.show img {animation: text 0.1s;}
+
+        @keyframes text {
+            0%{opacity: 0;}
+            100%{opacity: 1;}
+        }
+
+        /* .contents>section {
             opacity: 0;
             transform: translateY(10vh);
             transition: all 0.6s ease;
@@ -244,29 +257,85 @@
             opacity: 1;
             transform: translateY(0);
             transition: all 0.6s ease;
+        } */
+        /*contants */
+        /* .content-item-desc{
+            opacity: 0;
+            transition: all 0.44s ease;
+            transform: translateY(70px);
+        }
+        .content-item-desc.show{
+            opacity: 1;
+            transition: all 0.44s ease-in;
+            transform: translateY(0);
+        } */
+
+        #section1 .content-item-desc span {
+            opacity: 0;
+            transition: all 0.44s ease;
+            transform: translateY(70px);
+            display: inline-block;
+            min-width: 30px;
+
+        }
+
+        #section1 .content-item-desc span.show {
+            opacity: 1;
+            transition: all 0.44s ease-in;
+            transform: translateY(0);
+
+        }
+
+        #section1.content-item-desc span:nth-child(1) {
+            transition-delay: 0.01s;
+        }
+
+        
+        #section2 .content-item-desc span {
+            opacity: 0;
+            transition: all 0.44s ease;
+            display: inline-block;
+            min-width: 30px;
+
+        }
+
+        #section2 .content-item-desc span.show {
+            opacity: 1;
+            animation: flipInY 1s;
+        }
+        @keyframes flipInY {
+            from {transform: perspective(400px) rotate3d(0, 1, 0, 90deg);animation-timing-function: ease-in; opacity: 0;}
+            40% {transform: perspective(400px) rotate3d(0, 1, 0, -20deg); animation-timing-function: ease-in; }
+            60% {transform: perspective(400px) rotate3d(0, 1, 0, 10deg); opacity: 1;}
+            80% {transform: perspective(400px) rotate3d(0, 1, 0, -5deg);}
+            to { transform: perspective(400px);}
         }
     </style>
 </head>
 
 <body>
+
+    <div class="info">
+        <div>pageYOffset:<span class="pageYOffset">0</span>px</div>
+    </div>
+
     <div class="title">
-        <h1>parallax03</h1>
-        <p>jquery</p>
+        <h1>parallax09</h1>
+        <p>Reveal 효과</p>
         <ul>
             <li><a href="parallax01.html">parallax01</a></li>
             <li><a href="parallax02.html">parallax02</a></li>
-            <li class="active"><a href="parallax03.html">parallax03</a></li>
+            <li><a href="parallax03.html">parallax03</a></li>
             <li><a href="parallax04.html">parallax04</a></li>
             <li><a href="parallax05.html">parallax05</a></li>
             <li><a href="parallax06.html">parallax06</a></li>
             <li><a href="parallax07.html">parallax07</a></li>
             <li><a href="parallax08.html">parallax08</a></li>
-            <li><a href="parallax09.html">parallax09</a></li>
+            <li class="active"><a href="parallax09.html">parallax09</a></li>
         </ul>
     </div>
-
-    <div class="info">
-        <span>scrollTop() : <strong class="scrollTop">0</strong>px</span><br>
+    <!-- <div class="info">
+        <span>pageYOffset() : <strong class="pageYOffset">0</strong>px</span><br>
         <span>#section1 offset : <strong class="s1OT">0</strong>px</span><br>
         <span>#section2 offset : <strong class="s2OT">0</strong>px</span><br>
         <span>#section3 offset : <strong class="s3OT">0</strong>px</span><br>
@@ -276,7 +345,10 @@
         <span>#section7 offset : <strong class="s7OT">0</strong>px</span><br>
         <span>#section8 offset : <strong class="s8OT">0</strong>px</span><br>
         <span>#section9 offset : <strong class="s9OT">0</strong>px</span><br>
-    </div>
+    </div> -->
+
+
+    <!-- parallax -->
 
     <section id="wrap">
         <h1>parallax <em>Scrolling</em></h1>
@@ -285,15 +357,21 @@
                 <span class="content-item-num">01</span>
                 <h2 class="content-item-title">Basic Coding</h2>
                 <figure class="content-item-imgWrap">
-                    <div class="content-item-img"></div>
+                    <div class="content-item-img reveal reveal-ltr">
+                         <img src="img/img01.jpg" alt="이미지">
+                    </div>
                 </figure>
-                <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔 한다.</p>
+                <p class="content-item-desc">
+                   <span> 높은 목표를 세우고, 스스로 채직찔 한다.</span>
+                </p>
             </section>
             <section id="section2" class="content-item">
                 <span class="content-item-num">02</span>
                 <h2 class="content-item-title">Basic Coding</h2>
                 <figure class="content-item-imgWrap">
-                    <div class="content-item-img"></div>
+                    <div class="content-item-img">
+                        <img src="img/img02.jpg" alt="이미지">
+                    </div>
                 </figure>
                 <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔 한다.</p>
             </section>
@@ -301,7 +379,9 @@
                 <span class="content-item-num">03</span>
                 <h2 class="content-item-title">Basic Coding</h2>
                 <figure class="content-item-imgWrap">
-                    <div class="content-item-img"></div>
+                    <div class="content-item-img">
+                        <img src="img/img03.jpg" alt="이미지">
+                    </div>
                 </figure>
                 <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔 한다.</p>
             </section>
@@ -309,7 +389,9 @@
                 <span class="content-item-num">04</span>
                 <h2 class="content-item-title">Basic Coding</h2>
                 <figure class="content-item-imgWrap">
-                    <div class="content-item-img"></div>
+                    <div class="content-item-img">
+                        <img src="img/img04.jpg" alt="이미지">
+                    </div>
                 </figure>
                 <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔 한다.</p>
             </section>
@@ -317,7 +399,9 @@
                 <span class="content-item-num">05</span>
                 <h2 class="content-item-title">Basic Coding</h2>
                 <figure class="content-item-imgWrap">
-                    <div class="content-item-img"></div>
+                    <div class="content-item-img">
+                        <img src="img/img05.jpg" alt="이미지">
+                    </div>
                 </figure>
                 <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔 한다.</p>
             </section>
@@ -325,7 +409,9 @@
                 <span class="content-item-num">06</span>
                 <h2 class="content-item-title">Basic Coding</h2>
                 <figure class="content-item-imgWrap">
-                    <div class="content-item-img"></div>
+                    <div class="content-item-img">
+                        <img src="img/img06.jpg" alt="이미지">
+                    </div>
                 </figure>
                 <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔 한다.</p>
             </section>
@@ -333,7 +419,9 @@
                 <span class="content-item-num">07</span>
                 <h2 class="content-item-title">Basic Coding</h2>
                 <figure class="content-item-imgWrap">
-                    <div class="content-item-img"></div>
+                    <div class="content-item-img">
+                        <img src="img/img07.jpg" alt="이미지">
+                    </div>
                 </figure>
                 <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔 한다.</p>
             </section>
@@ -341,144 +429,41 @@
                 <span class="content-item-num">08</span>
                 <h2 class="content-item-title">Basic Coding</h2>
                 <figure class="content-item-imgWrap">
-                    <div class="content-item-img"></div>
+                    <div class="content-item-img">
+                        <img src="img/img08.jpg" alt="이미지">
+                    </div>
                 </figure>
                 <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔 한다.</p>
             </section>
             <section id="section9" class="content-item">
                 <span class="content-item-num">09</span>
-                <h2 class="content-item-title">Basic Coding</h2>
+                <h2 class="c-title">Basic Coding</h2>
                 <figure class="content-item-imgWrap">
-                    <div class="content-item-img"></div>
+                    <div class="content-item-img">
+                        <img src="img/img09.jpg" alt="이미지">
+                    </div>
                 </figure>
                 <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔 한다.</p>
             </section>
         </div>
     </section>
-
+    <!-- 스크립트 연동 -->
     <script src="js/jquery.min_1.12.4.js"></script>
     <script src="js/jquery-ui.min.js"></script>
+    <script src="js/gsap.min.js"></script>
+    <!-- // 스트립트 연동 -->
 
+    <!-- 스크립트 -->
     <script>
-        $(window).scroll(function () {
-            const scrollTop = $(window).scrollTop()+$(window).height()/2;
-            // console.log(scrollTop)
-            // $(".scrollTop").text(parseInt(scrollTop));
-            // $(".s1OT").text(parseInt($("#section1").offset().top));
-            // $(".s2OT").text(parseInt($("#section2").offset().top));
-            // $(".s3OT").text(parseInt($("#section3").offset().top));
-            // $(".s4OT").text(parseInt($("#section4").offset().top));
-            // $(".s5OT").text(parseInt($("#section5").offset().top));
-            // $(".s6OT").text(parseInt($("#section6").offset().top));
-            // $(".s7OT").text(parseInt($("#section7").offset().top));
-            // $(".s8OT").text(parseInt($("#section8").offset().top));
-            // $(".s9OT").text(parseInt($("#section9").offset().top));
-
-          
-// =============================================================================//
-            
-            // if (scrollTop > parseInt($("#section1").offset().top)) {
-            //     $(".s1OT").css("color", "red");
-            // } else {
-            //     $(".s1OT").css("color", "black");
-            // }
-            // if (scrollTop > parseInt($("#section2").offset().top)) {
-            //     $(".s2OT").css("color", "red");
-            // } else {
-            //     $(".s2OT").css("color", "black");
-            // }
-            // if (scrollTop > parseInt($("#section3").offset().top)) {
-            //     $(".s3OT").css("color", "red");
-            // } else {
-            //     $(".s3OT").css("color", "black");
-            // }
-            // if (scrollTop > parseInt($("#section4").offset().top)) {
-            //     $(".s4OT").css("color", "red");
-            // } else {
-            //     $(".s4OT").css("color", "black");
-            // }
-            // if (scrollTop > parseInt($("#section5").offset().top)) {
-            //     $(".s5OT").css("color", "red");
-            // } else {
-            //     $(".s5OT").css("color", "black");
-            // }
-            // if (scrollTop > parseInt($("#section6").offset().top)) {
-            //     $(".s6OT").css("color", "red");
-            // } else {
-            //     $(".s6OT").css("color", "black");
-            // }
-            // if (scrollTop > parseInt($("#section7").offset().top)) {
-            //     $(".s7OT").css("color", "red");
-            // } else {
-            //     $(".s7OT").css("color", "black");
-            // }
-            // if (scrollTop > parseInt($("#section8").offset().top)) {
-            //     $(".s8OT").css("color", "red");
-            // } else {
-            //     $(".s8OT").css("color", "black");
-            // }
-            // if (scrollTop > parseInt($("#section9").offset().top)) {
-            //     $(".s9OT").css("color", "red");
-            // } else {
-            //     $(".s9OT").css("color", "black");
-            // }
-
-            for( let i=1; i<=9; i++){
-            $(".s"+i+"OT").text(parseInt($("#section"+i).offset().top));
-
-            
-            if (scrollTop > parseInt($("#section"+i).offset().top)) {
-                $(".s"+i+"OT").css("color", "red");
-            } else {
-                $(".s"+i+"OT").css("color", "black");
-            }
-
-          }
-            
-
-            //==============================================================//
-            // if (scrollTop > parseInt($("#section1").offset().top)) {
-            //     $("#section1").addClass("show");
-            // }
-            // if (scrollTop > parseInt($("#section2").offset().top)) {
-            //     $("#section2").addClass("show");
-            // }
-            // if (scrollTop > parseInt($("#section3").offset().top)) {
-            //     $("#section3").addClass("show");
-            // }
-            // if (scrollTop > parseInt($("#section4").offset().top)) {
-            //     $("#section4").addClass("show");
-            // }
-            // if (scrollTop > parseInt($("#section5").offset().top)) {
-            //     $("#section5").addClass("show");
-            // }
-            // if (scrollTop > parseInt($("#section6").offset().top)) {
-            //     $("#section6").addClass("show");
-            // }
-            // if (scrollTop > parseInt($("#section7").offset().top)) {
-            //     $("#section7").addClass("show");
-            // }
-            // if (scrollTop > parseInt($("#section8").offset().top)) {
-            //     $("#section8").addClass("show");
-            // }
-            // if (scrollTop > parseInt($("#section9").offset().top)) {
-            //     $("#section9").addClass("show");
-            // }
-            //================================================================//
-            
-
-
-            // /// ////////
-            $(".content-item").each(function(){
-                if(scrollTop > $(this).offset().top){
-                    $(this).addClass("show");
+        $(window).scroll(function(){
+            $(".reveal").each(function(){
+                if($(window).scrollTop() > $(this).offset().top){
+                    $(this).addClass("show")
                 }
             });
-
-
-
         });
     </script>
+
 </body>
 
 </html>
