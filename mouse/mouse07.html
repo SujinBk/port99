@@ -44,7 +44,7 @@
         }
 
         body {
-            background: url(../Parallax/img/img6.gif) no-repeat center center;
+            /* background: url(../Parallax/img/img10.gif) no-repeat center center; */
             background-size: cover;
             font-family: 'Abel', 'GmarketSansMedium';
             color: #fff;
@@ -61,7 +61,7 @@
             top: 0;
             width: 100%;
             height: 100vh;
-            background: rgba(13, 3, 44, 0.657);
+            background: rgb(0, 0, 0);
             z-index: -1;
         }
 
@@ -159,13 +159,15 @@
             width: 100%;
             height: 100vh;
             flex-direction: column;
-            overflow: hidden;
+            /* overflow: hidden; */
         }
 
         .contents p {
             max-width: 70vw;
-            font-size: 4.5vw;
+            font-size: 7vw;
             line-height: 1.5;
+            text-align: center;
+            font-weight: bold;
         }
 
         .contents p a {
@@ -179,38 +181,19 @@
 
         .cursor {
             position: absolute;
-            width: 10px;
-            height: 10px;
+            width: 200px;
+            height: 200px;
             background: #fff;
             border-radius: 50%;
-            z-index: 1000;
+            z-index: -1;
             user-select: none;
             pointer-events: none;
-            transform: scale(1);
-            transition: transform 0.3s ease-in-out;
-            background: rgba(255, 255, 255, 0.9);
-            color: #fff;
+            background: #fff;
+            background: url(../Parallax/img/img10.gif) no-repeat center center fixed;
+            background-size:cover;
         }
 
-        .cursor strong {
-            background: rgba(0, 0, 0, 1);
-            white-space: nowrap;
-            position: absolute;
-            display: block;
-            padding: 3px;
-            display: none;
-        }
-
-        .cursor strong:first-child {
-            left: 50%;
-            top: -60px;
-        }
-
-        .cursor strong:last-child {
-            left: 50%;
-            top: -40px;
-        }
-
+     
         /* contents */
         .contents {
             display: flex;
@@ -222,18 +205,6 @@
             overflow: hidden;
         }
 
-        .move-image .mimg .mtext em {
-            color: orange;
-            border-bottom: 1px dashed orange;
-        }
-
-        /* .move-image .mimg .mtext .word {
-             text-shadow:
-             10px 10px 0 rgb(238, 40, 40),
-             10px -10px 0 rgba(241, 162, 15, 0.822),
-             -10px 10px 0 rgba(83, 236, 12, 0.829),
-             -10px -10px 0 rgb(30, 185, 177); 
-        } */
     </style>
 
     <link rel="stylesheet" href="assets/modal.css">
@@ -241,7 +212,7 @@
 
 <body>
     <div class="info">
-        <h1>Mouse Effect06</h1>
+        <h1>Mouse Effect07</h1>
         <p>text shadow 효과</p>
     </div>
 
@@ -251,8 +222,12 @@
             <li><a href="mouse02.html">Mouse02</a></li>
             <li><a href="mouse03.html">Mouse03</a></li>
             <li><a href="mouse04.html">Mouse04</a></li>
-            <li class="active"><a href="mouse05.html">Mouse05</a></li>
+            <li><a href="mouse05.html">Mouse05</a></li>
             <li><a href="mouse06.html">Mouse06</a></li>
+            <li><a href="mouse07.html">Mouse07</a></li>
+            <li class="active"><a href="mouse08.html">Mouse08</a></li>
+            <li><a href="mouse09.html">Mouse09</a></li>
+            <li><a href="mouse10.html">Mouse10</a></li>
         </ul>
     </div>
 
@@ -277,8 +252,20 @@
                 </h3>
                 <div class="code">
                     <pre class="line-numbers"><code class="language-js">
+const cursor = document.querySelector(".cursor");
 
-</code></pre>
+// 원의 크기를 구해서 반지름 값을 변수화
+
+let width =cursor.offsetWidth;
+let height =cursor.offsetHeight;
+
+let rect = cursor.getBoundingClientRect();
+console.log(width)
+
+//움직임 효과
+    document.addEventListener("mousemove", function (e){
+    gsap.to(cursor, 0.3, {left: e.pageX-rect.width/2, top: e.pageY-rect.height/2});
+});</code></pre>
                 </div>
 
             </div>
@@ -295,8 +282,7 @@
             <div class="mimg">
 
                 <div class="mtext">
-                    <p>The <em class="word">first</em> step is always the hardest.</p>
-                    <p> 언제나 <em class="word">처음</em> 시작이 가장 어렵다.</p>
+                    <p>What we dwell on is who we become. </p>
                 </div>
             </div>
         </div>
@@ -308,44 +294,23 @@
         <script src="../Parallax/js/gsap.min.js"></script>
         <script src="assets/mouse.js"></script>
         <script>
-            // const word = document.querySelector(".word");
-            // const shadow = e => {
-            //     const {x,y} = e;
-            //     const rect = word.getBoundingClientRect();
-            //     const mouseX = (x - rect.left - rect.width / 2) / 20;
-            //     const mouseY = (y - rect.top - rect.height / 2) / 20;
-            //     /* text-shadow:
-            //      10px 10px 0 rgb(238, 40, 40),
-            //      10px -10px 0 rgba(241, 162, 15, 0.822),
-            //      -10px 10px 0 rgba(83, 236, 12, 0.829),
-            //      -10px -10px 0 rgb(30, 185, 177); */
+        const cursor = document.querySelector(".cursor");
 
-            //     word.style.textShadow = `${mouseX}px ${-mouseY}px 0px rgb(238, 40, 40),
-            //                             ${-mouseX}px ${mouseY}px 0px rgba(241, 162, 15, 0.822),
-            //                             ${mouseX}px ${-mouseY}px 0px rgba(83, 236, 12, 0.829),
-            //                             ${-mouseX}px ${-mouseY}px 0px rgb(30, 185, 177)`;
+        // 원의 크기를 구해서 반지름 값을 변수화
 
-            // }
-            // window.addEventListener("mousemove", shadow);
+       let width =cursor.offsetWidth;
+       let height =cursor.offsetHeight;
 
-            window.addEventListener("mousemove",function(e){
-                document.querySelectorAll(".word").forEach(elem => {
-                const {x,y} = e;
-                const rect = elem.getBoundingClientRect();
-                const mouseX = (x - rect.left - rect.width / 2) / 20;
-                const mouseY = (y - rect.top - rect.height / 2) / 20;
-                /* text-shadow:
-                 10px 10px 0 rgb(238, 40, 40),
-                 10px -10px 0 rgba(241, 162, 15, 0.822),
-                 -10px 10px 0 rgba(83, 236, 12, 0.829),
-                 -10px -10px 0 rgb(30, 185, 177); */
+       let rect = cursor.getBoundingClientRect();
+       console.log(width)
 
-                elem.style.textShadow = `${mouseX}px ${-mouseY}px 0px rgb(238, 40, 40),
-                                        ${-mouseX}px ${mouseY}px 0px rgba(241, 162, 15, 0.822),
-                                        ${mouseX}px ${-mouseY}px 0px rgba(83, 236, 12, 0.829),
-                                        ${-mouseX}px ${-mouseY}px 0px rgb(30, 185, 177)`;
-                })
-            });
+        //움직임 효과
+         document.addEventListener("mousemove", function (e){
+            gsap.to(cursor, 0.3, {left: e.pageX-rect.width/2, top: e.pageY-rect.height/2});
+        });
+
+
+
         </script>
 
 </body>

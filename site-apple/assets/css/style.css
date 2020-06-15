@@ -1,45 +1,59 @@
-@font-face{ 
-    font-family: "SF Pro";
-    font-weight: 100;
-    src: url(../fonts/SF-Pro-Text-Ultralight.otf);
+/* container */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
 }
-@font-face{ 
-    font-family: "SF Pro";
-    font-weight: 200;
-    src: url(../fonts/SF-Pro-Text-Thin.otf);
+
+/* row */
+.row {
+    position: relative;
+    margin: 0 20px;
 }
-@font-face{ 
-    font-family: "SF Pro";
-    font-weight: 300;
-    src: url(../fonts/SF-Pro-Text-Semibold.otf);
+
+/* layout */
+#header .container {
+    border-bottom: 1px solid #ccc;
 }
-@font-face{ 
-    font-family: "SF Pro";
-    font-weight: 400;
-    src: url(../fonts/SF-Pro-Text-Regular.otf);
+
+#header .header-data {
+    font-size: 12px;
+    line-height: 14px;
+    color: #A8A8A8;
 }
-@font-face{ 
-    font-family: "SF Pro";
-    font-weight: 500;
-    src: url(../fonts/SF-Pro-Text-Medium.otf);
-}
-@font-face{ 
-    font-family: "SF Pro";
+
+#header .header-title {
     font-weight: 600;
-    src: url(../fonts/SF-Pro-Text-Light.otf);
+    font-size: 32px;
+    line-height: 38px;
+    color: #000000;
 }
-@font-face{ 
-    font-family: "SF Pro";
-    font-weight: 700;
-    src: url(../fonts/SF-Pro-Text-Heavy.otf);
+
+#header .header-id {}
+
+
+/* banner */
+.banner {}
+
+.banner .banner-titil {}
+
+.banner .banner-titil .bt-stit {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 14px;
+    color: #DA5E7C;
 }
-@font-face{ 
-    font-family: "SF Pro";
-    font-weight: 800;
-    src: url(../fonts/SF-Pro-Text-Bold.otf);
+
+.banner .banner-titil .bt-tit {
+    font-size: 22px;
+    line-height: 26px;
+    color: #000;
+    font-weight: 600;
+
 }
-@font-face{ 
-    font-family: "SF Pro";
-    font-weight: 900;
-    src: url(../fonts/SF-Pro-Text-Black.otf);
+
+.banner .banner-titil .bt-desc {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    color: #909092;
 }

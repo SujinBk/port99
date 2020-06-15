@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>parallax12</title>
+</head>
+
+<style>
+    @font-face {
+        font-family: 'CookieRunOTF-Bold';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/CookieRunOTF-Bold00.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .pageYOffset {
+        position: fixed;
+        left: 10px;
+        top: 10px;
+        width: 40px;
+        height: 40px;
+        background: rgba(0, 0, 0, 0.6);
+        text-align: center;
+        line-height: 40px;
+        color: #fff;
+        font-size: 12px;
+    }
+
+    #section1 {
+        height: 5000px;
+        background: #724998;
+    }
+
+    #section1 h1 {
+        font-size: 7vw;
+        color: #fff;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: 'CookieRunOTF-Bold';
+        transform: scale();
+    }
+</style>
+
+<body>
+
+    <div class="pageYOffset">0</div>
+    <section id="content">
+        <section id="section1" 
+        data-0="background:rgb(255,0,0)"
+        data-1000="background:rgb(255,163,24)"
+        data-2000="background:rgb(250,255,24)"
+        data-3000="background:rgb(29,255,24)"
+        data-4000="background:rgb(24,144,255)">
+            <h1 data-0="transform:translate(-50%,-50%) rotate(0deg) scale(1)"
+                data-1000="transform:translate(-250%,-50%) rotate(0deg) scale(1)"
+                data-2000="transform:translate(-50%,-50%) rotate(0deg) scale(1)"
+                data-3000="transform:translate(-50%,-50%) rotate(360deg) scale(1)"
+                data-4000="transform:translate(-50%,-50%) rotate(360deg) scale(10) ">
+                포트폴리오입니다.</h1>
+        </section>
+        <!--//section1 -->
+        <section id="section2"></section>
+        <!--//section2 -->
+        <section id="section3"></section>
+        <!--//section3 -->
+        <section id="section4"></section>
+        <!--//section4 -->
+        <section id="section5"></section>
+        <!--//section5 -->
+        <section id="section6"></section>
+        <!--//section6 -->
+    </section>
+    <!--//content -->
+
+    <script src="js/skrollr.min.js"> </script>
+    <script>
+        var s = skrollr.init();
+        window.addEventListener("scroll", () => {
+            let pageYOffset = window.pageYOffset || document.documentElement.scrollTop;
+            document.querySelector(".pageYOffset").textContent = pageYOffset;
+        });
+    </script>
+</body>
+
+</html>
