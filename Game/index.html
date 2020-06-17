@@ -7,27 +7,35 @@
     <title>Memory Game</title>
 </head>
 <style>
+    @font-face {
+        font-family: 'yg-jalnan';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+
     * {
         margin: 0;
         padding: 0;
     }
 
     body {
-        background: #000;
+        background: #f3c9dd;
+
     }
 
     /* card */
     main {
-        display: flex;                 
+        display: flex;
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
         width: 100%;
         max-width: 900px;
-        margin: 10% auto;
+        margin: 3% auto;
     }
 
-    main .card {
+    .card {
         width: 120px;
         height: 150px;
         margin: 1%;
@@ -36,42 +44,71 @@
 
     }
 
-    main .card img {
+    .card img {
         width: 100%;
         height: 150px;
 
     }
 
-    
-
-    main .card .front {
+    .card .front {
         background-image: url("img/Group10.png");
         width: 100%;
         height: 100%;
         background-size: cover;
         transform: rotatey(0);
-        transition: transform 0.6s ease;
+        transition: transform 0.6s;
         backface-visibility: hidden;
         position: relative;
         z-index: 10;
-    }
-    main .card:hover .front {
-        transform: rotatey(180deg);
+        border-radius: 10px;
     }
 
-    main .card .back {
+
+    .card .back {
         width: 100%;
         height: 100%;
         position: absolute;
         left: 0;
         top: 0;
         transform: rotateY(-180deg);
-        transition: transform 0.6s ease;
+        transition: transform 0.6s;
+        border-radius: 10px;
     }
 
-    main .card:hover .back {
+    /*  카드를 클릭했을 때 */
+    /* main .card:hover .front {
+        transform: rotatey(180deg);
+        transition: transform 1s;
+    } */
+
+
+    /* main .card:hover .back {
         transform: rotatex(0deg);
+        transition: transform 1s;
+    } */
+
+    .card.is-selected .front {
+        transform: rotatey(180deg);
+        transition: transform 0.6s;
     }
+
+    .card.is-selected .back {
+        transform: rotatey(0deg);
+        transition: transform 0.6s;
+    }
+
+    [data-matched="true"] .front {
+        transform: rotatey(180deg);
+        transition: transform 0.6s;
+    }
+
+    [data-matched="true"] .back {
+        transform: rotatey(0deg);
+        transition: transform 0.6s;
+    }
+
+
+
 
     [data-type="img1"] .back {
         background: url("img/Group1.png");
@@ -117,9 +154,89 @@
         background: url("img/Group9.png");
         background-size: cover;
     }
+
+    /* info */
+    /* info */
+    .info {
+        width: 100%;
+        max-width: 950px;
+        margin: auto;
+        text-align: center;
+        color: #fff;
+        font-family: 'MaplestoryOTFLight';
+        padding-top: 5vh;
+    }
+
+    .score {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 2vw;
+
+    }
+
+    .score span {
+        display: inline-block;
+        margin-right: 20px;
+    }
+
+    .turns span.last-turn {
+        color:red;
+
+    }
+
+    /* .score h1 {
+
+        } */
+
+    .btn-sound {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        width: 24px;
+        height: 24px;
+        background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/icon-sound-on.svg);
+        background-color: transparent;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        border: none;
+        outline: none;
+    }
+
+    .btn-sound:active {
+        transform: translateY(1px);
+    }
+
+    .btn-sound::before {
+        content: '';
+        position: absolute;
+        top: 9px;
+        left: -2px;
+        width: 120%;
+        height: 2px;
+        background-color: #fff;
+        transform: rotate(35deg);
+        box-shadow: 0 0 0 2px #000;
+    }
+
+    .btn-sound.is-playing::before {
+        display: none;
+    }
 </style>
 
 <body>
+
+    <div class="info">
+        <button class="btn-sound"></button>
+        <audio id="theme-song" src="music/BackgroundMusic.mp3" loop="loop"></audio>
+        <div class="score">
+            <div class="turns">기회: <span>2 </span></div>
+            <div class="attempts">시도: <span>0 </span></div>
+            <div class="wins">우승: <span>0 </span></div>
+        </div>
+        <h1>CARD GAME</h1>
+    </div>
     <main>
         <div class="card" data-type="img1" data-matched="false">
             <div class="front"></div>
@@ -194,6 +311,99 @@
             <div class="back"></div>
         </div>
     </main>
+
+
+    <!-- script -->
+    <script src="js/jquery.min_1.12.4.js"></script>
+    <script>
+        //const 
+        const $board = $('main'), //board = $('main') 와 같은 의미
+            $card = $('.card'),
+            $btnSound = $(".btn-sound"),
+            $themeSongEl = $("#theme-song")[0],
+            $turns = $('.turns span'),
+
+            selectedClass = 'is-selected', // 카드를 선택했을때
+            dataMatch = "data-matched",
+            dataType = 'data-type',
+            playSoundClass ='is-playing',
+            lastTrunClass = 'last-turn',
+            timeoutLength = 900;
+
+        let sound = ['music/pop.mp3', 'music/ty.mp3', 'music/ye.mp3']
+        soundMatch = new Audio(sound[0]),
+            soundNoMatch = new Audio(sound[1]),
+            soundSuccess = new Audio(sound[2]),
+            trunsCount = 2; // 처음 주어진 기회 2
+
+
+
+        // let 은 바뀌는 변수라 생각하면 됨
+        let card1, card2;
+        //카드를 클릭하면 클릭한 카드한테 is-selected를 추가
+
+        // 음악 아이콘을 클릭 했을때 음악이 플레이 클릭했을때 정지
+        // $themeSongEl.play(); // 음악 정지
+
+        $btnSound.on('click', function () {
+            $(this).toggleClass(playSoundClass);
+        })
+
+
+
+        $card.click(function () {
+            if ($(this).attr(dataMatch) == 'false') {
+                $(this).addClass(selectedClass);
+                if ($(this).hasClass(playSoundClass)) {
+                    $themeSongEl.play();
+                } else {
+                    $themeSongEl.pause();
+                }
+            }
+            let selectedCard = $('.' + selectedClass); // 선택된 카드를 클래스로 변경(.is-selected)
+
+            if (selectedCard.length == 2) {
+
+                card1 = selectedCard.eq(0).attr(dataType); // 비교할 첫번째 카드
+                card2 = selectedCard.eq(1).attr(dataType); // 비교할 두번째 카드
+
+                // 카드1 = 카드2
+                if (card1 == card2) {
+
+                    if ($btnSound.hasClass(playSoundClass)) {
+                        soundMatch.play()
+                    }
+                    selectedCard.attr(dataMatch, true).removeClass(selectedClass);
+                } else {
+                    //카드가 다르면 뒤집
+                    if ($btnSound.hasClass(playSoundClass)) {
+                        soundNoMatch.play()
+                    }
+                    setTimeout(function () {
+                        selectedCard.removeClass(selectedClass);
+                        trunsCount--;   //카운트를 줄이고
+                        $turns.text(trunsCount);
+                    }, timeoutLength)
+
+                    // 카운드 기회가 없을때 (주의) 
+                    if(trunsCount === 1){
+                        setTimeout(function(){
+                            $turns.addClass(lastTrunClass)
+                        },timeoutLength)
+                    }
+                    //카운트 기회가 없을때 (시도+1), 카운트 > 2
+                    if(trunsCount <= 0){
+                        setTimeout(function(){
+                            trunsCount=2; // 기회를 다시 2로 복구
+                        $turns.removeClass(lastTrunClass).html(trunsCount); // 주의 표시 삭제, 카운트 표시
+                        $card.attr(dataMatch,false)
+                        },timeoutLength)
+                    
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>
