@@ -85,11 +85,11 @@ body { background: url(../img/header_bg.jpg) repeat-x center top;}
 .column .col-tit { font-size: 20px; color: #2f7fa6; padding-bottom: 5px;}
 .column .col-desc { border-bottom: 1px dashed #dbdbdb; padding-bottom: 15px; margin-bottom: 15px; color: #878787; line-height: 18px;}
 
-.column.col1 { }
-.column.col2 { }
+/* .column.col1 { }
+.column.col2 { } */
 .column.col3 { border-bottom: 0;}
-.column.col4 { }
-.column.col5 { }
+/* .column.col4 { }
+.column.col5 { } */
 .column.col6 { border-bottom: 0;}
 /* 사이드1 */
 .side1 {position: relative; perspective: 1000px;}
@@ -99,7 +99,7 @@ body { background: url(../img/header_bg.jpg) repeat-x center top;}
      width: 100%; padding: 20px;
      box-sizing: border-box;
      color: #fff; }
-.side1 .front { }
+/* .side1 .front { } */
 .side1 .back { position: absolute;left: 0; top: 0;}
 .side1 .front { transform: rotatey(0); transition: transform 0.6s ease; backface-visibility: hidden;}
 .side1:hover .front {transform: rotatey(180deg); }
@@ -108,7 +108,7 @@ body { background: url(../img/header_bg.jpg) repeat-x center top;}
 
 
 /* 사이드2 */
-.column.col8 { }
+/* .column.col8 { } */
 .column.col8 .side2 figure {background-image: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
      position: relative;  overflow: hidden;} 
 .column.col8 .side2 figure img{transition: all 0.3s ease;} 
@@ -155,7 +155,7 @@ body { background: url(../img/header_bg.jpg) repeat-x center top;}
 .column.col9 .side3 figure:hover figcaption{transform: translatex(0) rotate(0); }
 
 /* 메뉴 */
-.meun { }
+/* .meun { } */
 .meun li {position: relative;}
 .meun li a { font-size: 12px; text-transform: uppercase; color: #878787;border-bottom:  1px solid #dbdbdb; padding: 10px; display: block; 
 transition:  box-shadow 0.34s ease, background 0.34s ease, color 0.3s;}

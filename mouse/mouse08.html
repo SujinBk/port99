@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mouse Effect06</title>
-    <link rel="stylesheet" href="mouse.css">
+    <title>Mouse Effect07</title>
+
     <style>
-         @import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
 
         @font-face {
             font-family: 'GmarketSansMedium';
@@ -14,11 +15,34 @@
             font-weight: normal;
             font-style: normal;
         }
-        @font-face { font-family: 'S-CoreDream-2ExtraLight'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-2ExtraLight.woff') format('woff'); font-weight: normal; font-style: normal; }
-        * {margin: 0;padding: 0;box-sizing: border-box;}
-        a {text-decoration: none;color: #666;}
-        img {width: 100%; vertical-align: top;}
-        ul {padding: 10px 20px;}
+
+        @font-face {
+            font-family: 'S-CoreDream-2ExtraLight';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-2ExtraLight.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: #666;
+        }
+
+        img {
+            width: 100%;
+            vertical-align: top;
+        }
+
+        ul {
+            padding: 10px 20px;
+        }
+
         body {
             background: url(../Parallax/img/img10.gif) no-repeat center center;
             background-size: cover;
@@ -29,6 +53,7 @@
             /* cursor: none; */
             overflow: hidden;
         }
+
         body::before {
             content: '';
             position: absolute;
@@ -36,33 +61,78 @@
             top: 0;
             width: 100%;
             height: 100vh;
-            background: rgba(6, 17, 103, 0.708);
+            background: rgba(63, 47, 65, 0.3);
             z-index: -1;
         }
-        .info {position: absolute; left: 0; top: 0; z-index: 1000;padding: 20px;}
-        .info p { margin-top: 10px;}
-        /* info2 */
-        .info2 {
-            position: absolute; right: 0; top: 0; z-index: 1000;
-            padding: 30px;
-            font-weight: bold;
-        }
-        .info2 li {list-style: none;margin-bottom: 5px;}
-        .info2 li a{color: #fff;}
-        .info2 li.active a {border-bottom: 1px dashed #fff;}
-        /**/
-        .infor3 {
-            position: absolute; right: 0; bottom: 0; z-index: 1000;
-            padding: 30px;
-            font-weight: bold;
-        }
-        .infor3 li a{color: #fff;}
-        .infor3 li.active a {border-bottom: 1px dashed #fff;}
 
-        .cOpne {position: absolute; left: 0; bottom: 0; z-index: 1000; padding: 20px;}
-        .cOpne a {color: #fff; border: 1px solid #fff; border-radius: 30px; padding: 5px 30px}
-        .cOpne .modal {
-            background: rgba(0,0,0,0.8);
+        .info {
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .info h1 {
+            padding-bottom: 10px;
+        }
+
+        .info2 {
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .info2 li {
+            list-style: none;
+            margin-bottom: 5px;
+        }
+
+        .info2 li a {
+            color: #fff;
+        }
+
+        .info2 li.active {
+            border-bottom: 1px dashed #fff;
+        }
+
+        .infor3 {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .infor3 li {
+            list-style: none;
+            margin-bottom: 5px;
+        }
+
+        .infor3 li a {
+            color: #fff;
+        }
+
+        .infor4 {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .infor4 a {
+            color: #fff;
+            border: 1px solid #fff;
+            border-radius: 30px;
+            padding: 5px 30px;
+            margin-right: 10px;
+        }
+
+        .infor4 .modal {
+            background: rgba(0, 0, 0, 0.8);
             width: 100%;
             height: 100vh;
             position: fixed;
@@ -71,54 +141,17 @@
             text-align: left;
             transition: all 600ms cubic-bezier(0.86, 0, 0.07, 1);
         }
-        .cOpne .modal.show {
+
+        .infor4 .modal.show {
             top: 0;
         }
-        .cOpne .modal .close {
-            position: absolute; right: 10px; top: 20px;
+
+        .infor4 .modal .close {
+            position: absolute;
+            right: 10px;
+            top: 20px;
         }
-        /*contents*/
-        .contents {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            width: 100%;
-            height: 100vh;
-            background-size:cover;
-            /* overflow: hidden; */
-        }
-        
-        .move-image {
-            --x:0;
-            --y:0;
-            --d:50;
-            
-          position: relative;
-        }
-        .move-image:hover .mimg{
-            transform: scale(1.025);
-           
-        }
-        .move-image .mimg {
-           width: 50vw;
-           height: 60vh;
-           background: #ccc;
-           position: relative;
-           overflow: hidden;
-           transition:transform 500ms;
-        }
-    
-        .move-image .mimg .img {
-            --d:20;
-          position:absolute;
-          left: -5%;top:-5%;
-          width: 110%;
-          height: 110%;
-          object-fit: cover;
-          transition:transform 500ms cubic-bezier(0.25,0.46,0.45,0.84);
-          transform: translate(calc(var(--x)/var(--d) * 1px),calc(var(--y)/var(--d) * 1px));
-        }
+
         .cursor {
             position: absolute;
             width: 200px;
@@ -128,48 +161,71 @@
             user-select: none;
             pointer-events: none;
         }
-        .textWrap{
-            padding-top: 20vh;
-        
-        }
-        .textWrap .line{
-            width: 100vw;
+
+        /* contents */
+        .contents {
             display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+            flex-direction: column;
             text-align: center;
         }
-        .textWrap .line .left{
+
+        .textWrap {
+            padding-top: 20vh;
+        }
+
+        .textWrap .line {
+            width: 100vw;
+            display: flex;
+        }
+
+        .textWrap .line .left {
             width: 50vw;
             color: gold;
             transform: skew(0deg, -15deg);
             overflow: hidden;
         }
-        .textWrap .line .left .spanWrap{
-            width: 100vw;text-align: center;
-           
+
+        .textWrap .line .left .spanWrap {
+            width: 100vw;
+            text-align: center;
         }
-        .textWrap .line .left .spanWrap span{
+
+        .textWrap .line .left .spanWrap span {
             font-size: 6vw;
         }
-        .textWrap .line .right{
+
+        .textWrap .line .right {
             width: 50vw;
             transform: skew(0deg, 15deg);
             overflow: hidden;
         }
+
         .textWrap .line .right .spanWrap {
-            width: 100vw;text-align: center;transform: translate(-50vw);
+            width: 100vw;
+            text-align: center;
+            transform: translate(-50vw);
         }
-        .textWrap .line .right .spanWrap span{
+
+        .textWrap .line .right .spanWrap span {
             font-size: 6vw;
-            
+        }
+
+        .textWrap span {
+            display: inline-block;
         }
     </style>
 
+    <link rel="stylesheet" href="../assets/css/prism.css">
 </head>
+
 <body>
     <div class="info">
         <h1>Mouse Effect08</h1>
         <p>마우스 따라다니기</p>
-        <a href="#" class="cord">좌표보기</a>
     </div>
 
     <div class="info2">
@@ -187,107 +243,132 @@
 
     <div class="infor3">
         <ul>
-            <li>pageX : <span class="pageX">0</span></li>
-            <li>pageY : <span class="pageY">0</span></li>
-            <li>angleX : <span class="angleX">0</span></li>
-            <li>angleY : <span class="angleY">0</span></li>
-            <li>mouseX : <span class="mouseX1">0</span></li>
-            <li>mouseY : <span class="mouseY1">0</span></li>
+            <li>clientX : <span class="clientX">0</span></li>
+            <li>clientY : <span class="clientY">0</span></li>
         </ul>
     </div>
-    <div class="cOpne">
+
+    <div class="infor4">
         <a href="#" class="view">소스보기</a>
+
         <!-- modal -->
         <div class="modal">
-            <div class="code-editor">   
-                <span class="control"></span>
-                <span class="control"></span>
-                <span class="control"></span>
-<pre class="line-numbers"><code class="language-js">  
-</code></pre>    
+            <div class="code-editor">
+                <h3>Script Editor
+                    <span class="control"></span>
+                    <span class="control"></span>
+                    <span class="control"></span>
+                </h3>
+                <div class="code">
+                    <pre class="line-numbers"><code class="language-js">
+</code></pre>
+                </div>
+
             </div>
             <a class="close">Close</a>
         </div>
     </div>
-    <!---contents-->
-    
 
+    <!-- contents -->
     <div class="contents">
-        <div class="cursor">
-        </div>
+        <div class="cursor"></div>
+
         <div class="move-image">
-            <!-- <div class="mimg">
-                <img class="img" src="juan-ordonez-MciiCsnl6rY-unsplash.jpg"></div> -->
-                <div class="textWrap">
-                    <div class="line">
-                        <div class="left">
-                            <div class="spanWrap">
-                                <span class="spanSlow">Pain past</span>
-                            </div>
-                        </div>
-                        <div class="right">
-                            <div class="spanWrap">
-                                <span class="spanSlow">Pain past</span>
-                            </div>
+            <div class="textWrap">
+                <div class="line">
+                    <div class="left">
+                        <div class="spanWrap">
+                            <span class="spanSlow">Pain past</span>
                         </div>
                     </div>
-                    <div class="line">
-                        <div class="left">
-                            <div class="spanWrap">
-                                <span class="spanFast">is pleasure.</span>
-                            </div>
-                        </div>
-                        <div class="right">
-                            <div class="spanWrap">
-                                <span class="spanFast">is pleasure.</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="line">
-                        <div class="left">
-                            <div class="spanWrap">
-                                <span class="spanSlow">지나간 고통은</span>
-                            </div>
-                        </div>
-                        <div class="right">
-                            <div class="spanWrap">
-                                <span class="spanSlow">지나간 고통은</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="line">
-                        <div class="left">
-                            <div class="spanWrap">
-                                <span class="spanFast">쾌락이다</span>
-                            </div>
-                        </div>
-                        <div class="right">
-                            <div class="spanWrap">
-                                <span class="spanFast">쾌락이다</span>
-                            </div>
+                    <div class="right">
+                        <div class="spanWrap">
+                            <span class="spanSlow">Pain past</span>
                         </div>
                     </div>
                 </div>
+                <div class="line">
+                    <div class="left">
+                        <div class="spanWrap">
+                            <span class="spanFast">is pleasure.</span>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="spanWrap">
+                            <span class="spanFast">is pleasure.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="line">
+                    <div class="left">
+                        <div class="spanWrap">
+                            <span class="spanSlow">지나간 고통은</span>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="spanWrap">
+                            <span class="spanSlow">지나간 고통은</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="line">
+                    <div class="left">
+                        <div class="spanWrap">
+                            <span class="spanFast">쾌락이다</span>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="spanWrap">
+                            <span class="spanFast">쾌락이다</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-
     <!-- script -->
-    <script src="../js/jquery.min_1.12.4.js"></script>
-    <script src="../js/jquery-ui.min.js"></script>
-    <script src="../js/gsap.min.js"></script>
-    <script src="../js/jsst.js"></script>
+
+    <script src="../Parallax/js/jquery.min_1.12.4.js"></script>
+    <script src="../parallax/js/jquery-ui.min.js"></script>
+    <script src="../parallax/js/gsap.min.js"></script>
+    <script src="assets/mouse.js"></script>
     <script>
-        const spamSlow = document.querySelectorAll("spanSlow")
-        const spamFast = document.querySelectorAll("spanFast")
-        window.addEventListener("mousemove",mouseMove);
+        // ====커서를 움직이면 따라 움직임
+        //===============javascript=====================// 
+        // const spanSlow = document.querySelectorAll(".spanSlow");
+        // const spanFast = document.querySelectorAll(".spanFast");
+
+        // window.addEventListener("mousemove", mouseMove);
+
+        // function mouseMove(e) {
+        //     let postion = (e.pageX/(window.innerWidth/2))*100;
+        //     //console.log(speedSlow)
+        //     spanSlow.forEach((span) => {
+        //         span.style.transform = `translate(${postion}px)`;
+        //     })
+        //     spanFast.forEach((span) => {
+        //         span.style.transform = `translate(${postion}px)`;
+        //     })
+        // }
+
+        // jquery
+        let spanS = $(".spanSlow");
+        let spanF = $(".spanFast");
+
+        $(window).on("mousemove",mouseMove);
+
         function mouseMove(e){
-            let speedSlowspeedSlow = e.pageX;
-            spamSlow.forEach((span)=>{
-                span.style.tansform = `translate(${speedSlow}px)`;
-            }); 
-        };
-        mouseMove();
+            let postion = (e.pageX - ($(window).width()/2))*0.1;
+            console.log(postion)
+
+            spanS.css({"transform": translate})
+            
+        }
+
+
     </script>
+
 </body>
+
 </html>

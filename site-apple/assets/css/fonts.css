@@ -35,12 +35,7 @@
     font-weight: 300;
     src: url(../fonts/SF-Pro-Text-Semibold.otf);
 }
-@font-face{ 
-    font-family: "SF Pro";
-    font-weight: 400;
-    src: url(../fonts/SF-Pro-Text-Regular.otf);
-}
-@font-face{ 
+@font-face{ fs
     font-family: "SF Pro";
     font-weight: 500;
     src: url(../fonts/SF-Pro-Text-Medium.otf);
