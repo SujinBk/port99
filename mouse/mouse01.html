@@ -496,63 +496,7 @@ https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+cli
                 <span class="control"></span>
                 <span class="control"></span>
                 <span class="control"></span>
-                <pre class="line-numbers"><code class="language-js">$(window).mousemove(function(event){
-    $(".clientX").text(event.clientX);
-    $(".clientY").text(event.clientY);
-    $(".offsetX").text(event.offsetX);
-    $(".offsetY").text(event.offsetY);
-    $(".pageX").text(event.pageX);
-    $(".pageY").text(event.pageY);
-    $(".screenX").text(event.screenX);
-    $(".screenY").text(event.screenY);
-
-    $(".cursor").css({ left: event.clientX -25, top: event.clientY-25 });
-
-    $(".contents a").hover(function(){
-        $(".cursor").addClass("active");
-    }, function(){
-        $(".cursor").removeClass("active");
-    });
-
-    //javascript
-    window.addEventListener("mousemove", function(event){
-        document.querySelector(".clientX").innerHTML = event.clientX;
-        document.querySelector(".clientY").innerHTML = event.clientY;
-        document.querySelector(".offsetX").innerHTML = event.offsetX;
-        document.querySelector(".offsetY").innerHTML = event.offsetY;
-        document.querySelector(".pageX").innerHTML = event.pageX;
-        document.querySelector(".pageY").innerHTML = event.pageY;
-        document.querySelector(".screenX").innerHTML = event.screenX;
-        document.querySelector(".screenY").innerHTML = event.screenY;
-
-        document.querySelector(".cursor").style.left = event.clientX - 25 + "px";
-        document.querySelector(".cursor").style.top = event.clientY - 25 + "px";
-
-        let x = event.clientX - 25 + "px";
-        let y = event.clientY - 25 + "px";
-
-        document.querySelector(".cursor").style.cssText = "left:"+ x +"; top:" + y;
-
-        // document.querySelector(".contents a").addEventListener("mouseenter", function(){});
-        // document.querySelector(".contents a").addEventListener("mouseleave", function(){});
-
-        // document.querySelector(".contents a").addEventListener("mouseenter", () => {
-        //     document.querySelector(".cursor").classList.add("active");
-        // });
-        // document.querySelector(".contents a").addEventListener("mouseleave", () => {
-        //     document.querySelector(".cursor").classList.remove("active");
-        // });
-
-        document.querySelectorAll("a").forEach(elem => {
-            elem.addEventListener("mouseenter", () => {
-                document.querySelector(".cursor").classList.add("active");
-            });
-            elem.addEventListener("mouseleave", () => {
-                document.querySelector(".cursor").classList.remove("active");
-            });
-        });
-    });
-});
+                <pre class="line-numbers"><code class="language-js">
 </code></pre>
             </div>
             <a class="close">Close</a>

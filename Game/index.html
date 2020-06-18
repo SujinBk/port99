@@ -156,7 +156,6 @@
     }
 
     /* info */
-    /* info */
     .info {
         width: 100%;
         max-width: 950px;
@@ -165,6 +164,10 @@
         color: #fff;
         font-family: 'MaplestoryOTFLight';
         padding-top: 5vh;
+    }
+
+    .info h1 {
+        font-size: 8vw;
     }
 
     .score {
@@ -182,13 +185,9 @@
     }
 
     .turns span.last-turn {
-        color:red;
+        color: red;
 
     }
-
-    /* .score h1 {
-
-        } */
 
     .btn-sound {
         position: absolute;
@@ -215,13 +214,56 @@
         left: -2px;
         width: 120%;
         height: 2px;
-        background-color: #fff;
-        transform: rotate(35deg);
-        box-shadow: 0 0 0 2px #000;
+        background-color: #f00;
+        transform: rotate(-49deg);
     }
 
     .btn-sound.is-playing::before {
         display: none;
+    }
+
+    .success {
+        z-index: 1000000;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        text-align: center;
+        background: rgba(211, 136, 238, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'yg-jalnan';
+        flex-direction: column;
+        display: none;
+    }
+
+    .success.is-visible {
+        display: flex;
+    }
+
+    .success.bg {
+        background: transparent;
+    }
+
+    .success .btn-continue:active {
+        transform: translateY(2px);
+        border: 0px;
+    }
+
+    .success .btn-continue {
+        background: #E4C5EF;
+        border: 2px solid #fff;
+        border-radius: 5px;
+        font-family: 'yg-jalnan';
+        color: #fff;
+        padding: 10px;
+    }
+
+    .success h2 {
+        color: #fff;
+        font-size: 3vw;
     }
 </style>
 
@@ -312,7 +354,15 @@
         </div>
     </main>
 
-
+    <div class="success">
+        <h2 class="success-message">와우 훌륭하네요~</h2>
+        <div class="score bg">
+            <div class="turns">기회: <span>2 </span></div>
+            <div class="attempts">시도: <span>0 </span></div>
+            <div class="wins">우승: <span>0 </span></div>
+        </div>
+        <button class="btn-continue">다시하기</button>
+    </div>
     <!-- script -->
     <script src="js/jquery.min_1.12.4.js"></script>
     <script>
@@ -322,11 +372,16 @@
             $btnSound = $(".btn-sound"),
             $themeSongEl = $("#theme-song")[0],
             $turns = $('.turns span'),
-
+            $attempts = $(".attempts span"), // 시도 선택자
+            $success = $('.success'),
+            $wins = $(".wins span"),
+            $btnContinue = $('.btn-continue'),
+            $successMessage = $('.success-message'),
             selectedClass = 'is-selected', // 카드를 선택했을때
             dataMatch = "data-matched",
             dataType = 'data-type',
-            playSoundClass ='is-playing',
+            playSoundClass = 'is-playing',
+            visibleClass = 'is-visible',
             lastTrunClass = 'last-turn',
             timeoutLength = 900;
 
@@ -334,16 +389,24 @@
         soundMatch = new Audio(sound[0]),
             soundNoMatch = new Audio(sound[1]),
             soundSuccess = new Audio(sound[2]),
-            trunsCount = 2; // 처음 주어진 기회 2
+            trunsCount = 2, // 처음 주어진 기회 2
+            winCount = 0, // 우승 횟수
+            attemptsCount = 0; // 시도 횟수
 
 
 
         // let 은 바뀌는 변수라 생각하면 됨
-        let card1, card2;
+        let card1, card2, msg;
         //카드를 클릭하면 클릭한 카드한테 is-selected를 추가
 
         // 음악 아이콘을 클릭 했을때 음악이 플레이 클릭했을때 정지
         // $themeSongEl.play(); // 음악 정지
+
+
+        // 처음 시작할때 셔플
+
+        shuffleCards();
+
 
         $btnSound.on('click', function () {
             $(this).toggleClass(playSoundClass);
@@ -381,28 +444,127 @@
                     }
                     setTimeout(function () {
                         selectedCard.removeClass(selectedClass);
-                        trunsCount--;   //카운트를 줄이고
+                        trunsCount--; //카운트를 줄이고
                         $turns.text(trunsCount);
                     }, timeoutLength)
 
                     // 카운드 기회가 없을때 (주의) 
-                    if(trunsCount === 1){
-                        setTimeout(function(){
+                    if (trunsCount === 1) {
+                        setTimeout(function () {
                             $turns.addClass(lastTrunClass)
-                        },timeoutLength)
+                        }, timeoutLength)
                     }
                     //카운트 기회가 없을때 (시도+1), 카운트 > 2
-                    if(trunsCount <= 0){
-                        setTimeout(function(){
-                            trunsCount=2; // 기회를 다시 2로 복구
-                        $turns.removeClass(lastTrunClass).html(trunsCount); // 주의 표시 삭제, 카운트 표시
-                        $card.attr(dataMatch,false)
-                        },timeoutLength)
-                    
+                    if (trunsCount <= 0) {
+                        setTimeout(function () {
+                            trunsCount = 2; // 기회를 다시 2로 복구
+                            $turns.removeClass(lastTrunClass).html(trunsCount); // 주의 표시 삭제, 카운트 표시
+                            $card.attr(dataMatch, false) // 모든 카드 초기화
+                            attemptsCount += 1;
+                            $attempts.html(attemptsCount);
+                        }, timeoutLength)
                     }
                 }
             }
+            // 완성했을때
+            // dataMatch 가 true이면서 갯수가 전체 가트 갯수랑 같을때
+            if ($('[' + dataMatch + '="true"]').length == $card.length) {
+                setTimeout(() => {
+                    $success.addClass(visibleClass);
+                    winCount += 1;
+                    $wins.html(winCount);
+                }, timeoutLength);
+
+
+                // 시도 획수에 따른 메세지띄우기
+                switch (true) {
+                    case (attemptsCount <= 2):
+                        msg = "최고입니다. 최고의 아이큐!!";
+                        break;
+                    case (attemptsCount > 2 && attemptsCount <= 5):
+                        msg = "잘했네요~";
+                        break;
+                    case (attemptsCount > 5 && attemptsCount <= 8):
+                        msg = "쫌만더 열심히 하면 되겠네~";
+                        break;
+                    case (attemptsCount > 8):
+                        msg = "아쉽네요~";
+                        break;
+                }
+
+                $successMessage.text(msg);
+
+                //카드초기화
+                setTimeout(() => {
+                    $card.attr(dataMatch, false);
+                }, 1200);
+            }
+
         });
+        // 다시 게임할때 
+        $btnContinue.on('click', function () {
+            $success.removeClass(visibleClass);
+            shuffleCards(); // 카드 셔플
+            trunsCount = 2;
+            $turns.removeClass(lastTrunClass).html(trunsCount);
+            attemptsCount = 0;
+            $attempts.html(attemptsCount);
+            // $card.attr(dataMatch, false)
+        })
+
+        // 카드 셔플
+        function shuffleCards() {
+            let cards = $board.children();
+            // console.log(cards.length)
+
+            while (cards.length) {
+                $board.append(cards.splice(Math.floor(Math.random() * cards.length), 1)[0])
+            }
+            $card.each(function (index) {
+                setTimeout(() => {
+                    $(this).addClass(selectedClass);
+                }, timeoutLength + 100 * index);
+            });
+
+            setTimeout(() => {
+                $card.removeClass(selectedClass);
+            }, 5000);
+            // for (let i = 0; i < cards.length; i++) {
+            //     let arr=[];
+            //     let random = cards.splice(Math.floor(Math.random() * cards.length), 1)[0] // 0~ 17부터 랜덤으로 
+            //     arr.push(random)
+            //     console.log(arr)
+            // }
+
+        }
+
+        //splice <- 쪼개다
+        // var number = [1,2,3,4,5,6,7]
+
+        // var removed = number.splice(2,0,'10');
+
+        // alert(number)// ,1,2,10,3,4,5,6,7
+
+        // var removed = number.splice(2,0,'10','11');
+        // alert(number) // 1,2,10,11,3,4,5,6,7
+
+        // var removed = number.splice(3,1);
+        // alert(number) // 1,2,3,5,6,7
+
+        // var removed = number.splice(2,1,'20');
+        // alert(number) // 1,2,20,4,5,6,7
+
+        // var removed = number.splice(0,2,'20','30','40'); //0은 건너뛰고 ,2 두개를 지워고 1과2를 지운다. '숫자'를 대입해라
+        // alert(number) //20,30,40,3,4,5,6,7
+
+        // var removed = number.splice(number.length-3,2);
+        // alert(number) // 1,2,3,4,7
+
+        // var removed = number.splice(-2,1); // -는 뒤부터 시작한다. 
+        // alert(number) // 1,2,3,4,5,7
+
+        // var removed = number.splice(2); // 2번째 숫자 빼고 다 지워라~~
+        // alert(number) //1,2
     </script>
 </body>
 
