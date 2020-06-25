@@ -1,0 +1,52 @@
+/*  container */
+.container {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+/* row */
+.row {
+    margin: 0 20px;
+}
+
+/* layout */
+#header h1 svg {
+    padding-top: 20px;
+    width: 5vw;
+    height: 3vh;
+}
+
+.heatext {
+    margin-top: 20px;
+}
+
+#header .header-tit {
+    font-family: 'SF Pro Text';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 35px;
+    letter-spacing: 0.29px;
+    color: #000000;
+}
+
+/* search 박스 */
+
+.search {
+    padding: 15px 10px;
+    border: 2px solid #3E66CD;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+
+.Ssearch {
+    border: none;
+    font-family: 'SF Pro Text';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.29px;
+    color: #3E66CD;
+}

@@ -182,15 +182,10 @@
         let slideWidth = slides.width();
         let slideHeigth = slides.height();
         let slideTotalWidth = slideCount*slideWidth;
-        console.log(slideCount);
-        console.log(slideWidth);
-        console.log(slideHeigth);
-        console.log(slideTotalWidth);
 
 
     slides.css({width:slideWidth, height:slideHeigth});
     slideImg.css({width: slideTotalWidth, height: slideHeigth, marginLeft :-slideWidth }); 
-    // 버그가 생겨서 만들었다구요?
 
 
     // slideImg.css({marginLeft :-slideWidth})

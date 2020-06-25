@@ -244,8 +244,7 @@
             dotIndex += "<a href='#'></a>"; 
             console.log(dotIndex) 
         })
-        sliderDot.html(dotIndex) 
-        //  html() 는 위 dotIndex에 저장되어있는 객체가 태그일 경우 쓰인다. 
+        sliderDot.html(dotIndex)  //  html() 는 위 dotIndex에 저장되어있는 객체가 태그일 경우 쓰인다. 
         sliderDot.find("a").eq(0).addClass("active");
 
 
@@ -269,7 +268,7 @@
         }
 
         // 버튼 클릭
-        sliderBtn.on("click", "a", function (e) { // e 타겟
+        sliderBtn.on("click", "a", function (e) {                             // e 타겟
 
             e.preventDefault();
 

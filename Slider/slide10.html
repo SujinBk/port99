@@ -1,20 +1,51 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slider Portfolio</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
     <style>
-         * {margin: 0; padding: 0; box-sizing: border-box;}
+        * {margin: 0; padding: 0; box-sizing: border-box;}
         a {text-decoration: none;color: #fff;}
         img {width: 100%; vertical-align: top;}
         li {list-style: none;}
 
+        /* cursor */
+        .cursor {
+            position: absolute; z-index: 10000;
+            width: 10px; height: 10px;
+            background: #fff;
+            border-radius: 50%;
+            z-index: 1000;
+            user-select: none;
+            pointer-events: none;
+            transform: scale(1);
+            transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
+        }
+        .cursor.active {
+            opacity: .5;
+            transform: scale(0);
+        }
+        .cursor-follower {
+            position: absolute;
+            z-index: 10000;
+            width: 30px; height: 30px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            user-select: none;
+            pointer-events: none;
+            transition: transform 0.6s ease-in-out, opacity 0.2s ease-in-out;
+        }
+        .cursor-follower.active {
+            opacity: .7;
+            transform: scale(4);
+        }
+
+        /* nav */
         #nav {
             position: fixed; left: 0; top: 0; 
             width: 100%; 
@@ -36,7 +67,8 @@
         #nav h1 { 
             flex: 1 1 0;
             font-weight: 700; 
-            letter-spacing: 10px; font-size: 14px;
+            letter-spacing: 10px; 
+            font-size: 14px;
             text-transform: uppercase;
             text-align: center;
             margin: 2.3vw 1vw;
@@ -92,29 +124,30 @@
         .slide-img .slide {position: absolute; width: 100%; height: 100%; overflow: hidden;}
         .slide-img .slide .stext {
             position: absolute; left: 50%; top: 50%; 
-            letter-spacing: 0.15em;
             transform: translate(-50%,-50%) scale(0.8);
-            
         }
-        .slide-img .slide .stext h2 { 
+        .slide-img .slide .stext h2 {
+            font-size: 11vw; 
+            line-height: 8vw;
             padding-top: 0.1vw;
-            letter-spacing: 0.1em;
-            font-size: 11vw; line-height: 8vw;color: #fff;
+            color: #fff;
             font-family: "Roboto";
             text-transform: uppercase;
+            letter-spacing: 0.1em;
             font-weight: 700;
             overflow: hidden;
-            display: flex;
+            white-space: nowrap;
+            /* display: flex; */
         }
-        .slide-img .slide .stext h2 span {
-            /* display: inline-block; */
-            transform:translateY(15px 350px);
+        .slide-img .slide .stext h2 span { 
+            display: inline-block;
+            transform: translate(150px, 350px);
             opacity: 0;
-            transition: all 1s ease;
             transform-origin: bottom left;
+            transition: all 1s ease;
         }
         .slide-img .slide.active .stext h2 span {
-            transform:translateY(0%);
+            transform: translate(0);
             opacity: 1;
         }
 
@@ -130,40 +163,33 @@
         .slide-img .slide.active .stext h2 span:nth-child(10) {transition-delay: 0.50s;}
         .slide-img .slide.active .stext h2 span:nth-child(11) {transition-delay: 0.55s;}
 
-        .slide-img .slide .simg {position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}
-        .slide-img .slide .simg img {
-            max-width: 500px; 
-            display: block; position: relative;
-            margin: 0 auto; transform: scale(0.4);
-            
-            }
-        .slide-img .slide.active .simg img {
-            animation: scale1 1s ease-in-out forwards;
-             }
-             @keyframes scale1 {
-                 0%{transform:scale(0.4)}
-                 100%{transform:scale(1.2)}
-             }
+        .slide-img .slide .simg {position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 100%;}
+        .slide-img .slide .simg img {max-width: 500px; display: block; position: relative; margin: 0 auto; transform: scale(0.4);}
+        .slide-img .slide.active .simg img {animation: scale1 1s ease-in-out forwards;}
+        
+        @keyframes scale1 {
+            0%     {transform: scale(0.4);}
+            100%  {transform: scale(1.2);}
+        }
 
         .slide-img .slide .snum {
             position: absolute; left: 7.5vw; top: 11vh;
             font-size: 5vw;
-            line-height: 6vw;
+            line-height: 5vw;
             color: #000;
             font-family: "Playfair Display";
-            font-style: italic; 
-            padding-right:1vw;
+            font-style: italic;
+            padding-right: 1vw;
+        }
+        .slide-img .slide .snum::before {
+            content: '';
+            width: 100%; height: 100%;
+            background: rgba(255,255,255,1);
+            position: absolute; left: 0; top: 1vw;
+            z-index: 1000;
+            transform: scaleX(0);
         }
 
-        .slide-img .slide .snum::before{
-            content: '';
-            width: 100%;height: 100%;
-            background: rgba(255,255,255,1);
-            position: absolute;
-            left: 0;top: 1vw;
-            z-index: 1000;
-            transform:scaleX(0);
-        }
         .slide-img .slide .snum .currentIndex {
             margin-right: 4.5vw;
             position: relative;
@@ -175,22 +201,21 @@
             background: #000;
             position: absolute;
             right: -5.3vw; bottom: 2.5vw;
-            
         }
 
-        .slide-img .slide.active .snum::before{
-           animation: ani1 0.7s 0.6s ease;
+        .slide-img .slide.active .snum::before {
+            animation: ani1 0.7s 0.6s ease;
         }
-
         @keyframes ani1 {
-            0%{transform-origin:left; transform:scaleX(0);}
-            50%{transform-origin:left; transform:scaleX(1);}
-            51%{transform-origin:right; transform:scaleX(1);}
-            100%{transform-origin:right; transform:scaleX(0);}
+            0% {transform-origin: left; transform: scaleX(0);}
+            45% {transform-origin: left; transform: scaleX(1);}
+            55% {transform-origin: right; transform: scaleX(1);}
+            100% {transform-origin: right; transform: scaleX(0);}
         }
-        /* 리빌효과 */
+
         .slide-img .slide .snum span {opacity: 0; transition: all 0.5s 0.8s ease;}
         .slide-img .slide.active .snum span {opacity: 1;}
+
 
         /* .slide-img .slide.s1 {background: #fcefe9;}
         .slide-img .slide.s2 {background: #e9effd;}
@@ -217,9 +242,9 @@
             border: 1px solid #ccc;
             text-indent: -9999px;
         }
-
-        .slide-dot a.active{
-            border: 3px; color: #333; text-indent: 0;
+        .slide-dot a.active {
+            border: 3px; color: #000; 
+            text-indent: 0;
             font-family: "Playfair Display";
             font-style: italic;
             vertical-align: 9px;
@@ -247,16 +272,8 @@
             transform: rotate(45deg);
             transform-origin: left;
         }
-       
-        .slide-btn a.next::before{
-            content: '';
-            width: 10px; height: 2px; background: #000;
-            position: absolute; bottom: 3vw; left: 2.4vw;
-            border-radius: 10px;
-            transform: rotate(-45deg);
-            transform-origin: right;
-        }
-        .slide-btn a.next::after{
+
+        .slide-btn a.next::before {
             content: '';
             width: 10px; height: 2px; background: #000;
             position: absolute; bottom: 3vw; left: 2.4vw;
@@ -264,29 +281,29 @@
             transform: rotate(45deg);
             transform-origin: right;
         }
-
-        /* cursor */
-        .follower {
-            position: absolute;
-            width: 30px; height: 30px;
-            background: #ccc;
-            z-index: 1000;
-            border-radius: 50%;
-            user-select: none;
-            pointer-events: none;
-            transition: transform 0.6s ease-in-out,
-             opacity 0.2s ease-in-out;
+        .slide-btn a.next::after {
+            content: '';
+            width: 10px; height: 2px; background: #000;
+            position: absolute; bottom: 3vw; left: 2.4vw;
+            border-radius: 10px;
+            transform: rotate(-45deg);
+            transform-origin: right;
         }
 
+
+    
     </style>
 </head>
-
 <body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    <!-- //cursor -->
+
     <nav id="nav">
         <ul class="menu">
             <li class="active"><a href="#">Work</a></li>
             <li><a href="#">About</a></li>
-            <li><a href="#">Content</a></li>
+            <li><a href="#">Contact</a></li>
         </ul>
         <h1>Portfolio</h1>
         <div class="ham">
@@ -295,6 +312,8 @@
             </div>
         </div>
     </nav>
+    <!-- //nav -->
+    
     <section id="contents">
         <div class="slide-wrap">
             <div class="slide-img">
@@ -358,16 +377,18 @@
                         <span class="slideCount">07</span>
                     </div>
                 </div>
-                <div class="slide s6"><div class="stext">
-                    <h2>webstandard</h2>
+                <div class="slide s6">
+                    <div class="stext">
+                        <h2>webstandard</h2>
+                    </div>
+                    <div class="simg">
+                        <img src="img/img2.png" alt="webstandard">
+                    </div>
+                    <div class="snum">
+                        <span class="currentIndex">06</span>
+                        <span class="slideCount">07</span>
+                    </div>
                 </div>
-                <div class="simg">
-                    <img src="img/img2.png" alt="webstandard">
-                </div>
-                <div class="snum">
-                    <span class="currentIndex">06</span>
-                    <span class="slideCount">07</span>
-                </div></div>
                 <div class="slide s7">
                     <div class="stext">
                         <h2>webstandard</h2>
@@ -381,146 +402,130 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="slide-dot">
-                <a href="#">01</a>
-                <a href="#"class="active">02</a>
-                <a href="#">03</a>
-                <a href="#">04</a>
-                <a href="#">05</a>
-                <a href="#">06</a>
-                <a href="#">07</a>
-            </div> -->
+            
         </div>
     </section>
-    <!-- cursor -->
-    <div class="follower"></div>
+
 
     <script src="js/jquery.min_1.12.4.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/gsap.min.js"></script>
-
     <script>
 
-        // 닷 버튼 생성
-
+        //닷,버튼 태그 생성
         $(".slide-wrap").append("<div class='slide-dot'></div>");
-        $(".slide-wrap").append("<div class='slide-btn'><a href='#' class= 'prev'></a><a href='#' class= 'next'></a></div>");
-        
-
-
+        $(".slide-wrap").append("<div class='slide-btn'><a href='#' class='prev'></a><a href='#' class='next'></a></div>");
         
         const slideWrap = $(".slide-wrap"),
-              slideImg = $(".slide-img"),
-              slide = $(".slide"),
-              slideDot = $(".slide-dot"),
-              slideBtn =$(".slide-btn");
+                slideImg = $(".slide-img"),
+                slide = $(".slide"),
+                slideDot = $(".slide-dot"),
+                slideBtn = $(".slide-btn"),
+                slideCursor = $(".cursor"),
+                slideFollower = $(".cursor-follower");
 
-        let slideCount = slide.length, // 슬라이드 이미지 갯수
-            currentIndex =0;           // 현제 보이는 이미지 
-            dotIndex ="",              // 닷 버튼 HTML
-            duration =1000,            // 이미지 슬라이드 이동시간
-            easing ="easeOutExpo",      //이미지 움직임 효과
-            slidebg =["#fcefe9","#e9effd","#fae3f5","#fbe368","#ccebea","#e9effd","#f4f2ec"];
-            
-            // 글씨 세분화
-            slide.each(function () {
+        let slideCount = slide.length,          //슬라이드 이미지 갯수
+            currentIndex = 0,                     //현재 보이는 이미지
+            dotIndex = "",                         //닷 버튼 HTML
+            duration = 1000,                      //이미지 슬라이드 이동 시간
+            easing = "easeOutExpo";            //이미지 움직임 효과
+            slideBg = ["#fcefe9", "#e9effd", "#fae3f5", "#fbe368", "#ccebea", "#e9effd", "#f4f2ec"]; //각 슬라이드 배경색
+
+        //글씨 세분화
+        slide.each(function(){
             let txt = $(this).find(".stext > h2").text();
-            let split = txt.split("").join("</span><span aria-hidden = 'true'>");
-            split = "<span aria-hidden = 'true'>" + split + "</span>"
-            $(this).find(".stext > h2").html(split).attr("aria-label", txt)
-            console.log(txt)
+            let split = txt.split("").join("</span><span aria-hidden='true'>");
+                split = "<span aria-hidden='true'>" + split + "</span>";
+            $(this).find(".stext > h2").html(split).attr("aria-label", txt);
         });
 
-
-        // 01 각 이미지가 absolute
-        // left : 0   currentIndex 
-        // left : 100 % = currentIndex(1) * 100%(width값)
-        // left : 200 % = currentIndex(2) * 100%
-        // left : 300 % = currentIndex(3) * 100%
-
-        // for문 ---> each()문을 써서 슬라이드효과
-        slide.each(function(i,e){
-            //console.log(i,e)// 나왔는지 확인
-           // $(this).css({"left":+i+"00%"}); // 다양한 방법
-            $(this).css({left:100*i+"%",backgroundColor:slidebg[i]});   // 각 이미지 위치 설정해준 것
-            dotIndex
-
-            // 이미지 갯수 만큼 닷 버튼 만들기
-            dotIndex += "<a href='#'>0"+(i+1)+"</a>";
-            
-        });
-        slideDot.html(dotIndex);
+        //01. 각 이미지 absolute
+        // left: currentIndex(0) * 100% = 0%
+        // left: currentIndex(1) * 100% = 100%
+        // left: currentIndex(2) * 100% = 200%
+        // left: currentIndex(3) * 100% = 300%
+        // each()
         
+        slide.each(function(i, e){
+            //console.log(e)
+            $(this).css({ left : 100 * i + "%", backgroundColor : slideBg[i]});          //각 슬라이드 이미지 위치 설정
+            dotIndex += "<a href='#'>0"+ (i+1) +"</a>";                              //이미지 갯수만큼 닷 버튼 만들기
+        });
+        slideDot.html(dotIndex);                         //닷 버튼 출력
+
         //이미지 움직이기
         function gotoSlide(num){
-            $(this).css({left:100*i+"%",backgroundColor:slidebg[i]});  
-            slideImg.animate({left:-100*num+"%"}, duration,easing);
+            slideImg.animate({ left : -100 * num + "%"}, duration, easing);
+
             currentIndex = num;
             updateDot();
         }
 
         function updateDot(){
             slideDot.find("a").removeClass().eq(currentIndex).addClass("active");
-            slide.removeClass("active").eq(currentIndex).addClass("active")
+            slide.removeClass("active").eq(currentIndex).addClass("active");
+
+            // if(currentIndex == 0){
+            //     $(".cursor").css("background-color","#fcbea4");
+            //     $(".cursor-follower").css("background-color", "rgba(252,196,164,1)");
+            // } else if(currentIndex == 1){
+            //     $(".cursor").css("background-color","#fad954");
+            //     $(".cursor-follower").css("background-color", "rgba(249,243,38,1)");
+            // } else if(currentIndex == 2){
+            //     $(".cursor").css("background-color","#89e7e2");
+            //     $(".cursor-follower").css("background-color", "rgba(64,227,219,0.3)");
+            // } else if(currentIndex == 3) {
+            //     $(".cursor").css("background-color","#BA80EB");
+            //     $(".cursor-follower").css("background-color", "rgba(186,128,235,0.3)");
+            // } else if(currentIndex == 4) {
+            //     $(".cursor").css("background-color","#BADCFB");
+            //     $(".cursor-follower").css("background-color", "rgba(186,220,251,0.3)");
+            // } else if(currentIndex == 5) {
+            //     $(".cursor").css("background-color","#dfd9d4");
+            //     $(".cursor-follower").css("background-color", "rgba(203,195,186,0.3)");
+            // } else if(currentIndex == 6) {
+            //     $(".cursor").css("background-color","#EB7581");
+            //     $(".cursor-follower").css("background-color", "rgba(235,117,129,0.3)");
+            // }
         }
 
-        // 버튼 클릭하기 
-        slideBtn.on("click","a",function(){
-            let nextIndex = (currentIndex +1) % slideCount;
-            let prevIndex = (currentIndex -1) % slideCount;
-            if(currentIndex == 0)prevIndex =prevIndex -1
+        //버튼 클릭하기
+        slideBtn.on("click","a", function(){
+            let nextIndex = (currentIndex + 1) % slideCount; //1,2,3,4,5,6,0,1,2,3,4,5
+            let prevIndex = (currentIndex - 1) % slideCount;
+            if( currentIndex == 0 ) prevIndex = slideCount - 1;
 
-
-            console.log(nextIndex)
-            if($(this).hasClass("prev")){
-                // 왼쪽
+            if( $(this).hasClass("prev")){
+                //왼쪽 버튼
                 gotoSlide(prevIndex);
-            }else{
-                // 오른쪽
+            } else {
+                //오른쪽 버튼
                 gotoSlide(nextIndex);
             }
         });
 
-          
-        //닷 버튼 클릭하기 
-
-        slideDot.on("click", "a", function () {
+        //닷 버튼 클릭하기
+        slideDot.on("click","a",function(){
             gotoSlide($(this).index());
         });
-        
 
-        //  햄버거 메뉴
-        $("#nav .ham .bar").click(function () {
+        //햄버그 메뉴
+        $("#nav .ham .bar").click(function(){
             $(this).toggleClass("on")
         });
 
-        // 시작하자마자 바로 실행
+        //바로 실행
         gotoSlide(currentIndex)
 
-        // 자동플레이
 
-        // setInterval(function(){
-        //     currentIndex < slideCount? currentIndex++: currentIndex=0;
-        //     slide.animate({left:currentIndex*(-100)+"%"},400)
-        // },3000);
+        //움직임 효과
+        $(document).mousemove(function(e){
+            gsap.to(".cursor", 0.3, {left: e.pageX - 5, top: e.pageY - 5 });
+            gsap.to(".cursor-follower", 0.8, {left: e.pageX - 15 , top: e.pageY  - 15});
+        });
 
-        function startTimer(){
-            timer= setInterval(function(){
-                let prevIndex = (currentIndex +1) %slideCount;
-                gotoSlide(prevIndex)
-            },4000);
-        }
-        startTimer();
 
-        // cutsor
-        const follower = $(".follower");
-       $(document).mousemove(function(e){
-        gsap.to(follower, 0.8, {left: e.pageX  , top: e.pageY });
-       });
 
-       
-       
     </script>
 </body>
-
 </html>

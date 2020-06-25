@@ -206,7 +206,6 @@
             transform: translate(-50%, -50%) perspective(600px) rotateX(-10deg) rotateY(-10deg);
             transform-style: preserve-3d;
             will-change: transform;
-
         }
 
         .move-image .mtext {
@@ -217,7 +216,11 @@
             transform: translate3d(-50%, 68%, 150px);
             background: rgba(0, 0, 0, 0.5);
             padding: 5vw;
-            border-radius: 5px;
+            border-radius: 5px; 
+        }
+
+        .move-image .mtext p {
+            text-align: center;
         }
 
         .move-image .mimg img {
@@ -399,8 +402,8 @@ function animation(){
         <div class="move-image">
             <div class="mimg"><img src="../Parallax/img/img8.gif" alt="이미지1"></div>
             <div class="mtext">
-                <p>Silence is golden</p>
-                <p>침묵은 금이다</p>
+                <p>Life is a choice.</p>
+                <p>인생은 선택이다.</p>
             </div>
         </div>
     </div>
@@ -492,14 +495,14 @@ function animation(){
             //let floor =Math.floor(4) //4
             //console.log(floor)
 
-            //입력값을 반올림한 값과 가장 가까운 정수를 출력
+           //입력값을 반올림한 값과 가장 가까운 정수를 출력
            // let round = Math.round(20.49)// 20
             // let round = Math.round(20.5)// 21
             // let round = Math.round(20)// 20
             // console.log(round)
 
 
-            //랜덤 0~1 사이 값 // 색상을 랜덤으로 지정할때
+            //랜덤 0~1 사이 값 //ex) 색상을 랜덤으로 지정할때
             // let random = Math.round(Math.random()*10)
             // console.log(random)
 

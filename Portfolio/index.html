@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORTFOLIO</title>
+
+    <!-- 웹 폰트 -->
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+    <!-- css -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="wrap">
+        <div class="contents">
+            <div class="main_text">
+                <p>Hello</p>
+                <p>Thank you for visiting my</p>
+                <p><span>portfolio </span>site.</p>
+            </div>
+        </div>
+        <div class="bg_img1">
+            <img src="img/ppimg.jpg" alt="이미지">
+        </div>
+    </div>
+
+    <script src="js/jquery.min_1.12.4.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/gsap.min.js"></script>
+    <script>
+        let roadLength = $(".contents").width();
+        $("body").css("height", roadLength); // 전체 세로값에 전체 가로값(roadLength)을 할당 시켜줌
+        $(window).scroll(function () {
+            let wScroll = $(window).scrollTop();
+
+            $(".contents").css({
+                "transform": "translateX(-" + wScroll + "-"+wScroll+"px)"
+            })
+        });
+    </script>
+</body>
+
+</html>

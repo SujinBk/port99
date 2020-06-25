@@ -4,174 +4,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slider09</title>
+    <title>Slider08</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+        @font-face {
+            font-family: 'GmarketSansMedium';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        img {
+            width: 100%;
+            vertical-align: top;
+        }
+
+        ul {
+            padding: 10px 20px;
+        }
+
+        body {
+            background: url(img/img06.jpg) no-repeat center center;
+            background-size: cover;
+            font-family: 'Abel', 'GmarketSansMedium';
+            color: #fff;
+            height: 100vh;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(50, 37, 11, 0.86);
+            z-index: -1;
+        }
+
+        .info {
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .info h1 {
+            margin-bottom: 10px;
+        }
+
+        .info2 {
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .info2 li {
+            list-style: none;
+            margin-bottom: 5px;
+        }
+
+        .info2 li.active a {
+            border-bottom: 1px dashed #fff;
+        }
+
+
+        /* slide */
+        .slider-wrap {
+            width: 1000px;
+            height: 600px;
+            overflow: hidden;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 4px 4px 20px rgba(0, 0, 0, .5);
+        }
+
+        .slider-img {
+            position: relative;
+            overflow: hidden;
+            width: 8000px;
+        }
+
+        .slider-img .slides {
+            float: left;
+            position: relative;
+        }
+
+        .slider-img .slides span {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+        }
+
+        .slider-btn a {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            text-transform: capitalize;
+        }
+
+        .slider-btn a.prev {
+            left: 0;
+        }
+
+        .slider-btn a.next {
+            right: 0;
+        }
+
+        .slider-dot {
+            position: absolute;
+            left: 50%;
+            bottom: 20px;
+            transform: translateX(-50%);
+            white-space: nowrap;
+        }
+
+        .slider-dot a {
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            background: rgba(0, 0, 0, .3);
+            display: inline-block;
+            border-radius: 3px;
+            margin: 5px;
+            transition: background 0.3s;
+            text-align: center;
+            background-size: cover;
+        }
+
+        .slider-dot a.active {
+            color: red
+        }
+    </style>
 </head>
-
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
-
-    @font-face {
-        font-family: 'DWImpactamin';
-        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/DWImpactamin.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-    }
-
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    a {
-        text-decoration: none;
-        color: #666;
-    }
-
-    img {
-        width: 100%;
-        vertical-align: top;
-    }
-
-    ul {
-        padding: 10px 20px;
-    }
-
-    body {
-        background: url(img/img06.jpg) no-repeat center;
-        background-size: cover;
-        font-family: 'Oswald', 'DWImpactamin';
-        color: #fff;
-        height: 100vh;
-    }
-
-    body::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100vh;
-        background: rgba(50, 37, 11, 0.8);
-        z-index: -1;
-    }
-
-    .info {
-        padding: 20px;
-        position: absolute;
-        left: 0;
-        top: 0;
-    }
-
-
-    .info h1 {
-        margin-bottom: 10px;
-    }
-
-
-
-    .info2 {
-        position: absolute;
-        right: 0;
-        top: 0;
-        z-index: 1000;
-        padding: 20px;
-    }
-
-    .info2 a {
-        color: #fff;
-    }
-
-    .info2 li {
-        list-style: none;
-        margin-bottom: 5px;
-    }
-
-    .info2 li.active a {
-        border-bottom: 1px dashed #fff;
-    }
-
-
-    /* slid */
-    .slider-wrap {
-        width: 1000px;
-        height: 600px;
-        overflow: hidden;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.5);
-
-    }
-
-    .slider-img {
-        position: relative;
-        overflow: hidden;
-        width: 5000px;
-    }
-
-    .slider-img .slides {
-        float: left;
-        position: relative;
-
-    }
-
-    .slider-img .slides span {
-        position: absolute;
-        left: 10px;
-        top: 10px;
-
-    }
-
-    .slider-btn a {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 1000;
-        padding: 20px;
-        background: rgba(0, 0, 0, 0.5);
-        text-transform: uppercase;
-    }
-
-    .slider-btn a.prev {
-        left: 0;
-    }
-
-    .slider-btn a.next {
-        right: 0;
-    }
-
-    .slider-dot {
-        position: absolute;
-        bottom: 20px;
-        left: 50%;
-        transform: translate(-50%);
-        white-space: nowrap;
-    }
-
-    .slider-dot a {
-        width: 100px;
-        height: 40px;
-        background: rgba(0, 0, 0, 0.8);
-        display: inline-block;
-        border-radius: 5px;
-        margin: 5px;
-        /* text-indent: -9999px; */
-        text-align: center;
-        line-height: 40px;
-        font-size: 14px;
-        background-size: cover;
-        opacity: 0.5;
-        transition: all 0.3s;
-    }
-
-    .slider-dot a.active {
-        background-size: cover;
-        color: #f00;
-        opacity: 1;
-    }
-</style>
 
 <body>
     <div class="info">
@@ -179,25 +165,25 @@
         <p>좌우로 움직이기</p>
         <ul>
             <li>연속적으로 움직이기</li>
-            <li>버튼 만들기</li>
             <li>닷 버튼 만들기</li>
         </ul>
     </div>
     <div class="info2">
         <ul>
-            <li><a href="slide01.html">slide01</a></li>
-            <li><a href="slide02.html">slide02</a></li>
-            <li><a href="slide03.html">slide03</a></li>
-            <li><a href="slide04.html">slide04</a></li>
-            <li><a href="slide05.html">slide05</a></li>
-            <li><a href="slide06.html">slide06</a></li>
-            <li><a href="slide07.html">slide07</a></li>
-            <li><a href="slide08.html">slide08</a></li>
-            <li class="active"><a href="slide09.html">slide09</a></li>
-            <li><a href="slide10.html">slide10</a></li>
+            <li><a href="slider01.html">Slider01</a></li>
+            <li><a href="slider02.html">Slider02</a></li>
+            <li><a href="slider03.html">Slider03</a></li>
+            <li><a href="slider04.html">Slider04</a></li>
+            <li><a href="slider05.html">Slider05</a></li>
+            <li><a href="slider06.html">Slider06</a></li>
+            <li><a href="slider07.html">Slider07</a></li>
+            <li><a href="slider08.html">Slider08</a></li>
+            <li class="active"><a href="slider09.html">Slider09</a></li>
+            <li><a href="slider10.html">Slider10</a></li>
         </ul>
     </div>
 
+    <!-- slider -->
     <div class="slider-wrap">
         <div class="slider-img">
             <div class="slides s1"><img src="img/img01.jpg" alt="이미지1"><span>1</span></div>
@@ -212,144 +198,135 @@
     <!-- <div class="slider-btn">
         <a href="#" class="prev">prev</a>
         <a href="#" class="next">next</a>
-    </div> -->
-    <!-- <div class="slider-dot">
+    </div>
+
+    <div class="slider-dot">
         <a href="#" class="dot active">1</a>
         <a href="#" class="dot">2</a>
         <a href="#" class="dot">3</a>
         <a href="#" class="dot">4</a>
-        <a href="#" class="dot">5</a>
+        <a href="#" class="dot">5</a> 
     </div> -->
 
+    <!-- script -->
     <script src="js/jquery.min_1.12.4.js"></script>
     <script src="js/jquery-ui.min.js"></script>
-
     <script>
-        // 버튼태그 추가 
-        // append을 이용하여 버튼 추가 
+        // 버튼 태그 추가
+        //append을 이용하여 버튼 추가
 
-        $(".slider-wrap").append("<div class='slider-btn'><a href='#' class='prev'>prev</a><a href='#' class='next'>next</a></div>");
+        $(".slider-wrap").append(
+            "<div class='slider-btn'><a href='#' class='prev'>prev</a><a href='#' class='next'>next</a></div>");
         $(".slider-wrap").append("<div class='slider-dot'></div");
+        // 제일 먼저 실행된다. 변수를 아래 있으면 실행이 안될 수 있어 변수를 쓰지 않았음
 
-        // 제일 먼저 실행된다.  변수를 아래 있으면 실행이 안될 수 있어 변수를 쓰지 않았음
 
         const sliderWrap = $(".slider-wrap");
         const sliderImg = $(".slider-img");
+
         const sliders = $(".slides");
         const sliderBtn = $(".slider-btn");
         const sliderDot = $(".slider-dot");
 
-        let cliderCount = sliders.length; // 이미지 갯수
-        let sliderWidth = sliders.width(); //기존 width 값이 1000
+        let slideCount = sliders.length; // 이미지 갯수
+        let slideWidth = sliders.width(); //기존 width 값이 1000
         let currentIndex = 0; // 현재 보여주는 값
         let dotIndex = "";
-        let timer="";
+        let slideName = "";
+        let slideImg = "";
 
-
-         // 닷 버튼 만들기
-         sliders.each(function (i, e) { // i=index .e=element 줄임말
-            let slideName = $(this).find("img").attr("alt");
-            let dotImg = $(this).find("img").attr("src");
-            console.log(dotImg)
-
-
-            //    console.log(i)
-            //    console.log(e)
-            //dotIndex += "<a href='#''class='dot'>1</a>"; // 갯수를 추가하고 싶으면 변수 옆에 +
-            //dotIndex += "<a href='#''class='dot'>"+(Index+1)+"</a>"; // 숫자 텍스트가 나오는 경우 
-           // dotIndex += "<a href='#''class='dot'>" + slideName + "</a>";
-            dotIndex += "<a href='#'style='background-image:url(" + dotImg + ")'>" + slideName + "</a>";
-
-
-            //각 슬라이드 이미지를 가져와 각 이미지를 각 닷 버튼한테 background -image를 넣어준다. 
-
-
-
-
+        //닷 버튼
+        sliders.each(function (i) {
+            //dotIndex += "<a href='#'></a>";; // 갯수를 추가하고 싶으면 변수 옆에 +
+            //dotIndex += "<a href='#'>" + ("0" + (i + 1)) + "</a>";  // 숫자 텍스트가 나오는 경우 
+            // dotIndex += "<a href='#''class='dot'>" + slideName + "</a>";
+            slideName = $(this).find("img").attr("alt");
+            slideImg = $(this).find("img").attr("src");
+            dotIndex += "<a href='#' style='background-image:url(" + slideImg + ")'>" + slideName + "</a>";
         });
+        //각 슬라이드 이미지를 가져와 각 이미지를 각 닷 버튼한테 background -image를 넣어준다. 
+
         sliderDot.html(dotIndex); //이래야 확인 가능
-        sliderDot.find("a").eq(0).addClass("active");
-        
-        //  이미지 움직이기 함수
+        sliderDot.find("a").eq(0).addClass("active")
+
+        // 이미지 움직이기 함수
         function gotoSlide(index) {
             sliderImg.animate({
-                left: -sliderWidth * index
-            }, 400, "easeInOutBounce"); // 왼쪽으로 움직여야 하기 때문에   - 를 넣어준다. 
+                left: -slideWidth * index + "px"
+            }, 400); // 왼쪽으로 움직여야 하기 때문에   - 를 넣어준다. 
             currentIndex = index;
             updateDot();
-
-            //인덱스가 1 = -1000 // -1 = 1000  좌우로 움직일수 있게 컨트롤할수 있다. 
-            //인덱스가 2 = -2000 // -2 = 2000
-            //인덱스가 3 = -3000
-            function updateDot() {
-                sliderDot.find("a").removeClass().eq(currentIndex).addClass("active");
-            }
-
         }
-        // // 자동플레이
+        //인덱스가 1 = -1000 // -1 = 1000  좌우로 움직일수 있게 컨트롤할수 있다. 
+        //인덱스가 2 = -2000 // -2 = 2000
+        //인덱스가 3 = -3000
 
+        function updateDot() {
+            sliderDot.find('a').removeClass('active').eq(currentIndex).addClass('active');
+        }
+
+        // 자동플레이
+
+        function startTimer() {
+            let timer=setInterval(function(){
+
+            let nextIndex = (currentIndex + 1)%sliderCount;
+                gotoSlide(nextIndex)
+            },3000);
+        }
+
+        function stopTimer() {
+            clearInterval(timer)
+        }
+
+        //sliderWrap.hover(function(){},function(){});
+        sliderWrap.on({mouseenter:stopTimer, mouseleave:startTimer});
+
+
+        // //자동 플레이
         // function startTimer() {
-        //     let timer=setInterval(function(){
-                
-        //     let nextIndex = (currentIndex + 1)%sliderCount;
-        //         gotoSlide(nextIndex)
-        //     },3000);
+        //     let timer = setInterval(function () {
+        //         let nextIndex = (currentIndex + 1) % sliderCount;
+        //         gotoSlide(nextIndex);
+        //     }, 3000);
         // }
+        // startTimer();
 
+        // //정지
         // function stopTimer() {
         //     clearInterval(timer)
         // }
 
-
-        // //sliderWrap.hover(function(){},function(){});
-        // sliderWrap.on({mouseenter:stopTimer, mouseleave:startTimer});
-
-// //자동 플레이
-//         function startTimer (){
-//                 timer = setInterval(function(){
-//                 let nextIndex = (currentIndex + 1) % sliderCount;
-//                 gotoSlide(nextIndex);
-//             },3000);
-//         }
-//         startTimer();
-
-//          //정지
-//         function stopTimer (){
-//             clearInterval(timer)
-//         }
-
-//         // sliderWrap.hover(function(){stopTimer}, function(){startTimer})  //아래와 동일
-//         sliderWrap.on({ mouseenter:stopTimer,  mouseleave: startTimer})
+        // // sliderWrap.hover(function(){stopTimer}, function(){startTimer})  //아래와 동일
+        // sliderWrap.on({
+        //     mouseenter: stopTimer,
+        //     mouseleave: startTimer
+        // })
 
 
 
-
-
-        // 버튼 클릭하기
-        sliderBtn.on("click", "a", function () {
-
-            let nextIndex = (currentIndex + 1) % sliderCount; // 1,2,3,4,0 5로 나누었을때 떨어지게 되는 값
-            let prevIndex = (currentIndex - 1) % sliderCount; // -1
-
-            //    console.log("nextIndex:"+nextIndex);
-            //    console.log("prevIndex:"+prevIndex);
-            if (currentIndex == 0) {
-                prevIndex = sliderCount = -1
+        //닷 버튼 클릭하기
+        sliderDot.on("click", "a", function (e) {
+            e.preventDefault();
+            if (!$(this).hasClass("active")) {
+                gotoSlide($(this).index());
             }
+        });
+
+        //버튼 클릭하기
+        sliderBtn.on("click", "a", function (e) {
+            e.preventDefault();
+            let nextIndex = (currentIndex + 1) % slideCount;
+            let prevIndex = (currentIndex - 1) % slideCount;
+            if (currentIndex == 0) prevIndex = slideCount - 1;
+            //console.log("nextIndex : " + nextIndex)
+            //console.log("prevIndex : " + prevIndex)
 
             if ($(this).hasClass("prev")) {
                 gotoSlide(prevIndex);
             } else {
-                gotoSlide(nextIndex); // 출력
+                gotoSlide(nextIndex);
             }
-
-        });
-
-       
-        //닷 버튼 클릭하기 
-
-        sliderDot.on("click", "a", function () {
-            gotoSlide($(this).index());
         });
     </script>
 </body>

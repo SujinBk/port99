@@ -50,7 +50,7 @@
             color: #fff;
             height: 100vh;
             transition: all 0.2s;
-            /* cursor: none; */
+            cursor: none;
             overflow: hidden;
         }
 
@@ -324,12 +324,13 @@ window.addEventListener("mousemove",function(e){
     </div>
 
     <!-- contents -->
+    <div class="cursor"></div>
 
     <div class="contents">
         <div class="move-image">
             <div class="mimg">
                 <div class="mtext">
-                    <p>The <em class="word">first</em> step is always the hardest.</p>
+                    <p>The <em>first</em> step is always the hardest.</p>
                     <p> 언제나 <em class="word">처음</em> 시작이 가장 어렵다.</p>
                 </div>
             </div>
@@ -361,6 +362,7 @@ window.addEventListener("mousemove",function(e){
 
             // }
             // window.addEventListener("mousemove", shadow);
+           
 
             window.addEventListener("mousemove",function(e){
                 document.querySelectorAll(".word").forEach(elem => {
@@ -380,6 +382,13 @@ window.addEventListener("mousemove",function(e){
                                         ${-mouseX}px ${-mouseY}px 0px rgb(30, 185, 177)`;
                 })
             });
+            
+
+            window.addEventListener("mousemove", function (event) {
+            let x = event.clientX  + "px";
+            let y = event.clientY  + "px";
+            document.querySelector(".cursor").style.cssText = "left:" + x + "; top:" + y; });
+            
         </script>
 
 </body>

@@ -1,0 +1,41 @@
+/*  웹 폰트 */
+@font-face {
+    font-family: 'Chosunilbo_myungjo';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* main color */
+body {
+    background-color: #2B3A41;
+}
+
+.main_text {
+    width: 90vw;
+    height: 45vh;
+    position: fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    color: #A9B9C0;
+    font-family: Italiana;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 8vw;
+    line-height: 9vw;
+}
+
+.main_text p {
+}
+
+.main_text span {
+    color: #EEB0B5;
+}
+
+.bg_img1 { width: 100vw;
+    height: 100vh;
+  
+}
+

@@ -215,7 +215,7 @@
             --d: 50;
             /* width: var(--w); */
             position: relative;
-            cursor:none;
+            cursor: none;
         }
 
         .move-image:hover .mimg {
@@ -233,7 +233,7 @@
         }
 
         .move-image .mimg img {
-            --d:20;
+            --d: 20;
             position: absolute;
             left: -5%;
             top: -5%;
@@ -241,7 +241,7 @@
             height: 110%;
             object-fit: cover;
             /* 백그라운드 효과를 줄수 있다. */
-            transform: translate(calc(var(--x) / var(--d) * 1px ), calc(var(--y) / var(--d) * 1px));
+            transform: translate(calc(var(--x) / var(--d) * 1px), calc(var(--y) / var(--d) * 1px));
         }
 
         .move-image .mtext {
@@ -277,10 +277,8 @@
 
     <div class="infor3">
         <ul>
-            <li>pageX : <span class="pageX">0</span></li>
-            <li>pageY : <span class="pageY">0</span></li>
-            <li>mouseX : <span class="mouseX">0</span></li>
-            <li>mouseY : <span class="mouseY">0</span></li>
+            <li>clientX : <span class="clientX">0</span></li>
+            <li>clientY : <span class="clientY">0</span></li>
         </ul>
     </div>
 
@@ -296,53 +294,60 @@
                     <span class="control"></span>
                 </h3>
                 <div class="code">
-                    <pre class="line-numbers"><code class="language-js">  // let mouseX = 0,
-//     mouseY = 0;
+                    <pre class="line-numbers"><code class="language-js"> let mouseX = 0,
+    mouseY = 0;
 //====================제이쿼리=============================//
-// $(".move-image").mousemove(function (e) {
-//     gsap.to(".cursor", {
-//         duration: .2,
-//         left: e.pageX - 10,
-//         top: e.pageY - 10
-//     });
-//     // 좌표값 중앙을 0으로 초기화
-//     // x = 컨텐츠 박스 width()/2 + 왼쪽의 여백값
-//     // y = 컨텐츠 박스 height()/2 + 위 의 여백값
-//     // let x = $(".move-image").width()/2;
-//     // let y = $(".move-image").position().left;
+$(".move-image").mousemove(function (e) {
+    gsap.to(".cursor", {
+        duration: .2,
+        left: e.pageX - 10,
+        top: e.pageY - 10
+    });
+    // 좌표값 중앙을 0으로 초기화
+    // x = 컨텐츠 박스 width()/2 + 왼쪽의 여백값
+    // y = 컨텐츠 박스 height()/2 + 위 의 여백값
+    // let x = $(".move-image").width()/2;
+    // let y = $(".move-image").position().left;
 
-//      x = e.clientX - ($(".move-image").width() / 2 + $(".move-image").position().left);
-//      y = e.clientY - ($(".move-image").height() / 2 + $(".move-image").position().top);
-//     console.log(x)
-//     console.log(y)
+    x = e.clientX - ($(".move-image").width() / 2 + $(".move-image").position().left);
+    y = e.clientY - ($(".move-image").height() / 2 + $(".move-image").position().top);
+    console.log(x)
+    console.log(y)
 
-//     $(".img").attr({"style":"transform: translate("+x/30+"px,"+y/30+"px);"});
+    $(".img").attr({
+        "style": "transform: translate(" + x / 30 + "px," + y / 30 + "px);"
+    });
+});
 
-//     //출력용
-//     $(".mouseX").text(Math.floor(x));
-//     $(".mouseY").text(Math.floor(y));
-// });
-
-// // 좌표 보기
-// $(".cord").click(function(){
-//     $(".cursor strong").fadeToggle();
-// });
 
 // ============ 자바스크립트 ================//
 
-const moveImg = document.querySelector(".move-image");
+    const moveImg = document.querySelector(".move-image");
 
-moveImg.addEventListener("mousemove", function(e){
-    const rect = this.getBoundingClientRect();
-    console.log(rect)
-    this.style.setProperty("--x", e.clientX - ( (rect.width/2) + rect.left));
-    this.style.setProperty("--y", e.clientY - ( (rect.height/2) + rect.top));
+    moveImg.addEventListener("mousemove", function(e){
+        const rect = this.getBoundingClientRect();
+        console.log(rect)
+        this.style.setProperty("--x", e.clientX - ( (rect.width/2) + rect.left));
+        this.style.setProperty("--y", e.clientY - ( (rect.height/2) + rect.top));
 
-    gsap.to(".cursor", {duration: .2, left: e.pageX - 10, top: e.pageY - 10});
+        gsap.to(".cursor", {duration: .2, left: e.pageX - 10, top: e.pageY - 10});
+    });
+    moveImg.addEventListener("mouseleave", function(){
+        this.style.setProperty("--x", 0)
+        this.style.setProperty("--y", 0)
+    });
+
+//출력용
+$(window).mousemove(function (e) {
+    $(".clientX").text(e.clientX);
+    $(".clientY").text(e.clientY);
+    $(".mouseX").text(Math.floor(x) + "px");
+    $(".mouseY").text(Math.floor(y) + "px");
 });
-moveImg.addEventListener("mouseleave", function(){
-    this.style.setProperty("--x", 0)
-    this.style.setProperty("--y", 0)
+
+// 좌표 보기
+$(".cord").click(function () {
+    $(".cursor strong").fadeToggle();
 });</code></pre>
                 </div>
 
@@ -391,40 +396,46 @@ moveImg.addEventListener("mouseleave", function(){
             // let x = $(".move-image").width()/2;
             // let y = $(".move-image").position().left;
 
-             x = e.clientX - ($(".move-image").width() / 2 + $(".move-image").position().left);
-             y = e.clientY - ($(".move-image").height() / 2 + $(".move-image").position().top);
+            x = e.clientX - ($(".move-image").width() / 2 + $(".move-image").position().left);
+            y = e.clientY - ($(".move-image").height() / 2 + $(".move-image").position().top);
             console.log(x)
             console.log(y)
 
-            $(".img").attr({"style":"transform: translate("+x/30+"px,"+y/30+"px);"});
+            $(".img").attr({
+                "style": "transform: translate(" + x / 30 + "px," + y / 30 + "px);"
+            });
+        });
 
-            //출력용
+
+        // ============ 자바스크립트 ================//
+
+        //   const moveImg = document.querySelector(".move-image");
+
+        //     moveImg.addEventListener("mousemove", function(e){
+        //         const rect = this.getBoundingClientRect();
+        //         console.log(rect)
+        //         this.style.setProperty("--x", e.clientX - ( (rect.width/2) + rect.left));
+        //         this.style.setProperty("--y", e.clientY - ( (rect.height/2) + rect.top));
+
+        //         gsap.to(".cursor", {duration: .2, left: e.pageX - 10, top: e.pageY - 10});
+        //     });
+        //     moveImg.addEventListener("mouseleave", function(){
+        //         this.style.setProperty("--x", 0)
+        //         this.style.setProperty("--y", 0)
+        //     });
+
+        //출력용
+        $(window).mousemove(function (e) {
+            $(".clientX").text(e.clientX);
+            $(".clientY").text(e.clientY);
             $(".mouseX").text(Math.floor(x));
             $(".mouseY").text(Math.floor(y));
         });
 
         // 좌표 보기
-        $(".cord").click(function(){
+        $(".cord").click(function () {
             $(".cursor strong").fadeToggle();
         });
-        
-        // ============ 자바스크립트 ================//
-
-    //   const moveImg = document.querySelector(".move-image");
-
-    //     moveImg.addEventListener("mousemove", function(e){
-    //         const rect = this.getBoundingClientRect();
-    //         console.log(rect)
-    //         this.style.setProperty("--x", e.clientX - ( (rect.width/2) + rect.left));
-    //         this.style.setProperty("--y", e.clientY - ( (rect.height/2) + rect.top));
-
-    //         gsap.to(".cursor", {duration: .2, left: e.pageX - 10, top: e.pageY - 10});
-    //     });
-    //     moveImg.addEventListener("mouseleave", function(){
-    //         this.style.setProperty("--x", 0)
-    //         this.style.setProperty("--y", 0)
-    //     });
-
     </script>
 
 </body>

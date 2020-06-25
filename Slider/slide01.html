@@ -144,9 +144,17 @@
         let slideImg = $(".slide-img");
         let slides = $(".slides"); 
 
-        let currentIndex = 0;                         // 현재 첮 번째 보이는 이미지
-        let slideCount = slides.length;                // 이미지 length는 찾는 함수?
+        let currentIndex = 0;                                            // 현재 첮 번째 보이는 이미지
+        let slideCount = slides.length;                                  // 이미지 length는 찾는 함수?
 
+        function showNext(){
+            let nextindex = (currentIndex + 1)%slideCount
+            slides.eq(currentIndex).fadeOut(500);
+            slides.eq(nextindex).fadeIn(500);
+           // document.write(nextindex)
+            currentIndex=nextindex
+           }
+        setInterval(showNext,3000)
 
         
         //alert(slideCount)
@@ -157,14 +165,6 @@
         //네번째 이미지 선택해서 사라지게 slides.eq(3).hide();
         //다섯번째 이미지 선택해서 사라지게 slides.eq(4).hide();
 
-        function showNext(){
-            let nextindex = (currentIndex + 1)%slideCount
-            slides.eq(currentIndex).fadeOut(500);
-            slides.eq(nextindex).fadeIn(500);
-           // document.write(nextindex)
-            currentIndex=nextindex
-           }
-        setInterval(showNext,3000)
     </script>
 </body>
 
