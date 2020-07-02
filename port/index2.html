@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio</title>
+    
+    <!-- css -->
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style2.css">
+    
+    <!-- wevfont -->
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <div class="scrollTop">0</div><!-- //scrollTop -->
+    
+    <div id="contents">
+        <section id="section1">
+            <div class="section-box" id="section-box"
+                data-0 = "left: 0vw;"
+                data-5000 = "left: -600vw;"
+                >
+                <div class="sb1"
+                    data-0 = "transform: translatex(0px)"
+                    data-5000 = "transform: translatex(3000px)">
+                    <h1>
+                        <strong>Hello</strong>
+                        <strong>Thank you for visiting my</strong>
+                        <strong><em>portfolio</em> site.</strong>
+                    </h1>
+                </div>
+                <div class="sb2">
+  
+                </div>
+                <div class="sb3"
+                    data-0 = "transform: translatex(0px)"
+                    data-6000 = "transform: translatex(-2000px)">
+                    <h2>about</h2>
+                    <p>새로운 변화가 끊임없이 
+                        일어나는 웹 환경에서 
+                        최신 트렌드에 뒤처지지 않기 위해 
+                        스터디 모임과 세미나에 
+                        많이참여하여 핵심 사이트를 
+                        벤치마킹하고 유행하는 기술들을 
+                        공부 하여 자기개발에 힘쓰겠습니다</p>
+                </div>
+                <div class="sb4">
+                    4444
+                </div>
+                <div class="sb5">5</div>
+                <div class="sb6">6</div>
+            </div>
+        </section>
+        <!-- //section1 -->
+        
+        <section id="section2"></section><!-- //section2 -->
+        <section id="section3"></section><!-- //section3 -->
+        <section id="section4"></section><!-- //section4 -->
+        <section id="section5"></section><!-- //section5 -->
+        <section id="section6"></section><!-- //section6 -->
+    </div>
+    <!-- //contents -->
+    
+    <!-- script -->
+    <script src="assets/js/jquery.min_1.12.4.js"></script>
+    <script src="assets/js/jquery-ui.min.js"></script>
+    <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/skrollr.min.js"></script>
+    <script>
+        //skrollr
+         var s = skrollr.init({
+             edgeStrategy: 'set',
+             easing: 'linear'
+         });
+        
+        window.addEventListener("scroll", () => {
+         let pageYOffset = (window.pageYOffset || document.documentElement.scrollTop);
+
+         document.querySelector(".scrollTop").textContent = pageYOffset;
+     });
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

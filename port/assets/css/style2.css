@@ -1,0 +1,71 @@
+/* layout */
+#contents {}
+#section1 {height: 5000px;}
+#section2 {height: 5000px; background: red;}
+#section3 {}
+#section4 {}
+#section5 {}
+#section6 {}
+
+/* scrollTop */
+.scrollTop {
+    position: fixed; right: 20px; top: 20px; 
+    width: 40px; height: 40px;
+    background: rgba(0,0,0,0.3);
+    color: #fff; text-align: center;
+    line-height: 40px;
+    z-index: 1000;
+}
+
+/* sec1 */
+.sec1 {}
+
+.section-box {
+    position: fixed; left: 0; top: 0;
+    overflow: hidden; width: 600vw;
+}
+.section-box > div {float: left; width: 100vw; height: 100vh;}
+.section-box .sb1 {background: #2B3A41;}
+.section-box .sb2 {width: 80vw; background: red;}
+.section-box .sb3 {width: 40vw; background: #2B3A41;}
+.section-box .sb4 {background: #555; margin-left: -500px;}
+.section-box .sb5 {background: #666;}
+.section-box .sb6 {background: #777;}
+
+.section-box .sb1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.section-box .sb1 h1 {
+    color: #A9B9C0;
+    font-family: "Italiana";
+    font-size: 8vw;
+    text-align: center;
+    font-weight: normal;
+}
+.section-box .sb1 h1 strong {
+    display: block;
+    font-weight: normal;
+    
+}
+.section-box .sb1 h1 strong em {
+    font-style: normal;
+    color: #EEB0B5;
+}
+
+.section-box .sb2 {
+    background: url(../img/ppimg.jpg) no-repeat center center;
+    background-size: cover;
+}
+
+
+
+
+
+
+
+
+
