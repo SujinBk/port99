@@ -328,7 +328,7 @@ float: left;  display: flex;
 }
 
 .section-site .site1 { }
-.section-site .site1 .mockupimg{
+.site1 .mockupimg{
     width: 100vw; height: 100vh;
     background: url(../img/siteimg01.jpg) no-repeat center;
     background-size: cover;
