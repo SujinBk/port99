@@ -6,6 +6,7 @@
     font-weight: normal;
     font-style: normal;
 }
+
 /*  en 폰트 */
 @import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
 
@@ -30,9 +31,9 @@
 /* layout */
 #wrap {}
 
-#section1 {height: 4000px;}
+#section1 {}
 
-#section2 {height: 5000px; background: #000;}
+#section2 {}
 
 #section3 {}
 
@@ -66,7 +67,7 @@
     width: 100vw;
 }
 
- .cb1 h1 {
+.cb1 h1 {
     color: #A9B9C0;
     font-family: "Italiana";
     font-size: 8vw;
@@ -129,7 +130,8 @@
 /* .section-box .cb3 (About)*/
 .cb3 {
     position: sticky;
-    top: 0;bottom: 0;
+    top: 0;
+    bottom: 0;
     left: -1px;
     z-index: 1;
     background: #2B3A41;
@@ -139,11 +141,12 @@
     justify-content: center;
 }
 
-.wrap{
+.wrap {
     position: relative;
     display: flex;
 }
-.abimg{
+
+.abimg {
     position: relative;
     height: 100vh;
 }
@@ -158,11 +161,11 @@
 
 }
 
- .cb3 h3 {
+.cb3 h3 {
     margin-top: 30%;
 }
 
- .cb3 span {
+.cb3 span {
     font-family: ChosunilboNM;
     font-weight: normal;
     font-size: 1.4vw;
@@ -172,7 +175,7 @@
     line-height: 159%;
 }
 
- .cb3 span em {
+.cb3 span em {
     font-style: normal;
     color: #9EBDAE;
 }
@@ -187,48 +190,56 @@
 
 .cb4 .aboutimg {
     margin: 1%;
-   
+
 }
 
-.cb4 .aboutimg.g1 { 
+.cb4 .aboutimg.g1 {
     margin-left: 5%;
     position: absolute;
-    left:0; top: 0;
+    left: 0;
+    top: 0;
 }
 
 
-.cb4 .aboutimg.g2 { 
+.cb4 .aboutimg.g2 {
     position: absolute;
-    left:70vw ;bottom: 3vh;
+    left: 70vw;
+    bottom: 3vh;
 }
+
 .cb4 .aboutimg.g3 {
     position: absolute;
-    left: 60vw;top: 60vh;
+    left: 60vw;
+    top: 60vh;
 }
 
 .cb4 .aboutimg.g4 {
     position: absolute;
-    left: 75vw;top: 0;
+    left: 75vw;
+    top: 0;
 }
 
 .cb4 .aboutimg.g5 {
     position: absolute;
-    right: 15vw; bottom:0;
+    right: 15vw;
+    bottom: 0;
 }
 
 .cb4 .aboutimg.g6 {
     position: absolute;
-    top: 0vh; right:5vw;
+    top: 0vh;
+    right: 5vw;
 }
 
 .cb4 .aboutimg.g7 {
     position: absolute;
-    top: 5vh; right: 60vw;
+    top: 5vh;
+    right: 60vw;
 }
 
 /* .section-box .cb5 */
 .section-box .cb5 {
-    width:60vw;
+    width: 60vw;
     background-color: #2B3A41;
 }
 
@@ -245,17 +256,18 @@
     line-height: 159%;
 }
 
- .cb5 .stbox .text1 {
+.cb5 .stbox .text1 {
     padding: 0 4% 0 5%;
 }
 
 .cb5 .stbox .text2 {
-    padding-right:5%;
+    padding-right: 5%;
 }
+
 /* .section-box .cb6*/
- .cb6 {
+.cb6 {
     background-color: #ECBB9C;
-    color:#2B3A41;
+    color: #2B3A41;
     width: 110vw;
     position: relative;
 }
@@ -266,21 +278,26 @@
     font-family: Italiana;
     font-size: 7vw;
     position: absolute;
-    left: 6vw; bottom: 19vh;
+    left: 6vw;
+    bottom: 19vh;
     display: flex;
 }
 
 
 
-.cb6 .cb6sbox .cont1{
+.cb6 .cb6sbox .cont1 {
     margin-right: 10%;
     position: relative;
 }
 
-.cb6 .cb6sbox .cont2{position: relative;}
-.cb6 .cb6sbox .cont2::before{
+.cb6 .cb6sbox .cont2 {
+    position: relative;
+}
+
+.cb6 .cb6sbox .cont2::before {
     position: absolute;
-    top: 9vh;left: -8vw;
+    top: 9vh;
+    left: -8vw;
     content: '';
     width: 5vw;
     height: 2px;
@@ -288,10 +305,37 @@
 }
 
 .cb6 .number {
-    position: absolute; left:23vw; top: 1vh;
+    position: absolute;
+    left: 23vw;
+    top: 1vh;
     font-family: Halant;
     font-size: 2vw;
 }
 
 /*section2*/
-#section2{}
+#section2 {
+    position: fixed;
+    left: 100vw;
+    top: 0;
+    width: 600vw;
+    height: 100vh;
+    background: #aaa;
+    overflow: hidden;
+}
+
+.section-site>div {
+float: left;  display: flex;
+}
+
+.section-site .site1 { }
+.section-site .site1 .mockupimg{
+    width: 100vw; height: 100vh;
+    background: url(../img/siteimg01.jpg) no-repeat center;
+    background-size: cover;
+}
+.site1 .contbox{
+  width: 35vw; 
+  background: #2B3A41;
+}
+.section-site .site1 .bnt{}
+.section-site .site1 .scriptmodal{}
