@@ -21,12 +21,6 @@
     font-style: normal;
 }
 
-/*  en 폰트 */
-@import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
-
-/*number 폰트*/
-@import url('https://fonts.googleapis.com/css2?family=Halant:wght@300;400;500;600;700&display=swap');
-
 
 /* scrollTop */
 .scrollTop {
@@ -50,7 +44,7 @@
     --barcolor: #324046;
     --barbntcolor: #425761;
     --modelbg: #FCF0E8;
-    --kotextfont: ChosunilboNM;
+    --kotextfont: Chosunilbo_myungjo;
     --numderfont1: Halant;
 }
 
@@ -283,7 +277,7 @@
 .cb5 .stbox .text > span {
     display: inline-block;
     width: 20vw;
-    height: 35vh;  
+    height: 40vh;  
 }
 
 .cb5 .stbox .c1 {
