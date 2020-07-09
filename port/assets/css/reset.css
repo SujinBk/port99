@@ -1,3 +1,13 @@
 *{
     padding: 0;margin: 0;
 }
+
+a {text-decoration: none; color: #000;}
+li{list-style: none;}
+
+em{ font-style: normal; color:#41BFA9;}
+
+
+h1,h2,h3,h4,h5,h6,strong { font-style: normal; font-weight: normal;}
+
+body{ font-family: Italiana;}
