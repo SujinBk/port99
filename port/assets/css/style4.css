@@ -42,7 +42,7 @@
     --textcolor: #A9B9C0;
     --bigtextcolor: #EEB0B5;
     --barcolor: #324046;
-    --barbntcolor: #425761;
+    --barbtncolor: #425761;
     --modelbg: #FCF0E8;
     --kotextfont: Chosunilbo_myungjo;
     --numderfont1: Halant;
@@ -56,7 +56,7 @@
     position: fixed;
     left: 0;
     top: 0;
-    width: 600vw;
+    width: 900vw;
 }
 
 .section-box>div {
@@ -201,21 +201,21 @@
 
 .cb4 .aboutimg.g3 {
     position: absolute;
-    left: 70vw;
+    left: 45vw;
     top: 30vh;
     
 }
 
 .cb4 .aboutimg.g4 {
     position: absolute;
-    left: 100vw;
+    left: 80vw;
     top: 0;
     z-index: 1;
 }
 
 .cb4 .aboutimg.g5 {
     position: absolute;
-    right: 25vw;
+    right: 30vw;
     bottom: 1vh;
 }
 
@@ -234,7 +234,7 @@
 .cb4 .aboutimg.g8 {
     position: absolute;
     top: 0vh;
-    right: 0vw;
+    right: 15vw;
     
 }
 
@@ -247,7 +247,7 @@
 
 }
 .cbimg {
-    width: 64vw;
+    width: 65vw;
     height: 100%;
     background: url(../img/imgm2.jpg) no-repeat;
     background-size:cover;
@@ -438,8 +438,8 @@
     display: flex;
     
 }
-/* bnts */
-#bnts {
+/* btns */
+#btns {
     width: 15vw;
     height: 100%;
     background: var(--barcolor);
@@ -452,8 +452,8 @@
 
 }
 
-#bnts ul li {
-    background: var(--barbntcolor);
+#btns ul li {
+    background: var(--barbtncolor);
     margin-bottom: 1vw;
     width: 10.7vw;
     height: 6vh;
@@ -462,7 +462,7 @@
 
 
 
-#bnts ul li a {
+#btns ul li a {
     display: block;
     width: 100%;
     height: 100%;
@@ -472,13 +472,13 @@
 }
 
 /* mousehover */
-#bnts ul li:hover,
-#bnts ul li.active {
+#btns ul li:hover,
+#btns ul li.active {
     background: var(--modelbg);
 }
 
-#bnts ul li:hover a,
-#bnts ul li.active a {
+#btns ul li:hover a,
+#btns ul li.active a {
     color: var(--bgcolor);
 }
 
@@ -502,26 +502,48 @@
 .tabcontbox {
     width: 46vw;
     height: 55vh;
-    background: #232E30;
     /* display: none; */
+}
+/* btncont */
+.tabcontbox .sbtns ul {
+    display: flex; 
+    justify-content: center;
+}
+
+.tabcontbox .sbtns ul li{
+    width: 7vw;
+    height: 4vh;
+    line-height: 4vh;
+    background: #161e21;
+}
+
+.tabcontbox .sbtns ul li a {
+    font-family:  S-CoreDream-3Light;
+    display: block;
+    text-align: center;
+    color: #929c95;
+}
+
+.tabcontbox .sbtns ul li a.active {
     
 }
-.tabcontbox ul li h4 {
+
+/* .tabcontbox ul li  {
     height: 4vh;
     color:#98A0A2;
     background: #161E21;
     line-height: 4vh;
- }
+ } */
 
 
- .tabcontbox ul li h4 span {
+ /* .tabcontbox ul li h4 span {
    display: inline-block;
    width: 10vw;
    text-align: center;
    background: #232E30;
    font-family:  S-CoreDream-3Light;
    border-bottom: 3px solid #317978;
- }
+ } */
  
  /* lastbox */
 .lastbox {
