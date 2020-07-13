@@ -11,7 +11,7 @@ pre[class*="language-"] {
 	color: #f8f8f2;
 	background: none;
 	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-family: S-CoreDream-3Light,Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 	font-size: 1em;
 	text-align: left;
 	white-space: pre;
@@ -215,18 +215,18 @@ pre[class*="language-"].line-numbers > code {
 
 }
 
-	.line-numbers-rows > span {
-		display: block;
-		counter-increment: linenumber;
-	}
+.line-numbers-rows > span {
+	display: block;
+	counter-increment: linenumber;
+}
 
-		.line-numbers-rows > span:before {
-			content: counter(linenumber);
-			color: #999;
-			display: block;
-			padding-right: 0.8em;
-			text-align: right;
-		}
+.line-numbers-rows > span:before {
+	content: counter(linenumber);
+	color: #999;
+	display: block;
+	padding-right: 0.8em;
+	text-align: right;
+}
 
 span.inline-color-wrapper {
 	/*

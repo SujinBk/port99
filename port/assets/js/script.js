@@ -10,7 +10,7 @@
         });
 
 // //탭 메뉴1
-// const tBtn = $("#btn> ul > li");
+// const tBtn = $("#bnts> ul > li");
 // const tCont = $(".tabcontbox>ul>li");
 
 // tCont.hide().eq(0).show();
@@ -30,13 +30,13 @@ $("#section-site > div").each(function(index){
     $(this).find(".bwrap").addClass("num"+index)
     
     
-    $("#btn > ul > li").click(function(e){
+    $("#btns > ul > li").click(function(e){
         e.preventDefault();
         let target = $(this);
         let num = target.parent().parent().parent().attr("data-num");
         let index = target.index();
 
-        $(".bwrap.num"+num+" #btn > ul > li").removeClass("active");  
+        $(".bwrap.num"+num+" #btns > ul > li").removeClass("active");  
         target.addClass("active");  
         
         $(".bwrap.num"+num+" .tabcontbox > ul>li").css("display","none");
