@@ -361,7 +361,7 @@
 }
 
 .title1 .mockupimg {
-    background: url(../img/siteimg1-1.jpg) no-repeat center;
+    background: url(../img/siteimg1-2.jpg) no-repeat center;
     background-size: cover;
 }
 .title2 .mockupimg {
@@ -505,19 +505,19 @@
     /* display: none; */
 }
 /* btncont */
-.tabcontbox .btnsname ul {
+.tabcontbox .sbtnsname ul {
     display: flex; 
     justify-content: center;
 }
 
-.tabcontbox .btnsname ul li{
+.tabcontbox .sbtnsname ul li{
     width: 7vw;
     height: 4vh;
     line-height: 4vh;
     background: #161e21;
 }
 
-.tabcontbox .btnsname ul li a {
+.tabcontbox .sbtnsname ul li a {
     font-family:  S-CoreDream-3Light;
     display: block;
     text-align: center;
@@ -525,7 +525,7 @@
     font-size: 0.7vw;
 }
 
-.tabcontbox .btnsname ul li.active a {
+.tabcontbox .sbtnsname ul li.active a {
     background: #283136;
     border-bottom: 3px solid #317978;
     font-size: 0.9vw;

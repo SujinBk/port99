@@ -24,7 +24,7 @@
 /* layout */
 #contents {}
 #section1 {position: relative; z-index: 9000; height: 8000px;}
-#section2 {position: relative; z-index: 8000; height: 8000px; background: red;}
+#section2 {position: relative; z-index: 8000; height: 8000px;}
 #section3 {}
 #section4 {}
 #section5 {}
@@ -83,6 +83,9 @@
     display: inline-block;
     opacity: 0;
     min-width: 2vw;
+}
+.section-box .sb1 h1 .t3 span:nth-child(1) {
+    
 }
 
 .section-box .sb2 {
