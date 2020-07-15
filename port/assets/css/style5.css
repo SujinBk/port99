@@ -212,6 +212,7 @@
     background-size: cover;
     position: fixed; left: 0; top:0; right: 0; bottom: 0;
     z-index: 90;
+    transform: translateX(0%);
 }
 
 /* sb6 */
@@ -276,7 +277,6 @@
 /*section2 layout  */
 .site-box > div {float: left; width: 100vw; height: 100vh;}
 .site-box .st1 {background: #ECBB9C;}
-.site-box .st2 {}
 .site-box .st3 {background: #444;}
 .site-box .st4 {background: #555;}
 .site-box .st5 {background: #666;}
@@ -286,7 +286,9 @@
 /*st1  */
 .site-box .st1 {   
     position: fixed; left: 0; top: 0; 
-    width: 100%; height: 100vh;}
+    width: 100%; height: 100vh;
+    z-index: 100;
+}
 .site-box .st1 .sec-title {
     display: flex;
     position: relative;
@@ -307,6 +309,8 @@
 .site-box .st2 {
     background: url(../img/siteimg1-2.jpg)no-repeat center center;
     background-size: cover;
+    position: fixed; left: 0; top:0; right: 0; bottom: 0;
+    z-index: 91;
 }
 
 /* st3 */
@@ -350,7 +354,7 @@
 }
 
 
-/*  */
+/* btns*/
 #btns {
     font-family: S-CoreDream-3Light;
     text-align: center;
@@ -372,6 +376,8 @@
     color: #FCF0E8;
     line-height: 5vh;
     font-size: 1vw;
+    position: relative;
+    z-index: 1000;
 }
 /* mousehover */
 #btns ul li:hover,
@@ -382,4 +388,71 @@
 #btns ul li:hover a,
 #btns ul li.active a {
     color: #2B3A41;
+}
+
+/* st3-2 */
+.site-box .st3-2 {
+    position: fixed;
+    right: 100%; top: 0; bottom: 0; z-index: 250;
+    width: 55vw;
+    height: 100vh;
+    background: #FCF0E8;
+
+}
+
+/* st4 */
+.site-box .st4 {
+    background: url(../img/siteimg2-2.jpg)no-repeat center center;
+    background-size: cover;
+    position: fixed; left: 0; top:0; right: 0; bottom: 0;
+    z-index: 90;
+}
+
+/* st5 */
+.site-box .st5 {
+    position: fixed;
+    left: 100%; top: 0; bottom: 0; z-index: 400;
+    background: #2B3A41;
+    width: 32vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.site-box .st5 h2 {
+    color: #EEB0B5;
+    font-size: 4vw;
+    margin-bottom: 5vw;
+}
+.site-box .st5 span {
+    display: block;
+    font-family: 'Chosunilbo_myungjo';
+    color:#A9B9C0;
+    font-size: 1.2vw;
+    line-height: 1.8vw;
+}
+
+
+/* st5-1 */
+.site-box .st5-1{
+    position: fixed;
+    left: 100%; top: 0; bottom: 0; z-index: 300;
+    background: #324046;
+    width: 13vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+/* st5-2 */
+.site-box .st5-2 {
+    position: fixed;
+    right: 100%; top: 0; bottom: 0; z-index: 250;
+    width: 55vw;
+    height: 100vh;
+    background: #FCF0E8;
 }

@@ -28,12 +28,14 @@
 $("#section-site > div").each(function(index){
     $(this).find(".bwrap").attr("data-num",index);
     $(this).find(".bwrap").addClass("num"+index)
-    const tBtn = $(".sbtnsname> ul > li");
-const tCont = $(".tabcontbox>ul>li");
+    
+    
+    const tBtn = $(".sbtnsname > ul > li");
+    const tCont = $(".tabcontbox > ul > li");
 
 tCont.hide().eq(0).show();
 
-tBtn.click(function (e) {
+tBtn.click(function(e){
 e.preventDefault();
 let target = $(this);
 let index = target.index();
