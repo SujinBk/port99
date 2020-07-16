@@ -395,17 +395,46 @@
     position: fixed;
     right: 100%; top: 0; bottom: 0; z-index: 250;
     width: 55vw;
-    height: 100vh;
+    height: 100%;
     background: #FCF0E8;
-
+    
 }
+
+
+.site-box .st3-2 .btnscont {
+    width: 45vw;
+    height: 80vh;
+    margin: 8% auto;
+    font-family:  S-CoreDream-3Light;
+}
+.site-box .st3-2 .btnscont .bc-text{
+    width: 45vw;
+    height: 15vh;
+    background: #888;
+}
+
+.site-box .st3-2 .btnscont .bc-cont{
+    width: 45vw;
+    height: 65vh;
+    background: #999;
+}
+
+.site-box .st3-2 .btnscont .bc-text h2{
+  font-size: 1.2vw;
+}
+
+.site-box .st3-2 .btnscont .bc-text > div span{
+    display: block;
+  }
+
+
 
 /* st4 */
 .site-box .st4 {
     background: url(../img/siteimg2-2.jpg)no-repeat center center;
     background-size: cover;
     position: fixed; left: 0; top:0; right: 0; bottom: 0;
-    z-index: 90;
+    z-index: 89;
 }
 
 /* st5 */
@@ -455,4 +484,157 @@
     width: 55vw;
     height: 100vh;
     background: #FCF0E8;
+}
+/* st6 */
+.site-box .st6 { 
+    background: url(../img/siteimg03.jpg)no-repeat center center;
+    background-size: cover;
+    position: fixed; left: 0; top:0; right: 0; bottom: 0;
+    z-index: 88;
+}
+
+
+/* st7 */
+.site-box .st7 {
+    position: fixed;
+    left: 100%; top: 0; bottom: 0; z-index: 400;
+    background: #2B3A41;
+    width: 32vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.site-box .st7 h2 {
+    color: #EEB0B5;
+    font-size: 4vw;
+    margin-bottom: 5vw;
+}
+.site-box .st7 span {
+    display: block;
+    font-family: 'Chosunilbo_myungjo';
+    color:#A9B9C0;
+    font-size: 1.2vw;
+    line-height: 1.8vw;
+}
+
+/* st7-1 */
+.site-box .st7-1{
+    position: fixed;
+    left: 100%; top: 0; bottom: 0; z-index: 300;
+    background: #324046;
+    width: 13vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+/* st7-2 */
+.site-box .st7-2 {
+    position: fixed;
+    right: 100%; top: 0; bottom: 0; z-index: 250;
+    width: 55vw;
+    height: 100vh;
+    background: #FCF0E8;
+}
+
+/* st8 */
+.site-box .st8 { 
+    background: url(../img/siteimg04.jpg)no-repeat center center;
+    background-size: cover;
+    position: fixed; left: 0; top:0; right: 0; bottom: 0;
+    z-index: 87;
+    transform:translateX(0%);
+}
+
+/* st9 */
+.site-box .st9 {
+    position: fixed;
+    left: 100%; top: 0; bottom: 0; z-index: 400;
+    background: #2B3A41;
+    width: 32vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.site-box .st9 h2 {
+    color: #EEB0B5;
+    font-size: 5vw;
+    margin-bottom: 5vw;
+}
+.site-box .st9 span {
+    display: block;
+    font-family: 'Chosunilbo_myungjo';
+    color:#A9B9C0;
+    font-size: 1.2vw;
+    line-height: 1.8vw;
+}
+
+/* st9-1 */
+.site-box .st9-1{
+    position: fixed;
+    left: 100%; top: 0; bottom: 0; z-index: 300;
+    background: #324046;
+    width: 13vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+/* st9-2 */
+.site-box .st9-2 {
+    position: fixed;
+    right: 100%; top: 0; bottom: 0; z-index: 250;
+    width: 55vw;
+    height: 100vh;
+    background: #FCF0E8;
+}
+
+
+/* section3 */
+.ani-box {
+    position: fixed; left: 0; top: 0;
+    overflow: hidden; width: 700vw;
+}
+
+/*section3 layout  */
+.ani-box > div {float: left; width: 100vw; height: 100vh;}
+.ani-box .ab1 {background: #ECBB9C;}
+.ani-box .ab2 {background: #444;}
+.ani-box .ab3 {background: #555;}
+.ani-box .ab4 {background: #666;}
+.ani-box .ab5 {background: #777;}
+.ani-box .ab6 {background: #888;}
+.ani-box .ab7 {background: #999;}
+
+
+/* ab1 */
+.ani-box .ab1 {   
+    position: fixed; left: 0; top: 0; 
+    width: 100%; height: 100vh;
+    z-index: 100;
+}
+.ani-box .ab1 .ab-title {
+    display: flex;
+    position: relative;
+    left: 6vw; top: 70vh;
+}
+.ani-box .ab1 .ab-title p {
+    font-size: 7vw;
+    color:#2B3A41;
+    display: inline-block;
+  
+}
+.ani-box .ab1 .ab-title p:last-child {
+    font-size: 2vw;
+    font-family: Halant;
 }
