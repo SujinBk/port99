@@ -305,16 +305,41 @@
     font-family: Halant;
 }
 
-/* st2 */
+/* stimg */
+.site-box .stimg {
+    position: fixed; left: 0; top:0; right: 0; bottom: 0;
+}
+/* st2  */
 .site-box .st2 {
     background: url(../img/siteimg1-2.jpg)no-repeat center center;
     background-size: cover;
-    position: fixed; left: 0; top:0; right: 0; bottom: 0;
     z-index: 91;
 }
 
-/* st3 */
-.site-box .st3 {
+/* st4 */
+.site-box .st4 {
+    background: url(../img/siteimg2-2.jpg)no-repeat center center;
+    background-size: cover;
+    z-index: 89;
+}
+
+/* st6 */
+.site-box .st6 { 
+    background: url(../img/siteimg03.jpg)no-repeat center center;
+    background-size: cover;
+    z-index: 88;
+}
+
+/* st8 */
+.site-box .st8 { 
+    background: url(../img/siteimg04.jpg)no-repeat center center;
+    background-size: cover;
+    z-index: 87;
+    transform:translateX(0%);
+}
+
+/* stt */
+.site-box .stt {
     position: fixed;
     left: 100%; top: 0; bottom: 0; z-index: 400;
     background: #2B3A41;
@@ -326,12 +351,12 @@
     text-align: center;
 }
 
-.site-box .st3 h2 {
+.site-box .stt h2 {
     color: #EEB0B5;
     font-size: 4vw;
     margin-bottom: 5vw;
 }
-.site-box .st3 span {
+.site-box .stt span {
     display: block;
     font-family: 'Chosunilbo_myungjo';
     color:#A9B9C0;
@@ -339,9 +364,8 @@
     line-height: 1.8vw;
 }
 
-/* st3-1 */
-
-.site-box .st3-1{
+/* stbtn */
+.site-box .stbtn{
     position: fixed;
     left: 100%; top: 0; bottom: 0; z-index: 300;
     background: #324046;
@@ -353,8 +377,7 @@
     text-align: center;
 }
 
-
-/* btns*/
+/* stbtn btns*/
 #btns {
     font-family: S-CoreDream-3Light;
     text-align: center;
@@ -390,213 +413,68 @@
     color: #2B3A41;
 }
 
-/* st3-2 */
-.site-box .st3-2 {
+/* stc */
+.site-box .stc {
     position: fixed;
     right: 100%; top: 0; bottom: 0; z-index: 250;
     width: 55vw;
     height: 100%;
-    background: #FCF0E8;
-    
+    background: #FCF0E8;   
 }
 
-
-.site-box .st3-2 .btnscont {
+.site-box .stc .btnscont {
     width: 45vw;
     height: 80vh;
     margin: 8% auto;
     font-family:  S-CoreDream-3Light;
 }
-.site-box .st3-2 .btnscont .bc-text{
-    width: 45vw;
+.site-box .stc .btnscont .bc-bigtitle {
     height: 15vh;
-    background: #888;
 }
 
-.site-box .st3-2 .btnscont .bc-cont{
-    width: 45vw;
-    height: 65vh;
-    background: #999;
-}
-
-.site-box .st3-2 .btnscont .bc-text h2{
-  font-size: 1.2vw;
-}
-
-.site-box .st3-2 .btnscont .bc-text > div span{
+.site-box .stc .btnscont .bc-bigtitle span{
     display: block;
   }
 
 
 
-/* st4 */
-.site-box .st4 {
-    background: url(../img/siteimg2-2.jpg)no-repeat center center;
-    background-size: cover;
-    position: fixed; left: 0; top:0; right: 0; bottom: 0;
-    z-index: 89;
-}
 
-/* st5 */
-.site-box .st5 {
-    position: fixed;
-    left: 100%; top: 0; bottom: 0; z-index: 400;
-    background: #2B3A41;
-    width: 32vw;
+
+
+
+
+
+
+
+  .stc .btnscont .bc-cb ul {
+    height: 5vh;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    background: #161e21;
+    
+    
+}
+.stc .btnscont .bc-cb ul li{
+    width: 10vw;
+    line-height: 5vh;
     text-align: center;
 }
 
-.site-box .st5 h2 {
-    color: #EEB0B5;
-    font-size: 4vw;
-    margin-bottom: 5vw;
+.stc .btnscont .bc-cb ul li.active {
+    background: #283136;
+    border-bottom: 3px solid #317978;
 }
-.site-box .st5 span {
+.stc .btnscont .bc-cb ul li.active a {
+    font-size: 1vw;
+}
+.stc .btnscont .bc-cb ul li a{ 
+    font-size: 0.65vw;
+    color:#929c95;
     display: block;
-    font-family: 'Chosunilbo_myungjo';
-    color:#A9B9C0;
-    font-size: 1.2vw;
-    line-height: 1.8vw;
 }
 
-
-/* st5-1 */
-.site-box .st5-1{
-    position: fixed;
-    left: 100%; top: 0; bottom: 0; z-index: 300;
-    background: #324046;
-    width: 13vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-}
-
-/* st5-2 */
-.site-box .st5-2 {
-    position: fixed;
-    right: 100%; top: 0; bottom: 0; z-index: 250;
-    width: 55vw;
-    height: 100vh;
-    background: #FCF0E8;
-}
-/* st6 */
-.site-box .st6 { 
-    background: url(../img/siteimg03.jpg)no-repeat center center;
-    background-size: cover;
-    position: fixed; left: 0; top:0; right: 0; bottom: 0;
-    z-index: 88;
-}
-
-
-/* st7 */
-.site-box .st7 {
-    position: fixed;
-    left: 100%; top: 0; bottom: 0; z-index: 400;
-    background: #2B3A41;
-    width: 32vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-}
-
-.site-box .st7 h2 {
-    color: #EEB0B5;
-    font-size: 4vw;
-    margin-bottom: 5vw;
-}
-.site-box .st7 span {
-    display: block;
-    font-family: 'Chosunilbo_myungjo';
-    color:#A9B9C0;
-    font-size: 1.2vw;
-    line-height: 1.8vw;
-}
-
-/* st7-1 */
-.site-box .st7-1{
-    position: fixed;
-    left: 100%; top: 0; bottom: 0; z-index: 300;
-    background: #324046;
-    width: 13vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-}
-
-/* st7-2 */
-.site-box .st7-2 {
-    position: fixed;
-    right: 100%; top: 0; bottom: 0; z-index: 250;
-    width: 55vw;
-    height: 100vh;
-    background: #FCF0E8;
-}
-
-/* st8 */
-.site-box .st8 { 
-    background: url(../img/siteimg04.jpg)no-repeat center center;
-    background-size: cover;
-    position: fixed; left: 0; top:0; right: 0; bottom: 0;
-    z-index: 87;
-    transform:translateX(0%);
-}
-
-/* st9 */
-.site-box .st9 {
-    position: fixed;
-    left: 100%; top: 0; bottom: 0; z-index: 400;
-    background: #2B3A41;
-    width: 32vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-}
-
-.site-box .st9 h2 {
-    color: #EEB0B5;
-    font-size: 5vw;
-    margin-bottom: 5vw;
-}
-.site-box .st9 span {
-    display: block;
-    font-family: 'Chosunilbo_myungjo';
-    color:#A9B9C0;
-    font-size: 1.2vw;
-    line-height: 1.8vw;
-}
-
-/* st9-1 */
-.site-box .st9-1{
-    position: fixed;
-    left: 100%; top: 0; bottom: 0; z-index: 300;
-    background: #324046;
-    width: 13vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-}
-
-/* st9-2 */
-.site-box .st9-2 {
-    position: fixed;
-    right: 100%; top: 0; bottom: 0; z-index: 250;
-    width: 55vw;
-    height: 100vh;
-    background: #FCF0E8;
+.site-box .stc .btnscont .bc-cont {
+    height: 60vh;
+    background: #283136;
 }
 
 
