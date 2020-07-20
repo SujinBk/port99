@@ -1,0 +1,180 @@
+/* wrap */
+#wrap {}
+
+#header {
+    min-width: 1200px;
+    border-top: 3px solid #ff7c98;
+    border-bottom: 1px solid #3f291a;
+    background: url(../img/bg_header.gif) 50% 0 repeat-x;
+}
+
+#header .top_area {
+    height: 114px;
+    padding-top: 21px;
+    border-bottom: 1px solid #e2d9d6;
+}
+
+#header .top_area .inner{
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/*logo*/
+#header .top_area .logo {
+    display: flex;
+    justify-content: center;
+}
+
+#header .top_area a {
+    display: block;
+}
+
+/* icon*/
+#header .top_area .icon {
+    display: flex;
+    justify-content: space-between;
+}
+
+#header .top_area .icon .left {
+    top: 50px;
+    left: 0;
+}
+
+#header .top_area .icon .left ul {
+    display: flex;
+}
+
+#header .top_area .icon .left ul li {
+    padding-right: 10px;
+}
+
+#header .top_area .icon .right {
+    top: 39px;
+    right: 0;
+    height: 54px;
+    line-height: 54px;
+}
+
+#header .top_area .icon .right ul {
+    display: flex;
+}
+
+#header .top_area .icon .right ul li {
+    padding-left: 20px;
+    font-size: 11px;
+}
+
+#header .left,
+#header .right {
+    position: absolute;
+    top: 50px;
+}
+
+
+/*menu_area*/
+
+/*member*/
+#header .menu_area  {
+    overflow: hidden;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+
+#header .menu_area .member  a {
+    float: left;
+    display: block;
+    padding: 0 23px;
+}
+#header .menu_area .member:last-child  a {
+    float: left;
+    display: block;
+}
+
+#header .menu_area .member span {
+    display: block;
+    height: 46px;
+    background: url(../img/gnb_menu.png) no-repeat;
+    text-indent: -9999em;
+}
+
+#header .member .login a{
+  padding-left: 0;
+}
+
+#header .member .login span {
+    width: 35px;
+    background-position: 0px -1px;
+}
+
+#header .member .join span {
+    width: 27px;
+    background-position: -97px -1px;}
+
+/* nav_menu*/
+
+#header .nav_menu {float: right;} 
+#header .nav_menu ul li{float: left;position: relative;} 
+
+
+.menu_area .nav_menu .nav_title a {
+    padding-right: 0;
+
+}
+
+.menu_area .nav_menu .nav_title span {
+    display: block;
+    height: 46px;
+    background: url(../img/gnb_menu.png) no-repeat;
+    text-indent: -9999em;
+    line-height: 46px;
+}
+
+.nav_menu .nav_sub {
+    overflow: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    height: 0;
+    z-index: 1000;
+    font-size: 14px;
+    font-weight: 300;
+    text-align: center;
+    /* -webkit-transition: height .5s ease;
+    transition: height .5s ease; */
+}
+
+
+.nav_menu .nav_warp a {
+    display: block;
+    padding: 0 59px;
+}
+
+/*아이콘 경로*/
+
+.menu_area .nav_menu ul .m1 .nav_title span {
+    width: 164px;
+    background-position: -133px -3px;
+}
+
+.menu_area .nav_menu ul .m2 .nav_title span {
+    width: 42px;
+    background-position: -415px -3px;
+}
+
+
+.menu_area .nav_menu ul .m3 .nav_title span {
+    width: 42px;
+    background-position: -577px -3px;
+}
+
+.menu_area .nav_menu ul .m4 .nav_title span {
+    width: 42px;
+    background-position: -737px -3px;
+}
+
+.menu_area .nav_menu ul .m5 .nav_title span {
+    width: 49px;
+    background-position: -897px -3px;
+}
