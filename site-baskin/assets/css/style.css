@@ -37,7 +37,7 @@
 }
 
 #header .top_area .icon .left {
-    top: 50px;
+    top: 30px;
     left: 0;
 }
 
@@ -50,7 +50,7 @@
 }
 
 #header .top_area .icon .right {
-    top: 39px;
+    top: 25px;
     right: 0;
     height: 54px;
     line-height: 54px;
@@ -119,8 +119,7 @@
 
 
 .menu_area .nav_menu .nav_title a {
-    padding-right: 0;
-
+    display: block;
 }
 
 .menu_area .nav_menu .nav_title span {
@@ -179,5 +178,48 @@
     width: 49px;
     background-position: -897px -3px;
 }
+
+
+/* banner */
+#banner img {width: 100%;}
+
+
+/* slick slider */
+#banner .single-item{position: relative;}
+#banner .single-item > button{
+    width: 120px; height: 120px; border-radius: 100%;
+    position: absolute; z-index: 10;top: 50%;
+    transform: translateY(-50%); border: none;
+    cursor: pointer;
+}
+button:focus { outline: none; }
+#banner .single-item button.slick-prev{
+    left: 20px; 
+    background: url(../img/btn_banner_prev.png) no-repeat;
+    background-size: cover;
+    font-size: 0; color:transparent;
+}
+#banner .single-item button.slick-next{
+    right: 20px;
+    background: url(../img/btn_banner_next.png)no-repeat;
+    background-size: cover;
+    font-size: 0; color:transparent;
+}
+#banner .down-ban ul { position: absolute; bottom: 2%; left: 50%;
+transform: translateX(-50%);}
+#banner .down-ban ul li {
+  display: inline-block; margin: 5px;
+}
+#banner .down-ban ul li span{ font-size: 0; color:rgba(0,0,0,0)}
+#banner .down-ban ul li >button {
+    width: 10px; height: 10px; border-radius: 100%; background: #fff;
+    border: none; cursor: pointer;
+    font-size: 0; color:transparent;
+}
+
+#banner .down-ban ul li.slick-active >button{
+   background: #000;
+}
+
 
 
