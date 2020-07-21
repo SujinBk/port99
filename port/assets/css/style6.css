@@ -749,6 +749,7 @@
 .ani-box .ab1 {   
     position: fixed; left: 0; top: 0; 
     width: 100%; height: 100vh;
+    z-index: 70;
 }
 .ani-box .ab1 .ab-title {
     display: flex;
@@ -767,11 +768,27 @@
 }
 
 /* ad2*/
+.ani-box .ab2 { width: 100vw; height: 100vh;}
 
-.ani-box .ab2 {width: 100%; height: 100vh;}
-.ani-box .ab2 .sani-container {   }
-.ani-box .ab2 .sani-container .sani-box{
-    width: 50vw;
-    height: 50vh;
-    background: #ccc;
-}
+.ani-box .ab2 .ab-inner{
+     width: 90vw; height: 75vh; background: #ccc;
+     margin: 6% auto;
+     display: flex; justify-content: center; align-items: center;
+    }
+
+.ani-box .ab2 .ab-inner .ain-num p{
+    font-size: 30vw;
+    font-family: Great Vibes;
+  padding-left: 15%;
+    text-shadow:    -2px -2px 0 #ECBB9C,
+    2px -2px 0 #ECBB9C,
+    -2px 2px 0 #ECBB9C,
+    2px 2px 0 #ECBB9C; 
+    color: #2B3A41;
+    opacity: 0.6;
+} 
+
+.ani-box .ab2 .ab-inner .ain-main { width: 40vw; height: 60vh;  background: #ddd;} 
+.ani-box .ab2 .ab-inner .ad-cont {display: flex; justify-content: space-between; align-items: center; }
+.ani-box .ab2 .ab-inner .ad-cont .stltie .ain-title {} 
+.ani-box .ab2 .ab-inner .ad-cont .ain-text {} 

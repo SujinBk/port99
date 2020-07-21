@@ -25,19 +25,3 @@ setTimeout(function(){
    gsap.to(".section-box .sb1 h1 .t3 span", {opacity: 1, duration: 0.5, y:0, stagger:'0.03', delay: 1.2, ease: "power4.out"});
 },2000);
 
-
-// // tab menu
-// const tBtn = $("#btns> ul > li");
-// const tCont = $(".bc-bigtitle>ul>li");
-
-// tCont.hide().eq(0).show();
-
-// tBtn.click(function (e) {
-// e.preventDefault();
-// let target = $(this);
-// let index = target.index();
-// tBtn.removeClass("active");
-// target.addClass("active");
-// tCont.css("display", "none");
-// tCont.eq(index).css("display", "block");
-// });
