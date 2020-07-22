@@ -789,6 +789,6 @@
 } 
 
 .ani-box .ab2 .ab-inner .ain-main { width: 40vw; height: 60vh;  background: #ddd;} 
-.ani-box .ab2 .ab-inner .ad-cont {display: flex; justify-content: space-between; align-items: center; }
+.ani-box .ab2 .ab-inner .ad-cont { }
 .ani-box .ab2 .ab-inner .ad-cont .stltie .ain-title {} 
 .ani-box .ab2 .ab-inner .ad-cont .ain-text {} 
