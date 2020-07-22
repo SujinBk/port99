@@ -777,7 +777,7 @@
     }
 
 .ani-box .ab2 .ab-inner .ain-num p{
-    font-size: 30vw;
+    font-size: 35vw;
     font-family: Great Vibes;
   padding-left: 15%;
     text-shadow:    -2px -2px 0 #ECBB9C,
@@ -786,9 +786,14 @@
     2px 2px 0 #ECBB9C; 
     color: #2B3A41;
     opacity: 0.6;
+    margin: 10vw 8vw 0 0; 
 } 
 
-.ani-box .ab2 .ab-inner .ain-main { width: 40vw; height: 60vh;  background: #ddd;} 
+.ani-box .ab2 .ab-inner .ain-main {margin: 1vw; width: 40vw; height: 60vh;  background: #ddd;} 
 .ani-box .ab2 .ab-inner .ad-cont { }
-.ani-box .ab2 .ab-inner .ad-cont .stltie .ain-title {} 
-.ani-box .ab2 .ab-inner .ad-cont .ain-text {} 
+.ani-box .ab2 .ab-inner .ad-cont .stltie .ain-title strong {
+    font-size: 5vw;
+} 
+.ani-box .ab2 .ab-inner .ad-cont .ain-text span {
+    display: block;
+} 
