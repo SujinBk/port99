@@ -223,3 +223,59 @@ transform: translateX(-50%);}
 
 
 
+/* event */
+
+#event {
+    width: 1200px;
+    margin: 0 auto;
+    height: 721px;
+}
+#event .evetilt {text-align: center; }
+#event .evetilt img { padding: 5% 0;}
+
+
+/* event- list */
+.event-list { height: 500px;}
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+  }
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+
+.swiper-slide a span { 
+      display: block;
+      text-align: left;
+    }
+
+.swiper-slide a figure{ margin-bottom: 1vw;} 
+.swiper-slide a figure img{} 
+.swiper-slide a span.type{} 
+.swiper-slide a span.title{
+    color: #2f231c;
+    font-size: 17px;
+} 
+.swiper-slide a span.period{
+    color: #948780;
+    font-size: 15px;
+    margin-top: 1vw;
+} 
