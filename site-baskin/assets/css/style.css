@@ -235,8 +235,7 @@ transform: translateX(-50%);}
 
 
 /* event- list */
-.event-list { height: 500px;}
-
+.event-list {height: 50vh;}
 .swiper-container {
     width: 100%;
     height: 100%;
@@ -246,6 +245,7 @@ transform: translateX(-50%);}
     text-align: center;
     font-size: 18px;
     background: #fff;
+    height: 40vh;
 
     /* Center slide text vertically */
     display: -webkit-box;
@@ -262,12 +262,14 @@ transform: translateX(-50%);}
     align-items: center;
   }
 
+
 .swiper-slide a span { 
       display: block;
       text-align: left;
     }
 
-.swiper-slide a figure{ margin-bottom: 1vw;} 
+.swiper-slide a figure{ 
+    margin-bottom: 1vw;} 
 .swiper-slide a figure img{} 
 .swiper-slide a span.type{} 
 .swiper-slide a span.title{
