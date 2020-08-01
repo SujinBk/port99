@@ -520,7 +520,7 @@
     top: 0;
     right: 0;
     bottom: 0;
-    background: url(../img/siteimg04.jpg)no-repeat center center;
+    background: url(../img/siteimg04-1.jpg)no-repeat center center;
     background-size: cover;
     z-index: 87;
     transform: translateX(0%);
@@ -676,6 +676,7 @@
     height: 100%;
     background: #FCF0E8;
 }
+
 .site-box .st9-2 .btnscont {
     width: 45vw;
     height: 80vh;
@@ -697,12 +698,18 @@
 .bc-text .bc-bigtitle ul li .bc-cb ul {
     display: flex;
     background: #161e21;
+    border-radius: 10px 10px 0 0;
+
 }
 
 .bc-text .bc-bigtitle ul li .bc-cb ul li {
     width: 10vw;
     line-height: 5vh;
     text-align: center;
+}
+
+.bc-text .bc-bigtitle ul li .bc-cb ul li:first-child {
+    border-radius: 10px 0 0 0;
 }
 
 .bc-text .bc-bigtitle ul li .bc-cb ul li a {
@@ -755,7 +762,9 @@
     display: flex;
     position: relative;
     left: 6vw; top: 70vh;
+    opacity: 0;
 }
+  
 .ani-box .ab1 .ab-title p {
     font-size: 7vw;
     color:#2B3A41;
@@ -767,33 +776,134 @@
     font-family: Halant;
 }
 
-/* ad2*/
-.ani-box .ab2 { width: 100vw; height: 100vh;}
+/* ab2*/
+.ani-box .ab2{
+    width: 100vw; height: 100vh;
+}
 
-.ani-box .ab2 .ab-inner{
-     width: 90vw; height: 75vh; background: #ccc;
-     margin: 6% auto;
-     display: flex; justify-content: center; align-items: center;
-    }
+.ab2 .ab-inner { 
+    width: 90vw; height: 75vh;
+    margin: 10% auto; 
+}
+/* ab-box */
+.ab2 .ab-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+ 
+.ab2 .ab-box .title> strong {
+    font-size: 6vw;
+    position: absolute;
+    right: 1vw;
+    bottom: 1vh;
+}
+/* ain-num */
+.ab2 .ain-num {
+    position: absolute;
+    left: 8vw;
+    top: 19vh;
+    width: 22vw;
+    height: 60vh;
+    overflow: hidden;
+}
 
-.ani-box .ab2 .ab-inner .ain-num p{
+.ab2 .ain-num> p{
     font-size: 35vw;
     font-family: Great Vibes;
-  padding-left: 15%;
     text-shadow:    -2px -2px 0 #ECBB9C,
     2px -2px 0 #ECBB9C,
     -2px 2px 0 #ECBB9C,
     2px 2px 0 #ECBB9C; 
     color: #2B3A41;
     opacity: 0.6;
-    margin: 10vw 8vw 0 0; 
-} 
+    position: absolute;
+    top:75%;
+    left: 1vw;
+}
 
-.ani-box .ab2 .ab-inner .ain-main {margin: 1vw; width: 40vw; height: 60vh;  background: #ddd;} 
-.ani-box .ab2 .ab-inner .ad-cont { }
-.ani-box .ab2 .ab-inner .ad-cont .stltie .ain-title strong {
-    font-size: 5vw;
-} 
-.ani-box .ab2 .ab-inner .ad-cont .ain-text span {
+/* .ain-main */
+.ab2 .ain-main{ 
+    width: 40vw; height: 60vh;
+    overflow: hidden;
+    color: #2B3A41;
+    position: relative;
+    z-index: 1;
+}
+
+.ab2 .ain-main >strong {
+    font-size: 6vw;
+    position: absolute;
+    right: -41vw;
+    bottom: 1vh;
+    z-index: 1;
+}
+.ab2 .ain-main>div {
+     width: 40vw;
+    height: 60vh;
+    position: absolute;
+    left: 40vw; top: 0vh;
+}
+.wave{   
+    background-image: linear-gradient(to top, #9795f0 0%, #fbc8d4 100%);
+display: flex; justify-content: center; align-items: center;
+}
+.circle {
+    width: 10px; height: 10px; 
+    background: #fff; border-radius: 50%; 
+    margin: 5px 10px;
+    animation: spin 1s linear infinite;
+    transform-origin: top center;
+    }
+    
+.row {display: flex;}
+    
+    @keyframes spin { 
+      0% {transform:scale(1.1) rotate(0)}
+      50% {transform:scale(0.2) rotate(180deg) }
+      100% {transform:scale(1.1) rotate(360deg)}
+    }
+.row:nth-child(1) .circle{animation-delay :100ms}
+.row:nth-child(2) .circle{animation-delay :200ms}
+.row:nth-child(3) .circle{animation-delay :300ms}
+.row:nth-child(4) .circle{animation-delay :400ms}
+.row:nth-child(5) .circle{animation-delay :500ms}
+.row:nth-child(6) .circle{animation-delay :600ms}
+.row:nth-child(7) .circle{animation-delay :700ms}
+.row:nth-child(8) .circle{animation-delay :800ms}
+.row:nth-child(9) .circle{animation-delay :900ms}
+
+
+/* ain-title */
+.ab2 .ain-title{}
+
+.ab2 .ab-box .ain-title > strong {
+    font-size: 6vw;
+    position: absolute;
+    left: 85.5vw;
+    bottom: 22.5vh;
+    color: #9795f0;
+    opacity: 0;
+   
+}
+/*ain-text  */
+.ab2 .ain-text {
+    width: 76vw; 
+    position: relative;
+}
+.ab2 .ain-text >div {
+
+}
+
+
+.ab2 .ain-text span {
+    text-align: right;
     display: block;
-} 
+    color:#fff;
+    font-family: 'Chosunilbo_myungjo';
+    font-size: 1.5vw;
+}
+.ab2 .ain-text .wavetext {
+    opacity: 0;
+    z-index: -1;
+}
