@@ -10,7 +10,7 @@ window.addEventListener("scroll", () => {
 });
 
 
-//main animation
+//main text animation
 
 $(".splice").each(function () {
    let txt = $(this).text();
@@ -24,4 +24,52 @@ setTimeout(function(){
    gsap.to(".section-box .sb1 h1 .t2 span", {opacity: 1, duration: 0.5, y:0, stagger:'0.03', delay: 0.4, ease: "power4.out"});
    gsap.to(".section-box .sb1 h1 .t3 span", {opacity: 1, duration: 0.5, y:0, stagger:'0.03', delay: 1.2, ease: "power4.out"});
 },2000);
+
+
+// steps animation
+
+$(".btnStart").click(function(){
+   $("#animation").removeClass().addClass("btnStart");
+ });
+ 
+ $(".btnStop").click(function(){
+   $("#animation").removeClass().addClass("btnStop");
+ });
+
+
+ 
+ //spaceship
+ 
+ TweenMax.fromTo(".fire", .03, {x:-.5, y:-.4}, {x:.5, y: .4, repeat: -1, yoyo: true});
+// 배경 천천히 움직
+let tl = new TimelineMax({ repeat: -1 }),
+    tl_sky = new TimelineMax({ repeat: -1 });
+
+tl_sky.fromTo(".sky", 12, 
+        {transform: "translateY(-100vh)"},
+        {transform: "translateY(0vh)", ease:Power0.easeNone});
+///// 로켓 움직
+tl.to(".rocket", 3, {transform: "translateY(-5vh)", ease: Expo.easeOut})
+  .fromTo(".fire", .4, {scaleY: .8}, {scaleY: 1.5}, "+=1.5")// 기존 시간에 추가 시킴
+  .add( () => tl_sky.timeScale(25),"-=.4")// 수치 배경을 빠르게 보이게 한다. 
+  .to(".rocket",2,{transform: "translateY(-130vh)", ease:Power3.easeOut})
+.add( () => tl_sky.timeScale(2));// 느리게 
+
+
+tl_sky.timeScale(1);
+
+
+///cursor
+
+$(".mainbox").mousemove(function (e) {
+   gsap.to(".cursor", {
+       duration: .2,
+       left: e.pageX - 10,
+       top: e.pageY - 10
+   });
+   
+   x = e.clientX - ($(".mainbox").width() / 2 + $(".mainbox").position().left);
+   y = e.clientY - ($(".mainbox").height() / 2 + $(".mainbox").position().top);
+});
+
 

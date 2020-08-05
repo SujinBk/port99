@@ -1,0 +1,423 @@
+/* ===========================  animation  ============================================ */
+/*wave*/
+.wave{   
+    background-image: linear-gradient(to top, #9795f0 0%, #fbc8d4 100%);
+display: flex; justify-content: center; align-items: center;
+}
+.circle {
+    width: 10px; height: 10px; 
+    background: #fff; border-radius: 50%; 
+    margin: 5px 10px;
+    animation: spin 1s linear infinite;
+    transform-origin: top center;
+    }
+    
+.row {display: flex;}
+    
+    @keyframes spin { 
+      0% {transform:scale(1.1) rotate(0)}
+      50% {transform:scale(0.2) rotate(180deg) }
+      100% {transform:scale(1.1) rotate(360deg)}
+    }
+.row:nth-child(1) .circle{animation-delay :100ms}
+.row:nth-child(2) .circle{animation-delay :200ms}
+.row:nth-child(3) .circle{animation-delay :300ms}
+.row:nth-child(4) .circle{animation-delay :400ms}
+.row:nth-child(5) .circle{animation-delay :500ms}
+.row:nth-child(6) .circle{animation-delay :600ms}
+.row:nth-child(7) .circle{animation-delay :700ms}
+.row:nth-child(8) .circle{animation-delay :800ms}
+.row:nth-child(9) .circle{animation-delay :900ms}
+
+/*tnetacle*/
+.jelly-container {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-image: linear-gradient(to top, #5ee7df 0%, #b490ca 100%);
+  }
+  .jelly-container div[class^="bubble-"] {
+    width: 75px;
+    height: 75px;
+    background: rgba(0, 141, 210, 0.3);
+    border-radius: 50%;
+    position: absolute;
+    bottom: 6px;
+  }
+  .jelly-container div[class^="bubble-"]:after {
+    content: "";
+    position: absolute;
+    border-top: 1px solid rgba(255, 255, 255, 0.63);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    width: 85%;
+    height: 85%;
+    border-radius: 50%;
+  }
+  .jelly-container .bubble-1 {left: 20%; animation: bubble-move 5s -100ms ease-in infinite;}
+  .jelly-container .bubble-2 {left: 30%; animation: bubble-move 5s -3200ms ease-in infinite;}
+  .jelly-container .bubble-3 {left: 10%;animation: bubble-move 5s -2300ms ease-in infinite;}
+  .jelly-container .bubble-4 {left: 50%;animation: bubble-move 5s -400ms ease-in infinite;}
+  .jelly-container .bubble-5 {left: 60%;animation: bubble-move 5s -3500ms ease-in infinite;}
+  .jelly-container .bubble-6 {left: 70%;animation: bubble-move 5s -600ms ease-in infinite;}
+  .jelly-container .bubble-7 {left: 80%;animation: bubble-move 5s -1700ms ease-in infinite;}
+  .jelly-container .bubble-8 {left: 25%;animation: bubble-move 5s -800ms ease-in infinite;}
+  .jelly-container .bubble-9 {left: 45%;animation: bubble-move 5s -3900ms ease-in infinite;}
+  .jelly-container .bubble-10 {left: 55%;animation: bubble-move 5s -1550ms ease-in infinite;}
+  .jelly-container .bubble-11 {left: 65%;animation: bubble-move 5s -600ms ease-in infinite;}
+  .jelly-container .bubble-12 {left: 75%;animation: bubble-move 5s -3750ms ease-in infinite;}
+  .jelly-container .bubble-13 {left: 85%;animation: bubble-move 5s -850ms ease-in infinite;}
+  .jelly-container .bubble-14 {left: 22%;animation: bubble-move 5s -3950ms ease-in infinite;}
+  .jelly-container .bubble-15 {left: 33%;animation: bubble-move 5s -620ms ease-in infinite;}
+  .jelly-container .bubble-16 {left: 44%;animation: bubble-move 5s -2540ms ease-in infinite;}
+  .jelly-container .bubble-17 {left: 55%;animation: bubble-move 5s -2250ms ease-in infinite;}
+  .jelly-container .bubble-18 {left: 66%;animation: bubble-move 5s -845ms ease-in infinite;}
+  .jelly-container .bubble-19 {left: 77%;animation: bubble-move 5s -340ms ease-in infinite;}
+  .jelly-container .bubble-20 {left: 88%;animation: bubble-move 5s -420ms ease-in infinite;}
+  
+  @keyframes bubble-move {
+    0% {width: 1px;height: 1px;transform: translatey(0);}
+    100% { width: 75px;height: 75px;transform: translatey(-1000%); }
+  }
+  .jelly-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 256px;
+    height: 300px;
+    animation: jelly-move 10s infinite linear;
+  }
+  
+  @keyframes jelly-move {
+    0% {top: 55%;left: 50%; }
+    5% {top: 50%;}
+    10% {top: 55%;}
+    15% {top: 50%;}
+    20% {top: 55%;}
+    25% {top: 50%;left: calc(100% - 150px);}
+    30% {top: 55%;}
+    35% {top: 50%;}
+    40% {top: 55% }
+    45% {top: 50%;}
+    50% {top: 50%;left: 50%;}
+    55% {top: 55%;}
+    60% {top: 50%;}
+    65% {top: 55%;}
+    70% {top: 50%;}
+    75% {top: 55%;left: 150px;}
+    80% {top: 50%;}
+    85% {top: 55%;}
+    90% {top: 50%;}
+    95% {top: 55%;}
+    100% {top: 50%;left: 50%;}
+  }
+  .jelly-body {
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(to bottom, #009dd2, #ebf28a);
+    border-top-left-radius: 70px;
+    border-top-right-radius: 90px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    animation: head-move 10s infinite linear;
+  }
+  
+  @keyframes head-move {
+    0% {border-top-left-radius: 70px;border-top-right-radius: 90px; }
+    20% {border-top-left-radius: 70px;border-top-right-radius: 90px;}
+    25% {border-top-left-radius: 80px;border-top-right-radius: 80px;}
+    30% {border-top-left-radius: 90px;border-top-right-radius: 70px;}
+    70% {border-top-left-radius: 90px;border-top-right-radius: 70px;}
+    75% {border-top-left-radius: 80px;border-top-right-radius: 80px;}
+    80% {border-top-left-radius: 70px;border-top-right-radius: 90px;}
+    100% {border-top-left-radius: 70px; border-top-right-radius: 90px;}
+  }
+  .jelly-inner {
+    width: 50%;
+    height: 200px;
+    position: absolute;
+    left: 50%;
+    top: 35%;
+    animation: move 10s infinite linear;
+  }
+  
+  @keyframes move {
+    0% {left: 60%;}
+    20% {left: 60%;}
+    25% {left: 50%;}
+    30% {left: 40%;}
+    70% {left: 40%;}
+    75% {left: 50%;}
+    80% {left: 60%;}
+    100% {left: 60%;}
+  }
+  .jelly-eye {
+    position: absolute;
+    top: -40px;
+  }
+  .jelly-eye:before {
+    content: "";
+    position: absolute;
+    position: absolute;
+    left: 60px;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+  }
+  .jelly-eye:after {
+    content: "";
+    position: absolute;
+    position: absolute;
+    left: -60px;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    animation: eye-blink 3.5s infinite linear;
+  }
+  
+  @keyframes eye-blink {
+    0% {height: 20px;}
+    2% {height: 1px;}
+    4% {height: 20px;}
+    100% {height: 20px;}
+  }
+  .jelly-mouth {
+    position: absolute;
+    width: 200px;
+    height: 80px;
+    background: #f4cfd1;
+    transform: translatex(-50%);
+    border-radius: 30px;
+  }
+  .jelly-mouth:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 60%;
+    height: 1px;
+    background: #ff9393;
+    transform: translatex(-50%);
+  }
+  
+  .jelly-hands {
+    position: absolute;
+    top: 65px;
+  }
+  .jelly-hands:before {
+    content: "";
+    position: absolute;
+    width: 45px;
+    height: 50px;
+    box-shadow: 0 5px 6px #3b949b;
+    left: 105px;
+    border-radius: 0 0 50% 50%;
+  }
+  .jelly-hands:after {
+    content: "";
+    position: absolute;
+    width: 45px;
+    height: 50px;
+    box-shadow: 0 5px 6px #3b949b;
+    left: -150px;
+    border-radius: 0 0 50% 50%;
+  }
+  
+  div[class^="tentacle"] {
+    width: 50px;
+    height: 50px;
+    background: #ebf28a;
+    border-radius: 0 0 50% 50%;
+    box-shadow: 0 2.5px 0 #008d98;
+    position: absolute;
+  }
+  
+  .tentacle1 {left: 0;animation: tentacle 1s 0.5s infinite ease-in;}
+  .tentacle2 {left: 20%;animation: tentacle 1s 0.3s infinite ease-in;}
+  .tentacle3 {left: 40%;animation: tentacle 1s 0.1s infinite ease-in; }
+  .tentacle4 {left: 60%;animation: tentacle 1s 0.8s infinite ease-in;}
+  .tentacle5 {left: 80%; animation: tentacle 1s 0.2s infinite ease-in;}
+  
+  @keyframes tentacle {
+    0% {bottom: 0;}
+    50% {bottom: 8%;}
+    100% {bottom: 0;}
+  }
+  .jelly-hair {
+    width: 100px;
+    height: 75px;
+    background: linear-gradient(to bottom, #ef891a 0%, #ef891a 2%, #ebf28a 100%);
+    position: absolute;
+    left: 30%;
+    top: -10px;
+    z-index: -2;
+    border-radius: 25px;
+    animation: hair 10s infinite linear;
+  }
+  
+  @keyframes hair {
+    0% {transform: rotate3d(0, 1, 0, 180deg) rotate3d(0, 0, 1, 75deg); }
+    20% {transform: rotate3d(0, 1, 0, 180deg) rotate3d(0, 0, 1, 75deg);}
+    25% {transform: rotate3d(0, 1, 0, 90deg) rotate3d(0, 0, 1, 75deg);}
+    30% {transform: rotate3d(0, 1, 0, 0deg) rotate3d(0, 0, 1, 75deg);}
+    70% {transform: rotate3d(0, 1, 0, 0deg) rotate3d(0, 0, 1, 75deg); }
+    75% {transform: rotate3d(0, 1, 0, 90deg) rotate3d(0, 0, 1, 75deg);}
+    80% {transform: rotate3d(0, 1, 0, 180deg) rotate3d(0, 0, 1, 75deg);}
+    100% {transform: rotate3d(0, 1, 0, 180deg) rotate3d(0, 0, 1, 75deg);}
+  }
+  .jelly-shadow {
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    width: 250px;
+    height: 15px;
+    background: rgba(134, 134, 134, 0.23);
+    box-shadow: 0 0 10px rgba(134, 134, 134, 0.23);
+    animation: shadow 10s infinite linear;
+  }
+  
+  @keyframes shadow {
+    0% {width: 250px;left: 50%;}
+    5% {width: 200px;}
+    10% {width: 250px;}
+    15% {width: 250px;}
+    20% {width: 250px;}
+    25% {width: 200px;left: calc(100% - 150px);}
+    30% {width: 250px;}
+    35% {width: 200px;}
+    40% {width: 250px;}
+    45% {width: 200px;}
+    50% {width: 250px;left: 50%;}
+    55% {width: 200px;}
+    60% {width: 250px;}
+    65% {width: 200px;}
+    70% {width: 250px;}
+    75% {width: 200px;left: 150px;}
+    80% { width: 250px;}
+    85% {width: 200px;}
+    90% {width: 250px;}
+    95% {width: 200px;}
+    100% {width: 250px;left: 50%;}
+  }
+  
+/* steps */
+.steps {
+  background: #fcdcdf;
+  width: 40vw; height: 60vh;
+}
+#animation {
+  background-image: url(https://tistory2.daumcdn.net/tistory/3108288/skin/images/steps.jpg);
+  width: 800px; height: 600px;
+  position: absolute; left: 50%; top: 50%;
+  margin-left: -400px; margin-top: -300px;
+  animation: ani 1s steps(16, start) infinite;
+}
+@keyframes ani {
+  0% {background-position: 0 0}
+  100% {background-position: -12800px 0}
+}
+
+/* square */
+.square {
+  
+  background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);}
+  
+  .box { width: 49px; height: 49px; position:absolute;
+  left: 0; top: 0; right: 0; bottom:0; margin:auto; }
+  .box::before {
+    content:'';
+    width: 49px; height: 5px;
+    background:#000;
+    opacity:0.1;
+    position:absolute; top: 58px; left: 0;
+    border-radius:50%;
+    animation:shadow 0.58s linear infinite;
+  }
+  .box::after { 
+    content:'';
+    width: 49px; height: 49px;
+    background: #fdd245;
+    position: absolute; left: 0;top: 0;
+    border-radius:3px;
+    animation: load 0.58s linear infinite;
+  }
+  
+  @keyframes load { 
+    17% {border-bottom-right-radius:3px;}
+    25% {transform: translatey(9px) rotate(22.5deg)}
+    50% {transform: translatey(18px) scale(1,0.9) rotate(45deg);border-bottom-right-radius:39px;}
+    75% {transform: translatey(9px) rotate(67.5deg);}
+    100% {transform: translatey(0)rotate(90deg); }
+  }
+  
+  @keyframes shadow { 
+    0% { transform: scale(1,1)}
+   50% { transform: scale(1.2,1)}
+   100% { transform: scale(1,1)}
+  }
+  
+/* Spaceship */
+.spaceship {
+   font-size: 60%;
+   overflow: hidden;
+   width: 40vw; height: 60vh; 
+}
+.container {
+   display: flex;
+   justify-content: center;
+   align-items: flex-end;
+}
+.rocket {
+   height: 400px;
+   height: 50em;
+   transform: translatey(100vh);
+   z-index: 1;
+}
+.sky {
+   position: absolute;
+   top: 0; left: 0; right: 0; bottom: 0;
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   min-height: 100vh;
+   background-color: #000;
+   height: 200vh;
+}
+.sky-bg {
+   height: 100vh;
+   background-size: 30rem;
+   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 142.05 259.2"><title>Asset 1</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path d="M115.66,178.42a.39.39,0,1,0,.39.39.39.39,0,0,0-.39-.39ZM85,106.62a.3.3,0,1,0,.3.3.3.3,0,0,0-.3-.3Zm30.47,125.84a.77.77,0,1,0,.77.77.77.77,0,0,0-.77-.77ZM86.79,248.39a.77.77,0,1,0,.77.77.77.77,0,0,0-.77-.77Zm-80,2.38a.77.77,0,1,0,.77.77.77.77,0,0,0-.77-.77ZM19.3,199.46a.77.77,0,1,0,.77.77.77.77,0,0,0-.77-.77Zm58.7-32a.77.77,0,1,0,.77.77.77.77,0,0,0-.77-.77Zm-36.9-1.53a.77.77,0,1,0,.77.77.77.77,0,0,0-.77-.77ZM79.63,201a.77.77,0,1,0,.77.77.77.77,0,0,0-.77-.77Zm60.79-110.3a.77.77,0,1,0,.77.77.77.77,0,0,0-.77-.77ZM52.93,15.78a.77.77,0,1,0,.77.77.77.77,0,0,0-.77-.77ZM81.16,65.59a.77.77,0,1,0,.77.77.77.77,0,0,0-.77-.77ZM28.54,112.91a.77.77,0,1,0,.77.77.77.77,0,0,0-.77-.77ZM122,171.59a.77.77,0,1,0,.77.77.77.77,0,0,0-.77-.77Zm-79.5,46.86a.77.77,0,1,0,.77.77.77.77,0,0,0-.77-.77Zm40.06-85.27a.6.6,0,1,0,.6.6.6.6,0,0,0-.6-.6ZM48.1,140.69a.6.6,0,1,0,.6.6.6.6,0,0,0-.6-.6ZM56.33,156a.3.3,0,1,0,.3.3.3.3,0,0,0-.3-.3ZM34.76,203.62a.3.3,0,1,0,.3.3.3.3,0,0,0-.3-.3ZM42.17,214a.3.3,0,1,0,.3.3.3.3,0,0,0-.3-.3Zm-15,20.89a.3.3,0,1,0,.3.3.3.3,0,0,0-.3-.3ZM.3,244.27a.3.3,0,1,0,.3.3.3.3,0,0,0-.3-.3Zm22-62.4a.3.3,0,1,0,.3.3.3.3,0,0,0-.3-.3ZM18.66,186a.3.3,0,1,0,.3.3.3.3,0,0,0-.3-.3Zm79.59-7.39a.3.3,0,1,0,.3.3.3.3,0,0,0-.3-.3ZM91.5,171a.3.3,0,1,0,.3.3.3.3,0,0,0-.3-.3Zm-29,83.17a.3.3,0,1,0,.3.3.3.3,0,0,0-.3-.3Zm37.48-9.3a.3.3,0,1,0,.3.3.3.3,0,0,0-.3-.3Zm-28.69-5.7a.3.3,0,1,0,.3.3.3.3,0,0,0-.3-.3ZM68.4,31.72a.3.3,0,1,0,.3.3.3.3,0,0,0-.3-.3ZM125,119.09a.3.3,0,1,0,.3.3.3.3,0,0,0-.3-.3Zm-97.2,21.08a.3.3,0,1,0,.3.3.3.3,0,0,0-.3-.3ZM106.5,199a.3.3,0,1,0,.3.3.3.3,0,0,0-.3-.3Zm6.75,9.9a.3.3,0,1,0,.3.3.3.3,0,0,0-.3-.3Zm-59.85.6a.3.3,0,1,0,.3.3.3.3,0,0,0-.3-.3Zm56.91-116.9a.39.39,0,1,0,.39.39.39.39,0,0,0-.39-.39ZM18.69,168.48a.39.39,0,1,0,.39.39.39.39,0,0,0-.39-.39Zm63.62-21.42a.39.39,0,1,0,.39.39.39.39,0,0,0-.39-.39ZM43,26.62a.39.39,0,1,0,.39.39.39.39,0,0,0-.39-.39Zm.24,34.19a.39.39,0,1,0,.39.39.39.39,0,0,0-.39-.39ZM17.35,92.25a.39.39,0,1,0,.39.39.39.39,0,0,0-.39-.39ZM101,46.12a.39.39,0,1,0,.39.39.39.39,0,0,0-.39-.39Zm26.25-31.5a.39.39,0,1,0,.39.39.39.39,0,0,0-.39-.39Zm-.39-11.76a.39.39,0,1,0,.39.39.39.39,0,0,0-.39-.39ZM89.27,6.94a.39.39,0,1,0,.39.39.39.39,0,0,0-.39-.39ZM13.71,1.7a.39.39,0,1,0,.39.39.39.39,0,0,0-.39-.39Zm104.4,64.47a.39.39,0,1,0,.39.39.39.39,0,0,0-.39-.39Zm9.77,157.38a.39.39,0,1,0,.39.39.39.39,0,0,0-.39-.39Zm-29.63-41a.39.39,0,1,0,.39.39.39.39,0,0,0-.39-.39ZM14.68,212.4a.39.39,0,1,0,.39.39.39.39,0,0,0-.39-.39ZM8.93,135.84a.39.39,0,1,0,.39.39.39.39,0,0,0-.39-.39ZM114.41,56.6a.77.77,0,1,0,.77.77.77.77,0,0,0-.77-.77Zm20.75-44.86a.77.77,0,1,0,.77.77.77.77,0,0,0-.77-.77Zm-118.58,78a.77.77,0,1,0,.77.77.77.77,0,0,0-.77-.77Zm19-82.56a.77.77,0,1,0,.77.77.77.77,0,0,0-.77-.77ZM2.81,26.71a.77.77,0,1,0,.77.77.77.77,0,0,0-.77-.77ZM134.39,141.54a.77.77,0,1,0,.77.77.77.77,0,0,0-.77-.77ZM5.3,210.86a.77.77,0,1,0,.77.77.77.77,0,0,0-.77-.77Zm78.17-53a.77.77,0,1,0,.77.77.77.77,0,0,0-.77-.77Zm37.56,88a.77.77,0,1,0,.77.77.77.77,0,0,0-.77-.77Zm-86.41,1.43a.77.77,0,1,0,.77.77.77.77,0,0,0-.77-.77Zm39-15.5a.77.77,0,1,0,.77.77.77.77,0,0,0-.77-.77Zm-31.88-163a.77.77,0,1,0,.77.77.77.77,0,0,0-.77-.77ZM107.24,12.7a.77.77,0,1,0,.77.77.77.77,0,0,0-.77-.77Zm20.73,51a.77.77,0,1,0,.77.77.77.77,0,0,0-.77-.77ZM14.35,5.22a.26.26,0,1,0,.26.26.26.26,0,0,0-.26-.26ZM57.57,12a.26.26,0,1,0,.26.26.26.26,0,0,0-.26-.26ZM86.49,3.24a.26.26,0,1,0,.26.26.26.26,0,0,0-.26-.26Zm32.44,15.51a.26.26,0,1,0,.26.26.26.26,0,0,0-.26-.26Zm.26-11.81a.26.26,0,1,0,.26.26.26.26,0,0,0-.26-.26Zm18,65.51a.26.26,0,1,0,.26.26.26.26,0,0,0-.26-.26Zm-18-22.86a.26.26,0,1,0,.26.26.26.26,0,0,0-.26-.26ZM83.48,59.1a.26.26,0,1,0,.26.26.26.26,0,0,0-.26-.26Zm44.41,46.26a.26.26,0,1,0,.26.26.26.26,0,0,0-.26-.26Zm-99.52,11a.26.26,0,1,0,.26.26.26.26,0,0,0-.26-.26ZM10.09,73.91a.26.26,0,1,0,.26.26.26.26,0,0,0-.26-.26Zm89.39,44.44a.26.26,0,1,0,.26.26.26.26,0,0,0-.26-.26Zm5.78,59.57a.26.26,0,1,0,.26.26.26.26,0,0,0-.26-.26Zm28.1,17.48a.26.26,0,1,0,.26.26.26.26,0,0,0-.26-.26Zm-33.9,28.28a.26.26,0,1,0,.26.26.26.26,0,0,0-.26-.26Zm36.91,28.7a.26.26,0,1,0,.26.26.26.26,0,0,0-.26-.26ZM64.26,109.62a.26.26,0,1,0,.26.26.26.26,0,0,0-.26-.26Zm1.46,3.44a.26.26,0,1,0,.26.26.26.26,0,0,0-.26-.26Zm-64.87-7a.26.26,0,1,0,.26.26.26.26,0,0,0-.26-.26Zm44,16.79a.26.26,0,1,0,.26.26.26.26,0,0,0-.26-.26ZM50.7,75.37a.26.26,0,1,0,.26.26.26.26,0,0,0-.26-.26ZM83.22,85.52a.26.26,0,1,0,.26.26.26.26,0,0,0-.26-.26ZM94.7,51a.26.26,0,1,0,.26.26A.26.26,0,0,0,94.7,51Zm28.59,5a.26.26,0,1,0,.26.26.26.26,0,0,0-.26-.26Zm13.59-16.51a.26.26,0,1,0,.26.26.26.26,0,0,0-.26-.26Zm-17.7-4.41a.26.26,0,1,0,.26.26.26.26,0,0,0-.26-.26Zm-76.6,14.4a.26.26,0,1,0,.26.26.26.26,0,0,0-.26-.26Zm-28.49-8a.26.26,0,1,0,.26.26.26.26,0,0,0-.26-.26Zm4-22.58a.26.26,0,1,0,.26.26.26.26,0,0,0-.26-.26Zm-8-11.81a.26.26,0,1,0,.26.26.26.26,0,0,0-.26-.26Zm-5.31-4A.26.26,0,1,0,5,3.5a.26.26,0,0,0-.26-.26ZM47.19,96a.77.77,0,1,0,.77.77.77.77,0,0,0-.77-.77Zm70.54,49.47a.26.26,0,1,0,.26.26.26.26,0,0,0-.26-.26Zm24.07-61.44a.26.26,0,1,0,.26.26.26.26,0,0,0-.26-.26ZM35.66,86.57a.26.26,0,1,0,.26.26.26.26,0,0,0-.26-.26ZM89.91,36.64a.26.26,0,1,0,.26.26.26.26,0,0,0-.26-.26Zm51.63-19.35a.26.26,0,1,0,.26.26.26.26,0,0,0-.26-.26Zm-4.14,29.8a.26.26,0,1,0,.26.26.26.26,0,0,0-.26-.26ZM47.19.75a.77.77,0,1,0,.77.77.77.77,0,0,0-.77-.77ZM9.58,42.08a.26.26,0,1,0,.26.26.26.26,0,0,0-.26-.26Zm7.89-18.9a.26.26,0,1,0,.26.26A.26.26,0,0,0,17.46,23.17Z" fill="%23fefefe" fill-rule="evenodd"/><path d="M65,10.54a.26.26,0,1,0,.26.26.26.26,0,0,0-.26-.26Zm66,229.22a.42.42,0,1,0,.42.42.42.42,0,0,0-.42-.42ZM115.83,81.52a.42.42,0,1,0,.42.42.42.42,0,0,0-.42-.42Zm.84,32.92a.42.42,0,1,0,.42.42.42.42,0,0,0-.42-.42ZM121,208.1a.42.42,0,1,0,.42.42.42.42,0,0,0-.42-.42Zm-93.85-9.9a.42.42,0,1,0,.42.42.42.42,0,0,0-.42-.42ZM65.83,126a.42.42,0,1,0,.42.42.42.42,0,0,0-.42-.42Zm66.08,56.49a.42.42,0,1,0,.42.42.42.42,0,0,0-.42-.42Zm-93.15-.15a.49.49,0,1,0,.49.49.49.49,0,0,0-.49-.49ZM138.83,87.84a.49.49,0,1,0,.49.49.49.49,0,0,0-.49-.49ZM35.57,1.81a.49.49,0,1,0,.49.49.49.49,0,0,0-.49-.49ZM83,52.51a.49.49,0,1,0,.49.49.49.49,0,0,0-.49-.49ZM81.09,73.68a.49.49,0,1,0,.49.49.49.49,0,0,0-.49-.49Zm32.55,73.76a.49.49,0,1,0,.49.49.49.49,0,0,0-.49-.49ZM13.81,147a.49.49,0,1,0,.49.49.49.49,0,0,0-.49-.49Zm0,76.49a.49.49,0,1,0,.49.49.49.49,0,0,0-.49-.49ZM23.35,58.64a.49.49,0,1,0,.49.49.49.49,0,0,0-.49-.49ZM114.41,12.7a.49.49,0,1,0,.49.49.49.49,0,0,0-.49-.49ZM2,40.16a.49.49,0,1,0,.49.49A.49.49,0,0,0,2,40.16Zm49.41,6a.49.49,0,1,0,.49.49.49.49,0,0,0-.49-.49Zm57,212.11a.49.49,0,1,0,.49.49.49.49,0,0,0-.49-.49ZM4.81,167.51a.49.49,0,1,0,.49.49.49.49,0,0,0-.49-.49Zm134,1.92a.49.49,0,1,0,.49.49.49.49,0,0,0-.49-.49ZM9.32,121.08a.49.49,0,1,0,.49.49.49.49,0,0,0-.49-.49Zm129.28,7a.26.26,0,1,0,.26.26.26.26,0,0,0-.26-.26ZM8.11,60.56a.26.26,0,1,0,.26.26.26.26,0,0,0-.26-.26ZM.86,0a.38.38,0,1,0,.38.38A.38.38,0,0,0,.86,0ZM134.77,6.45a.38.38,0,1,0,.38.38.38.38,0,0,0-.38-.38Zm-4.82,36a.38.38,0,1,0,.38.38A.38.38,0,0,0,129.95,42.47Z" fill="%2300afef" fill-rule="evenodd"/><path d="M125,7.71a.49.49,0,1,0,.49.49.49.49,0,0,0-.49-.49Zm-107,242.22a.42.42,0,1,0,.42.42.42.42,0,0,0-.42-.42Zm43.87-6.5a.42.42,0,1,0,.42.42.42.42,0,0,0-.42-.42ZM27.16,129.18a.42.42,0,1,0,.42.42.42.42,0,0,0-.42-.42Zm78.62,12.72a.42.42,0,1,0,.42.42.42.42,0,0,0-.42-.42ZM55.61,177.76a.42.42,0,1,0,.42.42.42.42,0,0,0-.42-.42ZM8,193.6a.42.42,0,1,0,.42.42A.42.42,0,0,0,8,193.6ZM38.28,97.67a.42.42,0,1,0,.42.42.42.42,0,0,0-.42-.42Zm53.34,6.18a.42.42,0,1,0,.42.42.42.42,0,0,0-.42-.42Zm-42.5,44.94a.42.42,0,1,0,.42.42.42.42,0,0,0-.42-.42Zm73.2,30.42a.42.42,0,1,0,.42.42.42.42,0,0,0-.42-.42ZM94.44,49.57a.49.49,0,1,0,.49.49.49.49,0,0,0-.49-.49Zm41.49,172a.49.49,0,1,0,.49.49.49.49,0,0,0-.49-.49ZM.49,78a.49.49,0,1,0,.49.49A.49.49,0,0,0,.49,78Zm134.66,37.82a.49.49,0,1,0,.49.49.49.49,0,0,0-.49-.49ZM5.53,145.52A.49.49,0,1,0,6,146a.49.49,0,0,0-.49-.49ZM106.76,84.81a.49.49,0,1,0,.49.49.49.49,0,0,0-.49-.49ZM21.43,41.13a.49.49,0,1,0,.49.49A.49.49,0,0,0,21.43,41.13Z" fill="%23ec268f" fill-rule="evenodd"/></g></g></svg>');
+}
+/* SVG-text */
+.svgWrap{
+  font-family: 'Audiowide', cursive;
+  background-color: #e3f2fd;
+  width: 40vw; height: 60vh; 
+  position: relative;
+  z-index: 2;
+}
+.aniText {
+  font-size: 140px;
+  stroke:#365fa0;
+  stroke-width:2;
+  animation: stroke 3s infinite alternate;
+}
+@keyframes stroke {
+  0%{ fill: rgba(72,138,204,0); stroke: rgba(54,95,160,1);
+  stroke-dashoffset:25%;
+  stroke-dasharray:0 50%;}
+  70%{fill: rgba(72,138,204,0);stroke: rgba(54,95,160,1);}
+  80%{fill: rgba(72,138,204,0);stroke: rgba(54,95,160,1);}
+  100%{fill: rgba(72,138,204,1);stroke: rgba(54,95,160,0);
+  stroke-dashoffset:-25%;
+  stroke-dasharray:50% 0;}
+}
+  
+/* ============================  // animation  =================================== */
