@@ -9,6 +9,48 @@ window.addEventListener("scroll", () => {
    document.querySelector(".scrollTop").textContent = pageYOffset;
 });
 
+// nav
+$(".menu-toggle").on('click', function() {
+   $(this).toggleClass("on");
+   $('.menu-section').toggleClass("on");
+   $("nav ul").toggleClass('hidden');
+ });
+
+
+
+// site 
+$(".bc-bigtitle > ul > li").hide()
+$(".bc-cont > ul > li").hide()
+$(".bc-bigtitle ul li.active").show()
+$(".bc-cont > ul > li.on").show()
+
+let tap_index;
+
+$(".bc-cb ul li").click(function(e){
+ e.preventDefault();
+ let index=$(this).index();
+ $(".bc-cb ul li").removeClass("active");
+ $(this).addClass("active");
+
+ let cont = $(".bc-cont").eq(tap_index).children('ul');
+
+ cont.children('li').removeClass("on");
+ cont.children('li').eq(index).addClass("on");
+ cont.children('li').hide();
+ cont.children('li.on').show();
+
+});
+
+$(".btnsname li").click(function(e){
+   e.preventDefault();
+   tap_index=$(this).index();
+   $(".bc-bigtitle > ul > li").removeClass("active");
+   $(".bc-bigtitle > ul > li").eq(tap_index).addClass("active");
+   $(".bc-bigtitle > ul > li").hide();
+   $(".bc-bigtitle ul li.active").show();
+   $(".btnsname li").removeClass("active");
+   $(this).addClass("active");
+});
 
 //main text animation
 

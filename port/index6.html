@@ -23,6 +23,23 @@
 <body>
     <div class="scrollTop">0</div>
     <!-- //scrollTop -->
+    <!-- nav-->
+    <div class="menu-section">
+        <div class="menu-toggle">
+            <div class="one"></div>
+            <div class="two"></div>
+            <div class="three"></div>
+        </div>
+        <nav>
+            <ul role="navigation" class="hidden">
+                <li><a href="#section1">about me</a></li>
+                <li><a href="#section2">Site</a></li>
+                <li><a href="#section3">Animation</a></li>
+                <li><a href="#section4">contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    <!-- /nav -->
 
     <div id="wrap">
         <div id="section1">
@@ -119,7 +136,7 @@
         </div>
         <!-- //section1 -->
 
-        <section id="section2">
+        <div id="section2">
             <div class="site-box">
                 <div class="st1" data-11500="left:0%" data-14000="left:-100%">
                     <div class="sec-title" data-9300="transform:translatex(0px); opacity:0"
@@ -145,6 +162,15 @@
                             <span><em>크로스브라우징</em>은 익스플로러</span>
                             <span>8버전부터 지원합니다.</span>
                         </p>
+                        <div class="wrapper">
+                            <input type="checkbox" />
+                            <div class="fab"></div>
+                            <div class="fac">
+                                <a href="https://sujinbk.github.io/port99/site-webstandard/index.html">view</i></a>
+                                <a
+                                    href="https://www.figma.com/proto/jXKyjCMF2VhsjvftiQ2MAs/Webstandard?node-id=9%3A16&viewport=-1298%2C348%2C0.09999260306358337&scaling=min-zoom">figma</i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="st3-1 stbtn" data-15000="left:100%;" data-16000="left:0%;" data-16500="left:32%;"
@@ -166,7 +192,7 @@
                         <div class="bc-text">
                             <div class="bc-bigtitle">
                                 <ul>
-                                    <li class="bxt1">
+                                    <li class="bxt1 active">
                                         <div class="bc-tt">
                                             <h2>IR(Image Replacement)기법</h2>
                                             <div>
@@ -183,7 +209,7 @@
                                         </div>
                                         <div class="bc-cont">
                                             <ul>
-                                                <li>
+                                                <li class="on">
                                                     <pre class="line-numbers language-css"><code>&lt;div id="contents"&gt;
 &lt;div id="cont-nav"&gt;
     &lt;div class="container"&gt;
@@ -254,7 +280,7 @@ text-indent: -9999px;}
                                         </div>
                                         <div class="bc-cont">
                                             <ul>
-                                                <li>
+                                                <li class="on">
                                                     <pre class="line-numbers language-css"><code>&lt;!--공지사항 --&gt;
 &lt;div class="notice4"&gt;
     &lt;h4 class="ir_so"&gt;탭 메뉴&lt;/h4&gt;
@@ -331,12 +357,11 @@ tBtn.click(function (e) {
                                             <ul>
                                                 <li class="active"><a href="#">HTML</a></li>
                                                 <li><a href="#">CSS</a></li>
-                                                <li><a href="#">CSS</a></li>
                                             </ul>
                                         </div>
                                         <div class="bc-cont">
                                             <ul>
-                                                <li>
+                                                <li class="on">
                                                     <pre class="line-numbers language-css"><code> &lt;!--오버효과1--&gt;
 &lt;div class="notice-hover"&gt;
     &lt;h4&gt;Monse Hover&lt;/h4&gt;
@@ -430,7 +455,7 @@ tBtn.click(function (e) {
                                         </div>
                                         <div class="bc-cont">
                                             <ul>
-                                                <li>
+                                                <li class="on">
                                                     <pre class="line-numbers language-css"><code>&lt;!--갤러리 --&gt;
 &lt;div class="gallery"&gt;
     &lt;h4&gt;포토폴리오&lt;/h4&gt;
@@ -501,7 +526,7 @@ $(".next").click(function () {
                                         </div>
                                         <div class="bc-cont">
                                             <ul>
-                                                <li>
+                                                <li class="on">
                                                     <pre class="line-numbers language-css"><code>&lt;div class="ad"&gt;
     &lt;h4&gt;Adverisement&lt;/h4&gt;
     &lt;ul&gt;
@@ -565,7 +590,7 @@ $("#layer .close").click(function (e) {
                                         </div>
                                         <div class="bc-cont">
                                             <ul>
-                                                <li>
+                                                <li class="on">
                                                     <pre class="line-numbers language-css"><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="ko"&gt;
 &lt;head&gt;
@@ -621,6 +646,15 @@ $(".window").click(function (e) {
                             <span>크로스 브라우징은 익스플로러</span>
                             <span>8버전부터 지원합니다</span>
                         </p>
+                        <div class="wrapper">
+                            <input type="checkbox" />
+                            <div class="fab"></div>
+                            <div class="fac">
+                                <a href="https://sujinbk.github.io/port99/site-responsive/index.html">view</i></a>
+                                <a
+                                    href="https://www.figma.com/proto/3qd4sTo8r9Qr2kgLlXZEbO/responsive?node-id=25%3A0&viewport=-2023%2C1179%2C0.14921392500400543&scaling=min-zoom">figma</i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="st5-1 stbtn" data-18600="left:100%" data-19000="left:0%" data-19300="left:32%"
@@ -1049,6 +1083,15 @@ transition:  box-shadow 0.34s ease, background 0.34s ease, color 0.3s;}
                             <span>메인페이지에 <em>애니메이션효과</em>를 넣어</span>
                             <span>동적인 효과를 주었습니다.</span>
                         </p>
+                        <div class="wrapper">
+                            <input type="checkbox" />
+                            <div class="fab"></div>
+                            <div class="fac">
+                                <a href="https://sujinbk.github.io/port99/site-nongsim/index.html">view</i></a>
+                                <a
+                                    href="https://www.figma.com/proto/mQLFCkpiFlzCOwbG1udtAm/nongsim?node-id=8%3A2&viewport=-943%2C429%2C0.18102364242076874&scaling=min-zoom">figma</i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="st7-1 stbtn" data-21400="left:100%" data-21900="left:0%" data-22300="left:32%"
@@ -1612,6 +1655,13 @@ font-weight: 300;
                             <span>크로스 브라우징은 익스플로러</span>
                             <span>8버전부터 지원합니다</span>
                         </p>
+                        <div class="wrapper">
+                            <input type="checkbox" />
+                            <div class="fab"></div>
+                            <div class="fac">
+                                <a href="https://sujinbk.github.io/port99/site-nongsim/index.html">view</i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="st9-1 stbtn" data-23800="left:100%" data-24200="left:0%" data-24300="left:32%"
@@ -2192,7 +2242,7 @@ $('.single-item').slick({
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
         <!-- //section2 -->
 
         <div id="section3">
@@ -2209,17 +2259,17 @@ $('.single-item').slick({
                         <div class="ab-box">
                             <div class="ain-num">
                                 <p data-29000="top:100%;" data-30900="top:0%;" data-31900="top:-5%;"
-                                    data-32900="top:-5%;" data-33900="top:-100%;">1</p>
+                                    data-32900="top:-5%;" data-33900="top:-135%;">1</p>
                                 <p data-33200="top:100%;" data-35000="top:0%;" data-36000="top:-5%;"
-                                    data-37000="top:-5%;" data-38000="top:-100%;">2</p>
+                                    data-37000="top:-5%;" data-38000="top:-135%;">2</p>
                                 <p data-37300="top:100%;" data-39100="top:0%;" data-40100="top:-5%;"
-                                    data-41100="top:-5%;" data-42100="top:-100%;">3</p>
+                                    data-41100="top:-5%;" data-42100="top:-135%;">3</p>
                                 <p data-41600="top:100%;" data-43400="top:0%;" data-44400="top:-5%;"
-                                    data-45400="top:-5%;" data-46400="top:-100%;">4</p>
+                                    data-45400="top:-5%;" data-46400="top:-135%;">4</p>
                                 <p data-47100="top:100%;" data-48900="top:0%;" data-49900="top:-5%;"
-                                    data-50900="top:-5%;" data-51900="top:-100%;">5</p>
+                                    data-50900="top:-5%;" data-51900="top:-135%;">5</p>
                                 <p data-51500="top:100%;" data-53300="top:0%;" data-54300="top:-5%;"
-                                    data-55300="top:-5%;" data-56300="top:-100%;">6</p>
+                                    data-55300="top:-5%;" data-56300="top:-135%;">6</p>
                             </div>
                             <div class="ain-main">
                                 <section class="at">
@@ -2696,8 +2746,8 @@ $('.single-item').slick({
         <!-- //section3 -->
         <div id="section4">
             <div class="script">
-                <div class="sc1" data-60000="left:100%; z-index:-1;" data-61000="left:0%; z-index:100;" data-63500="left:0%; z-index:100;"
-                    data-64500="left:100%; z-index:100;">
+                <div class="sc1" data-60000="left:100%; z-index:-1;" data-61000="left:0%; z-index:100;"
+                    data-63500="left:0%; z-index:100;" data-64500="left:100%; z-index:100;">
                     <div class="sc-title" data-61500="transform:translateX(-800px); opacity:0;"
                         data-62500="transform:translateX(0px); opacity:1;">
                         <p>contact</p>
@@ -2711,38 +2761,40 @@ $('.single-item').slick({
                                 <span>lt’s a pleasure</span>
                                 <span>to meet you.</span>
                             </div>
-                            <div class="mainbox">
-                                <div class="mb1">
-                                    <form>
+                            <form method="POST" action="https://formspree.io/float2147@gmail.com">
+                                <div class="mainbox">
+                                    <div class="mb1">
                                         <label>NAME</label>
-                                        <input type="text">
+                                        <input type="text" placeholder="Your name">
                                         <label>EMAIL</label>
-                                        <input type="email">
-                                    </form>
-                                </div>
-                                <div class="mb2">
-                                    <form>
+                                        <input type="email" name="email" placeholder="Your Email">
+                                    </div>
+                                    <div class="mb2">
                                         <label>MESSAGE</label>
-                                        <textarea></textarea>
+                                        <textarea name="message" placeholder="Message"></textarea>
                                         <div class="sbtn">
-                                            <button>(Send)</button>
+                                            <button type="submit">(Send)</button>
                                         </div>
-                                </form>
-                            </div>
-                            </div>
+                                    </div>
+                                </div>
+                            </form>
+
                         </div>
                     </div>
                 </div>
                 <!-- //section4 -->
-               
+
             </div>
             <!-- script -->
-            <script src="assets/js/jquery.min_1.12.4.js"></script>
-            <script src="assets/js/jquery-ui.min.js"></script>
-            <script src="assets/js/gsap.min.js"></script>
-            <script src="assets/js/skrollr.min.js"></script>
-            <script src="assets/js/prism.js"></script>
-            <script src="assets/js/script1.js"></script>
+        </div>
+        <!-- //section4 -->
+        <script src="assets/js/jquery.min_1.12.4.js"></script>
+        <script src="assets/js/jquery-ui.min.js"></script>
+        <script src="assets/js/gsap.min.js"></script>
+        <script src="assets/js/skrollr.min.js"></script>
+        <script src="assets/js/prism.js"></script>
+        <script src="assets/js/script1.js"></script>
+
 
 </body>
 
