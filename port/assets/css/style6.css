@@ -112,7 +112,7 @@
     display: block;
   }
   nav ul a:hover {
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(43,58,65, 0.9);
   }
   
   .menu-section.on {
@@ -593,7 +593,7 @@
 /*============= more ===================*/
 :root {
     --background: #314B57;
-    --icon-color: #344955;
+    --icon-color: #425761;
     --width: 50px;
     --height: 50px;
     --border-radius: 100%;
@@ -895,7 +895,7 @@
 }
 
 .bc-text .bc-bigtitle ul li .bc-cb ul li a {
-    font-size: 0.65vw;
+    font-size: 0.7vw;
     color: #929c95;
     display: block;
 }
@@ -904,10 +904,6 @@
 .bc-cb ul li.active  {
     background: #283136;
     border-bottom: 3px solid #317978;
-}
-
-.bc-text .bc-bigtitle ul li .bc-cb ul li.active a {
-    font-size: 1vw;
 }
 
 /* bc-cont*/
@@ -1054,7 +1050,7 @@
   color:#89BBD4;
 }
 .ab2 .ab-box .ain-title strong:nth-child(5){
-  color:#000;
+  color:#000000;
 }
 .ab2 .ab-box .ain-title strong:nth-child(6){
   color:#e3f2fd;;
@@ -1070,9 +1066,9 @@
 .ab2 .ain-text >div {
     width: 50vw;
     height: 8vh;
- position: absolute;
-  top: .6vw;right: 0;
-  opacity: 0;
+    position: absolute;
+    top: .6vw;right: 0;
+    opacity: 0;
 }
 
 .ab2 .ain-text span {
@@ -1081,6 +1077,7 @@
     color:#fff;
     font-family: 'Chosunilbo_myungjo';
     font-size: 1.5vw;
+    line-height: 2.2vw;
 }
 
 

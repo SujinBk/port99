@@ -18,37 +18,42 @@ $(".menu-toggle").on('click', function() {
 
 
 
-// site 
+// site
+
 $(".bc-bigtitle > ul > li").hide()
 $(".bc-cont > ul > li").hide()
 $(".bc-bigtitle ul li.active").show()
 $(".bc-cont > ul > li.on").show()
 
-let tap_index;
 
 $(".bc-cb ul li").click(function(e){
- e.preventDefault();
- let index=$(this).index();
- $(".bc-cb ul li").removeClass("active");
- $(this).addClass("active");
+   e.preventDefault();
+   let index=$(this).index();
+   $(".bc-cb ul li").removeClass("active");
+   $(this).addClass("active");
 
- let cont = $(".bc-cont").eq(tap_index).children('ul');
+   let ul_dom = $(this).parents('.bc-cb').next();
 
- cont.children('li').removeClass("on");
- cont.children('li').eq(index).addClass("on");
- cont.children('li').hide();
- cont.children('li.on').show();
+   ul_dom.find('li').removeClass("on");
+   ul_dom.find('li').eq(index).addClass("on");
+   ul_dom.find('li').hide();
+   ul_dom.find('li.on').show();
 
 });
 
 $(".btnsname li").click(function(e){
    e.preventDefault();
    tap_index=$(this).index();
-   $(".bc-bigtitle > ul > li").removeClass("active");
-   $(".bc-bigtitle > ul > li").eq(tap_index).addClass("active");
-   $(".bc-bigtitle > ul > li").hide();
-   $(".bc-bigtitle ul li.active").show();
+
+   let li_dom = $(this).parents('.stbtn').next().find('.bc-bigtitle > ul > li');
+
+   li_dom.removeClass("active");
+   li_dom.eq(tap_index).addClass("active");
+   li_dom.hide();
+   $(this).parents('.stbtn').next().find('.bc-bigtitle > ul > li.active').show();
+
    $(".btnsname li").removeClass("active");
+
    $(this).addClass("active");
 });
 
