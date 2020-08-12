@@ -145,8 +145,8 @@
 }
 
 /*  nav_ sub */
-/* .nav_menu .nav_sub {
-    overflow: hidden;
+.nav_menu .nav_sub {
+    /* overflow: hidden; */
     position: absolute;
     top: 100%;
     left: 0;
@@ -155,8 +155,8 @@
     font-size: 14px;
     font-weight: 300;
     text-align: center;
-} */
-/* 
+}
+
 .nav_menu .nav_sub a {
     display: block;
     padding: 5px 0;
@@ -166,7 +166,7 @@
     text-transform: uppercase;
 }
 .nav_menu .nav_sub ul li {}
- */
+
 
 
 /*아이콘 경로*/
