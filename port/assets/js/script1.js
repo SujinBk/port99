@@ -17,9 +17,7 @@ $(".menu-toggle").on('click', function() {
  });
 
 
-
 // site
-
 $(".bc-bigtitle > ul > li").hide()
 $(".bc-cont > ul > li").hide()
 $(".bc-bigtitle ul li.active").show()
@@ -82,8 +80,6 @@ $(".btnStart").click(function(){
  $(".btnStop").click(function(){
    $("#animation").removeClass().addClass("btnStop");
  });
-
-
  
  //spaceship
  
@@ -107,7 +103,6 @@ tl_sky.timeScale(1);
 
 
 ///cursor
-
 $(".mainbox").mousemove(function (e) {
    gsap.to(".cursor", {
        duration: .2,
@@ -118,5 +113,3 @@ $(".mainbox").mousemove(function (e) {
    x = e.clientX - ($(".mainbox").width() / 2 + $(".mainbox").position().left);
    y = e.clientY - ($(".mainbox").height() / 2 + $(".mainbox").position().top);
 });
-
-
